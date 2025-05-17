@@ -108,12 +108,18 @@ const Footer = () => {
           <p className="text-white/50 text-sm mb-4 md:mb-0">
             © {new Date().getFullYear()} Lina Prime Solutions LLC. All rights reserved.
           </p>
-          <div className="flex space-x-6">
+          <div className="flex flex-wrap justify-center gap-4 md:gap-6">
             <Link to="/privacy-policy" className="text-white/50 hover:text-white text-sm transition-colors">
               Privacy Policy
             </Link>
             <Link to="/terms-of-service" className="text-white/50 hover:text-white text-sm transition-colors">
               Terms of Service
+            </Link>
+            <Link to="/cookies-policy" className="text-white/50 hover:text-white text-sm transition-colors">
+              Cookies Policy
+            </Link>
+            <Link to="/disclaimer" className="text-white/50 hover:text-white text-sm transition-colors">
+              Disclaimer
             </Link>
           </div>
         </div>
