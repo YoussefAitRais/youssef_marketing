@@ -3,6 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Monitor, Cpu, TrendingUp, Rocket } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 
 const serviceItems = [
   {
@@ -10,32 +11,36 @@ const serviceItems = [
     description: "Custom digital products built with modern frameworks like Next.js, Django, Shopify & WordPress. Scalable solutions tailored to your business needs.",
     icon: <Monitor className="w-8 h-8" />,
     gradient: "from-pink-500 to-purple-500",
-    delay: 0.1
+    delay: 0.1,
+    link: "/services/web-development"
   },
   {
     title: "AI & Workflow Automations",
     description: "Leverage AI to streamline operations and boost productivity. From OpenAI-powered chatbots to n8n workflow pipelines that save time and reduce errors.",
     icon: <Cpu className="w-8 h-8" />,
     gradient: "from-purple-500 to-indigo-500",
-    delay: 0.3
+    delay: 0.3,
+    link: "/services/ai-automation"
   },
   {
     title: "Growth Consulting",
     description: "Data-backed strategies for sustainable growth. Optimize your conversion funnels, SEO, paid advertising, and analytics to maximize ROI.",
     icon: <TrendingUp className="w-8 h-8" />,
     gradient: "from-indigo-500 to-blue-500",
-    delay: 0.5
+    delay: 0.5,
+    link: "/services/growth-consulting"
   },
   {
     title: "SaaS Incubation",
     description: "Transform your idea into a market-ready SaaS product. From MVP design to multi-tenant dashboards and payment integrations, we build scalable solutions.",
     icon: <Rocket className="w-8 h-8" />,
     gradient: "from-blue-500 to-cyan-500",
-    delay: 0.7
+    delay: 0.7,
+    link: "/services/saas-incubation"
   }
 ];
 
-const ServiceCard = ({ title, description, icon, gradient, delay }) => (
+const ServiceCard = ({ title, description, icon, gradient, delay, link }) => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -48,9 +53,9 @@ const ServiceCard = ({ title, description, icon, gradient, delay }) => (
       </div>
       <h3 className="text-xl font-bold mb-3">{title}</h3>
       <p className="text-white/70 mb-6">{description}</p>
-      <a href="#" className="inline-flex items-center text-white/90 hover:text-white group">
+      <Link to={link} className="inline-flex items-center text-white/90 hover:text-white group">
         Learn More <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
-      </a>
+      </Link>
     </Card>
   </motion.div>
 );

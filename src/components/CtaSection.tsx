@@ -3,6 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const CtaSection = () => {
   const buttonVariants = {
@@ -55,17 +56,19 @@ const CtaSection = () => {
                 transition={{ duration: 0.5, delay: 0.6 }}
                 viewport={{ once: true }}
               >
-                <Button className="bg-brand-gradient animate-gradient-shift flex items-center gap-2 py-6 text-base w-full shadow-lg shadow-pink-900/20">
-                  <Mail className="w-5 h-5" />
-                  <span className="relative z-10">Book Free Strategy Call</span>
-                  <motion.div 
-                    className="absolute inset-0 rounded-md opacity-0 bg-white"
-                    initial={{ opacity: 0 }}
-                    whileHover={{ 
-                      opacity: 0.2, 
-                      transition: { duration: 0.3 } 
-                    }}
-                  />
+                <Button asChild className="bg-brand-gradient animate-gradient-shift flex items-center gap-2 py-6 text-base w-full shadow-lg shadow-pink-900/20">
+                  <Link to="/services/book-call">
+                    <Mail className="w-5 h-5" />
+                    <span className="relative z-10">Book Free Strategy Call</span>
+                    <motion.div 
+                      className="absolute inset-0 rounded-md opacity-0 bg-white"
+                      initial={{ opacity: 0 }}
+                      whileHover={{ 
+                        opacity: 0.2, 
+                        transition: { duration: 0.3 } 
+                      }}
+                    />
+                  </Link>
                 </Button>
               </motion.div>
               
