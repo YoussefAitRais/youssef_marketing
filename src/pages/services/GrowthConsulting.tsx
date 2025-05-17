@@ -1,13 +1,11 @@
 
 import React from "react";
-import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
-import { TrendingUp, BarChart, Target, ArrowRight } from "lucide-react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import BookingSection from "@/components/BookingSection";
+import { TrendingUp, BarChart, Target, ArrowRight, LineChart, Users, Search, Megaphone } from "lucide-react";
+import ServiceLayout from "@/components/layouts/ServiceLayout";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const GrowthConsulting = () => {
   const expertise = [
@@ -20,31 +18,46 @@ const GrowthConsulting = () => {
     {
       title: "Data-Driven Strategy",
       description: "Comprehensive growth strategies based on thorough data analysis and market research.",
-      icon: <BarChart className="w-5 h-5 text-brand-pink" />
+      icon: <BarChart className="w-6 h-6" />,
+      gradient: "from-brand-pink to-brand-purple"
     },
     {
       title: "Conversion Optimization",
       description: "Identify and eliminate friction points in your customer journey to increase conversion rates.",
-      icon: <Target className="w-5 h-5 text-brand-purple" />
+      icon: <Target className="w-6 h-6" />,
+      gradient: "from-brand-purple to-brand-blue"
     },
     {
       title: "Growth Analysis",
       description: "In-depth analysis of your current growth metrics to identify opportunities and challenges.",
-      icon: <TrendingUp className="w-5 h-5 text-brand-blue" />
+      icon: <TrendingUp className="w-6 h-6" />,
+      gradient: "from-brand-blue to-brand-pink"
+    },
+    {
+      title: "Performance Tracking",
+      description: "Real-time monitoring and reporting of key performance indicators and growth metrics.",
+      icon: <LineChart className="w-6 h-6" />,
+      gradient: "from-brand-pink to-brand-purple"
+    },
+    {
+      title: "User Acquisition",
+      description: "Strategic approaches to attract and convert high-quality leads into customers.",
+      icon: <Users className="w-6 h-6" />,
+      gradient: "from-brand-purple to-brand-blue"
+    },
+    {
+      title: "Marketing Strategy",
+      description: "Comprehensive marketing plans that align with your business goals and target audience.",
+      icon: <Megaphone className="w-6 h-6" />,
+      gradient: "from-brand-blue to-brand-pink"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-brand-black text-white overflow-x-hidden">
-      <Helmet>
-        <title>Growth Consulting | Lina Prime Solutions</title>
-        <meta 
-          name="description" 
-          content="Data-backed strategies for sustainable growth. Optimize your conversion funnels, SEO, paid advertising, and analytics to maximize ROI."
-        />
-      </Helmet>
-      
-      <Navbar />
+    <ServiceLayout
+      title="Growth Consulting"
+      description="Data-backed strategies for sustainable growth. Optimize your conversion funnels, SEO, paid advertising, and analytics to maximize ROI."
+    >
       
       {/* Hero Section */}
       <section className="pt-32 pb-16">
@@ -117,21 +130,38 @@ const GrowthConsulting = () => {
             </p>
           </motion.div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {serviceFeatures.map((feature, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
+                className="group"
               >
-                <Card className="bg-white/5 border-white/10 p-6 h-full">
-                  <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center mb-4">
+                <Card className={cn(
+                  "bg-white/5 border-white/10 p-8 h-full overflow-hidden relative",
+                  "hover:bg-white/10 hover:border-white/20 transition-all duration-300",
+                  "backdrop-blur-lg"
+                )}>
+                  <div className={cn(
+                    "w-16 h-16 rounded-2xl bg-gradient-to-br flex items-center justify-center mb-6",
+                    "group-hover:scale-110 transition-transform duration-300",
+                    feature.gradient
+                  )}>
                     {feature.icon}
                   </div>
-                  <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-                  <p className="text-white/70 mb-4">{feature.description}</p>
+                  <h3 className="text-xl font-bold mb-3 group-hover:text-white transition-colors">{feature.title}</h3>
+                  <p className="text-white/70 group-hover:text-white/90 transition-colors">{feature.description}</p>
+                  
+                  {/* Background gradient */}
+                  <div className={cn(
+                    "absolute -right-32 -bottom-32 w-64 h-64 rounded-full opacity-0 blur-3xl transition-all duration-500",
+                    "bg-gradient-to-br",
+                    feature.gradient,
+                    "group-hover:opacity-10"
+                  )} />
                 </Card>
               </motion.div>
             ))}
@@ -191,15 +221,19 @@ const GrowthConsulting = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 * index }}
                 viewport={{ once: true }}
-                className="flex flex-col md:flex-row items-start md:items-center gap-6"
+                className="flex flex-col md:flex-row items-start md:items-center gap-6 group"
               >
-                <div className="text-4xl md:text-5xl font-bold text-white/20 w-16 flex-shrink-0">
+                <div className="text-4xl md:text-5xl font-bold text-white/20 w-16 flex-shrink-0 group-hover:text-brand-purple transition-colors">
                   {phase.step}
                 </div>
-                <div className="flex-grow">
-                  <h3 className="text-xl font-bold mb-2">{phase.title}</h3>
-                  <p className="text-white/70">{phase.description}</p>
-                </div>
+                <Card className={cn(
+                  "flex-grow bg-white/5 border-white/10 p-6",
+                  "hover:bg-white/10 hover:border-white/20 transition-all duration-300",
+                  "backdrop-blur-lg"
+                )}>
+                  <h3 className="text-xl font-bold mb-2 group-hover:text-white transition-colors">{phase.title}</h3>
+                  <p className="text-white/70 group-hover:text-white/90 transition-colors">{phase.description}</p>
+                </Card>
               </motion.div>
             ))}
           </div>
@@ -234,11 +268,8 @@ const GrowthConsulting = () => {
         </div>
       </section>
       
-      {/* Booking Section */}
-      <BookingSection />
-      
-      <Footer />
-    </div>
+
+    </ServiceLayout>
   );
 };
 

@@ -24,11 +24,11 @@ const Footer = () => {
             transition={{ ...fadeIn.transition, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            <Link to="/" className="inline-block mb-6">
-              <span className="text-2xl font-bold font-montserrat">
-                <span className="gradient-text">Lina</span>Prime
-              </span>
-            </Link>
+            <div className="text-center lg:text-left">
+              <div className="flex items-center justify-center lg:justify-start gap-3 mb-4">
+                <img src="/logo.png" alt="Lina Prime Solutions" className="h-32 w-auto mix-blend-screen brightness-200" />
+              </div>
+            </div>
             <p className="text-white/70 mb-6">
               Engineer smarter systems today, unlock unstoppable growth tomorrow.
             </p>
@@ -57,11 +57,10 @@ const Footer = () => {
           >
             <h4 className="text-lg font-bold mb-6">Quick Links</h4>
             <ul className="space-y-3">
-              <li><a href="#services" className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">Services</a></li>
-              <li><a href="#process" className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">Process</a></li>
-              <li><a href="#about" className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">About Us</a></li>
-              <li><a href="#" className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">Case Studies</a></li>
-              <li><a href="#" className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">Resources</a></li>
+              <li><a href="/#services" className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">Services</a></li>
+              <li><a href="/#process" className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">Process</a></li>
+              <li><a href="/#about" className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">About Us</a></li>
+              
             </ul>
           </motion.div>
 
@@ -74,10 +73,10 @@ const Footer = () => {
           >
             <h4 className="text-lg font-bold mb-6">Services</h4>
             <ul className="space-y-3">
-              <li><a href="#" className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">Web Development</a></li>
-              <li><a href="#" className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">AI Automations</a></li>
-              <li><a href="#" className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">Growth Consulting</a></li>
-              <li><a href="#" className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">SaaS Incubation</a></li>
+              <li><a href="/services/web-development" className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">Web Development</a></li>
+              <li><a href="/services/ai-automation" className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">AI Automations</a></li>
+              <li><a href="/services/growth-consulting" className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">Growth Consulting</a></li>
+              <li><a href="/services/saas-incubation" className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">SaaS Incubation</a></li>
             </ul>
           </motion.div>
 
@@ -109,18 +108,18 @@ const Footer = () => {
             © {new Date().getFullYear()} Lina Prime Solutions LLC. All rights reserved.
           </p>
           <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-            <Link to="/privacy-policy" className="text-white/50 hover:text-white text-sm transition-colors">
+            <a href="/privacy-policy" className="text-white/50 hover:text-white text-sm transition-colors">
               Privacy Policy
-            </Link>
-            <Link to="/terms-of-service" className="text-white/50 hover:text-white text-sm transition-colors">
+            </a>
+            <a href="/terms-of-service" className="text-white/50 hover:text-white text-sm transition-colors">
               Terms of Service
-            </Link>
-            <Link to="/cookies-policy" className="text-white/50 hover:text-white text-sm transition-colors">
+            </a>
+            <a href="/cookies-policy" className="text-white/50 hover:text-white text-sm transition-colors">
               Cookies Policy
-            </Link>
-            <Link to="/disclaimer" className="text-white/50 hover:text-white text-sm transition-colors">
+            </a>
+            <a href="/disclaimer" className="text-white/50 hover:text-white text-sm transition-colors">
               Disclaimer
-            </Link>
+            </a>
           </div>
         </div>
       </div>

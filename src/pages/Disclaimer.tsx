@@ -63,7 +63,7 @@ const Disclaimer = () => {
               </p>
               <p className="text-white/80">
                 Lina Prime Solutions LLC<br />
-                Email: disclaimer@linaprime.com
+                Email: disclaimer@linaprimesolutions.com
               </p>
             </div>
           </motion.div>

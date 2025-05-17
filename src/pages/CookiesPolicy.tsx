@@ -74,7 +74,7 @@ const CookiesPolicy = () => {
               </p>
               <p className="text-white/80">
                 Lina Prime Solutions LLC<br />
-                Email: cookies@linaprime.com
+                Email: cookies@linaprimesolutions.com
               </p>
             </div>
           </motion.div>

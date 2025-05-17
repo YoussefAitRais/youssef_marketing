@@ -80,7 +80,7 @@ const TermsOfService = () => {
               </p>
               <p className="text-white/80">
                 Lina Prime Solutions LLC<br />
-                Email: terms@linaprime.com
+                Email: terms@linaprimesolutions.com
               </p>
             </div>
           </motion.div>

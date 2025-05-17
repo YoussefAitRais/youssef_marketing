@@ -77,11 +77,12 @@ const Navbar = () => {
           animate="visible"
           variants={logoVariants}
         >
-          <Link to="/" className="flex items-center">
+          <a href="/" className="flex items-center gap-3">
+            <img src="/logo-nav.png" alt="Lina Prime Solutions" className="h-12 w-auto mix-blend-screen brightness-200" />
             <span className="text-2xl font-bold font-montserrat">
-              <span className="gradient-text">Lina</span>Prime
+              <span className="gradient-text">Lina Prime </span> Solutions
             </span>
-          </Link>
+          </a>
         </motion.div>
 
         {/* Desktop Navigation */}
@@ -92,7 +93,7 @@ const Navbar = () => {
           variants={navVariants}
         >
           <motion.a 
-            href="#services" 
+            href="/#services" 
             className="text-white/80 hover:text-white transition-colors relative group"
             variants={itemVariants}
           >
@@ -100,7 +101,7 @@ const Navbar = () => {
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-gradient group-hover:w-full transition-all duration-300"></span>
           </motion.a>
           <motion.a 
-            href="#process" 
+            href="/#process" 
             className="text-white/80 hover:text-white transition-colors relative group"
             variants={itemVariants}
           >
@@ -108,19 +109,11 @@ const Navbar = () => {
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-gradient group-hover:w-full transition-all duration-300"></span>
           </motion.a>
           <motion.a 
-            href="#about" 
+            href="/#about" 
             className="text-white/80 hover:text-white transition-colors relative group"
             variants={itemVariants}
           >
             About
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-gradient group-hover:w-full transition-all duration-300"></span>
-          </motion.a>
-          <motion.a 
-            href="#resources" 
-            className="text-white/80 hover:text-white transition-colors relative group"
-            variants={itemVariants}
-          >
-            Resources
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-gradient group-hover:w-full transition-all duration-300"></span>
           </motion.a>
           <motion.div
@@ -128,7 +121,15 @@ const Navbar = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
           >
-            <Button className="bg-brand-gradient animate-gradient-shift shadow-md shadow-purple-500/20 hover:shadow-lg hover:shadow-purple-500/30 transition-shadow duration-300">
+            <Button 
+              className="bg-brand-gradient animate-gradient-shift shadow-md shadow-purple-500/20 hover:shadow-lg hover:shadow-purple-500/30 transition-shadow duration-300"
+              onClick={() => {
+                const bookCallSection = document.getElementById("book-call");
+                if (bookCallSection) {
+                  bookCallSection.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+            >
               Book Free Strategy Call
             </Button>
           </motion.div>
@@ -157,7 +158,7 @@ const Navbar = () => {
             >
               <nav className="flex flex-col items-center space-y-6">
                 <motion.a 
-                  href="#services" 
+                  href="/#services" 
                   className="text-xl text-white/80 hover:text-white transition-colors"
                   onClick={() => setIsOpen(false)}
                   whileHover={{ scale: 1.05 }}
@@ -166,7 +167,7 @@ const Navbar = () => {
                   Services
                 </motion.a>
                 <motion.a 
-                  href="#process" 
+                  href="/#process" 
                   className="text-xl text-white/80 hover:text-white transition-colors"
                   onClick={() => setIsOpen(false)}
                   whileHover={{ scale: 1.05 }}
@@ -175,22 +176,13 @@ const Navbar = () => {
                   Process
                 </motion.a>
                 <motion.a 
-                  href="#about" 
+                  href="/#about" 
                   className="text-xl text-white/80 hover:text-white transition-colors"
                   onClick={() => setIsOpen(false)}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   About
-                </motion.a>
-                <motion.a 
-                  href="#resources" 
-                  className="text-xl text-white/80 hover:text-white transition-colors"
-                  onClick={() => setIsOpen(false)}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Resources
                 </motion.a>
                 <motion.div
                   whileHover={{ scale: 1.05 }}
@@ -199,7 +191,13 @@ const Navbar = () => {
                 >
                   <Button 
                     className="bg-brand-gradient animate-gradient-shift"
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => {
+                      setIsOpen(false);
+                      window.scrollTo({
+                        top: document.getElementById("book-call").offsetTop - 100,
+                        behavior: "smooth",
+                      });
+                    }}
                   >
                     Book Free Strategy Call
                   </Button>

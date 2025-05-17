@@ -85,7 +85,7 @@ const PrivacyPolicy = () => {
               </p>
               <p className="text-white/80">
                 Lina Prime Solutions LLC<br />
-                Email: privacy@linaprime.com
+                Email: privacy@linaprimesolutions.com
               </p>
             </div>
           </motion.div>

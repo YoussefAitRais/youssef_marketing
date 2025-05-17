@@ -1,6 +1,7 @@
 
-import React from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
+import { motion, useAnimation } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import ServicesSection from "@/components/ServicesSection";
@@ -8,11 +9,25 @@ import ProcessSection from "@/components/ProcessSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import AboutSection from "@/components/AboutSection";
 import CtaSection from "@/components/CtaSection";
+import BookCallSection from "@/components/BookCallSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
+  const controls = useAnimation();
+
+  useEffect(() => {
+    controls.start({
+      opacity: 1,
+      transition: { duration: 0.8, ease: "easeOut" }
+    });
+  }, [controls]);
+
   return (
-    <div className="min-h-screen bg-brand-black text-white overflow-x-hidden">
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={controls}
+      className="min-h-screen bg-brand-black text-white overflow-x-hidden relative"
+    >
       <Helmet>
         <title>Lina Prime Solutions LLC | Web, AI & Growth Strategy</title>
         <meta 
@@ -22,6 +37,12 @@ const Index = () => {
         <meta name="keywords" content="web development, AI automation, growth strategy, SaaS, tech agency" />
       </Helmet>
       
+      {/* Animated background elements */}
+      <div className="fixed inset-0 -z-20 opacity-30">
+        <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-radial from-brand-purple/20 to-transparent"></div>
+        <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-radial from-brand-blue/20 to-transparent"></div>
+      </div>
+      
       <Navbar />
       <HeroSection />
       <ServicesSection />
@@ -29,8 +50,9 @@ const Index = () => {
       <TestimonialsSection />
       <AboutSection />
       <CtaSection />
+      <BookCallSection />
       <Footer />
-    </div>
+    </motion.div>
   );
 };
 

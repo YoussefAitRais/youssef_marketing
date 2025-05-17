@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { motion, useAnimation } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
 const HeroSection = () => {
   const controlsImage = useAnimation();
@@ -45,7 +46,32 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center pt-20 pb-20 overflow-hidden">
+    <section className="min-h-screen flex items-center justify-center pt-20 pb-20 overflow-hidden relative">
+      {/* Animated particles */}
+      <div className="absolute inset-0 -z-10">
+        {[...Array(15)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute rounded-full bg-white/10"
+            style={{
+              width: Math.random() * 8 + 2 + 'px',
+              height: Math.random() * 8 + 2 + 'px',
+              left: Math.random() * 100 + '%',
+              top: Math.random() * 100 + '%',
+            }}
+            animate={{
+              y: [0, Math.random() * -100 - 50],
+              opacity: [0, 0.8, 0],
+            }}
+            transition={{
+              repeat: Infinity,
+              duration: Math.random() * 10 + 15,
+              delay: Math.random() * 5,
+              ease: "linear",
+            }}
+          />
+        ))}
+      </div>
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <motion.div
@@ -53,26 +79,35 @@ const HeroSection = () => {
             animate={controlsText}
             className="text-center lg:text-left"
           >
-            <motion.h1 
-              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6"
-              animate={{ 
-                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] 
-              }}
-              transition={{ 
-                duration: 10, 
-                repeat: Infinity, 
-                ease: "linear" 
-              }}
-              style={{
-                backgroundSize: "200% 200%",
-                backgroundImage: "linear-gradient(90deg, #FF2F92, #AE3BFF, #1AD7FF, #AE3BFF, #FF2F92)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent"
-              }}
-            >
-              Prime Your Growth with{" "}
-              <span>Code, AI & Strategy</span>
-            </motion.h1>
+            <div className="relative mb-8">
+              <motion.span 
+                className="absolute -left-4 -top-8 text-7xl md:text-8xl opacity-10 font-black text-brand-purple select-none"
+                animate={{ opacity: [0.05, 0.1, 0.05] }}
+                transition={{ duration: 5, repeat: Infinity, repeatType: "reverse" }}
+              >
+                PRIME
+              </motion.span>
+              <motion.h1 
+                className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight relative"
+                animate={{ 
+                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] 
+                }}
+                transition={{ 
+                  duration: 10, 
+                  repeat: Infinity, 
+                  ease: "linear" 
+                }}
+                style={{
+                  backgroundSize: "200% 200%",
+                  backgroundImage: "linear-gradient(90deg, #FF2F92, #AE3BFF, #1AD7FF, #AE3BFF, #FF2F92)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent"
+                }}
+              >
+                Prime Your Growth with{" "}
+                <span>Code, AI & Strategy</span>
+              </motion.h1>
+            </div>
             
             <motion.p 
               className="text-xl text-white/80 mb-10 max-w-2xl mx-auto lg:mx-0"
@@ -89,21 +124,23 @@ const HeroSection = () => {
                 variants={buttonVariants}
                 whileHover="hover"
                 whileTap="tap"
+                className="relative group"
               >
-                <Button className="bg-brand-gradient animate-gradient-shift text-lg px-8 py-6 shadow-lg shadow-brand-purple/20">
-                  Book Free Strategy Call
+                <div className="absolute -inset-0.5 bg-brand-gradient rounded-lg blur-sm opacity-75 group-hover:opacity-100 transition duration-300"></div>
+                <Button
+                  className="bg-brand-black relative text-lg px-8 py-6 border border-white/10 group-hover:border-white/0 transition-all"
+                  onClick={() => {
+                    const bookCallSection = document.getElementById('book-call');
+                    if (bookCallSection) {
+                      bookCallSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                >
+                  <span className="mr-2">Book Free Strategy Call</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </motion.div>
               
-              <motion.div
-                variants={buttonVariants}
-                whileHover="hover"
-                whileTap="tap"
-              >
-                <Button variant="outline" className="border-white/20 hover:bg-white/10 text-lg px-8 py-6 backdrop-blur">
-                  View Our Work
-                </Button>
-              </motion.div>
             </div>
           </motion.div>
 
@@ -150,23 +187,117 @@ const HeroSection = () => {
                     animate={{ opacity: [0.7, 1, 0.7] }}
                     transition={{ duration: 2, repeat: Infinity }}
                   >
-                    Interactive Demo
                   </motion.p>
-                  <p className="text-sm text-white/70">3D mockups of dashboards & chatbots would appear here</p>
                   
                   <motion.div 
-                    className="mt-6 inline-block"
-                    whileHover={{ scale: 1.05 }}
+                    className="mt-4 inline-block"
+                    whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    <div className="h-40 w-80 bg-white/10 rounded-lg border border-white/20 flex items-center justify-center">
-                      <motion.span 
-                        className="gradient-text font-bold"
-                        animate={{ opacity: [0.7, 1, 0.7] }}
-                        transition={{ duration: 1.5, repeat: Infinity }}
-                      >
-                        Demo Interface
-                      </motion.span>
+                    <div className="h-[300px] w-[400px] bg-gradient-to-br from-black to-gray-900 rounded-lg border border-white/10 p-4 shadow-xl relative overflow-hidden">
+                      {/* Dashboard header */}
+                      <div className="flex justify-between items-center mb-4">
+                        <div>
+                          <div className="h-3 w-24 bg-brand-purple/40 rounded-full"></div>
+                          <div className="h-2 w-16 bg-white/20 rounded-full mt-1"></div>
+                        </div>
+                        <div className="flex gap-1">
+                          <div className="h-3 w-3 rounded-full bg-brand-pink/60"></div>
+                          <div className="h-3 w-3 rounded-full bg-brand-purple/60"></div>
+                          <div className="h-3 w-3 rounded-full bg-brand-blue/60"></div>
+                        </div>
+                      </div>
+                      
+                      {/* Dashboard content */}
+                      <div className="grid grid-cols-2 gap-3 mb-4">
+                        <motion.div 
+                          className="h-24 bg-white/5 rounded border border-white/10 p-2"
+                          animate={{ opacity: [0.7, 1, 0.7] }}
+                          transition={{ duration: 3, repeat: Infinity }}
+                        >
+                          <div className="h-2 w-16 bg-brand-pink/40 rounded-full mb-2"></div>
+                          <div className="flex items-end h-12 gap-1 pt-2">
+                            {[40, 70, 30, 90, 60, 80, 50].map((h, i) => (
+                              <motion.div 
+                                key={i} 
+                                className="flex-1 bg-gradient-to-t from-brand-pink/20 to-brand-pink/60 rounded-sm"
+                                initial={{ height: 0 }}
+                                animate={{ height: `${h}%` }}
+                                transition={{ 
+                                  delay: i * 0.1, 
+                                  duration: 1,
+                                  repeat: Infinity,
+                                  repeatType: "reverse",
+                                  repeatDelay: 5
+                                }}
+                              ></motion.div>
+                            ))}
+                          </div>
+                        </motion.div>
+                        
+                        <motion.div 
+                          className="h-24 bg-white/5 rounded border border-white/10 p-2"
+                          animate={{ opacity: [0.7, 1, 0.7] }}
+                          transition={{ duration: 3, delay: 0.5, repeat: Infinity }}
+                        >
+                          <div className="h-2 w-20 bg-brand-blue/40 rounded-full mb-2"></div>
+                          <div className="h-14 relative">
+                            <motion.div 
+                              className="absolute inset-0 border-b border-white/10"
+                              style={{ top: '50%' }}
+                            ></motion.div>
+                            <motion.div
+                              className="absolute h-full w-full"
+                              animate={{
+                                d: [
+                                  "M0,50 Q25,30 50,50 T100,50",
+                                  "M0,50 Q25,70 50,50 T100,50",
+                                  "M0,50 Q25,30 50,50 T100,50"
+                                ]
+                              }}
+                              transition={{ 
+                                duration: 5, 
+                                repeat: Infinity,
+                                ease: "easeInOut" 
+                              }}
+                            >
+                              <svg className="w-full h-full">
+                                <path 
+                                  d="M0,50 Q25,30 50,50 T100,50" 
+                                  fill="none" 
+                                  stroke="#1AD7FF" 
+                                  strokeWidth="2" 
+                                  strokeOpacity="0.6"
+                                  vectorEffect="non-scaling-stroke"
+                                />
+                              </svg>
+                            </motion.div>
+                          </div>
+                        </motion.div>
+                      </div>
+                      
+                      {/* Chat interface */}
+                      <div className="h-28 bg-white/5 rounded border border-white/10 p-2 relative">
+                        <div className="h-2 w-24 bg-brand-purple/40 rounded-full mb-3"></div>
+                        <div className="flex flex-col gap-2">
+                          <div className="flex gap-2 items-start">
+                            <div className="h-4 w-4 rounded-full bg-brand-purple/60 mt-0.5"></div>
+                            <div className="h-2 w-32 bg-white/20 rounded-full"></div>
+                          </div>
+                          <div className="flex gap-2 items-start">
+                            <div className="h-4 w-4 rounded-full bg-brand-blue/60 mt-0.5"></div>
+                            <div className="h-2 w-40 bg-white/20 rounded-full"></div>
+                          </div>
+                        </div>
+                        <div className="absolute bottom-2 left-2 right-2 h-6 bg-white/10 rounded flex items-center px-2">
+                          <div className="h-2 w-24 bg-white/20 rounded-full"></div>
+                          <motion.div 
+                            className="h-4 w-4 rounded-full bg-brand-pink/60 ml-auto"
+                            animate={{ scale: [1, 1.2, 1] }}
+                            transition={{ duration: 2, repeat: Infinity }}
+                          ></motion.div>
+                        </div>
+                      </div>
                     </div>
                   </motion.div>
                 </div>

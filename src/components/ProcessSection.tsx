@@ -1,49 +1,116 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { CalendarDays } from "lucide-react";
+import { Search, PenTool, Rocket, TrendingUp } from "lucide-react";
 
 const processSteps = [
   {
-    icon: <CalendarDays className="w-6 h-6" />,
+    icon: <Search className="w-6 h-6" />,
     title: "Discover",
     description: "We analyze your business needs, goals, and audience to create a tailored strategy.",
-    delay: 0.1
+    delay: 0.1,
+    color: "from-pink-500 to-brand-pink"
   },
   {
-    icon: <CalendarDays className="w-6 h-6" />,
+    icon: <PenTool className="w-6 h-6" />,
     title: "Design",
     description: "We create wireframes, prototypes, and technical specifications for your approval.",
-    delay: 0.3
+    delay: 0.3,
+    color: "from-purple-500 to-brand-purple"
   },
   {
-    icon: <CalendarDays className="w-6 h-6" />,
+    icon: <Rocket className="w-6 h-6" />,
     title: "Deploy",
     description: "We develop, test, and launch your solution with rigorous quality assurance.",
-    delay: 0.5
+    delay: 0.5,
+    color: "from-indigo-500 to-purple-600"
   },
   {
-    icon: <CalendarDays className="w-6 h-6" />,
+    icon: <TrendingUp className="w-6 h-6" />,
     title: "Scale",
     description: "We optimize, refine, and expand your solution based on real-world data and feedback.",
-    delay: 0.7
+    delay: 0.7,
+    color: "from-blue-500 to-brand-blue"
   }
 ];
 
 const ProcessSection = () => {
   return (
-    <section id="process" className="py-20 bg-white/5">
-      <div className="container mx-auto px-4 md:px-6">
+    <section id="process" className="py-20 bg-white/5 relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <svg className="absolute left-0 top-0 h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <motion.path
+            d="M0,0 L100,0 L100,100 L0,100 Z"
+            fill="none"
+            stroke="rgba(174, 59, 255, 0.1)"
+            strokeWidth="0.5"
+            vectorEffect="non-scaling-stroke"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 2, ease: "easeInOut" }}
+          />
+        </svg>
+        {[...Array(5)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute rounded-full bg-brand-purple/5"
+            style={{
+              width: Math.random() * 300 + 50 + 'px',
+              height: Math.random() * 300 + 50 + 'px',
+              left: Math.random() * 100 + '%',
+              top: Math.random() * 100 + '%',
+              transform: 'translate(-50%, -50%)',
+            }}
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.1, 0.2, 0.1],
+            }}
+            transition={{
+              repeat: Infinity,
+              duration: Math.random() * 10 + 10,
+              delay: Math.random() * 5,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
+      </div>
+      
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-20 relative"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            How We <span className="gradient-text">Work</span>
-          </h2>
+          {/* Decorative elements */}
+          <motion.div 
+            className="absolute -left-10 top-0 w-20 h-20 rounded-full bg-brand-pink/10 blur-xl"
+            animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+            transition={{ duration: 5, repeat: Infinity }}
+          />
+          <motion.div 
+            className="absolute -right-10 bottom-0 w-20 h-20 rounded-full bg-brand-blue/10 blur-xl"
+            animate={{ scale: [1.2, 1, 1.2], opacity: [0.3, 0.5, 0.3] }}
+            transition={{ duration: 5, delay: 1, repeat: Infinity }}
+          />
+          
+          <div className="relative">
+            <motion.span 
+              className="absolute -top-8 left-1/2 transform -translate-x-1/2 text-6xl md:text-7xl opacity-5 font-black text-white select-none tracking-widest"
+              animate={{ opacity: [0.03, 0.05, 0.03] }}
+              transition={{ duration: 5, repeat: Infinity }}
+            >
+              PROCESS
+            </motion.span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 relative">
+              How We <span className="gradient-text">Work</span>
+            </h2>
+          </div>
+          
+          <div className="h-1 w-20 mx-auto bg-brand-gradient rounded-full mb-6"></div>
+          
           <p className="text-white/70 max-w-2xl mx-auto">
             Our streamlined four-step process ensures efficient delivery of solutions that 
             match your business goals and exceed expectations.
@@ -52,7 +119,13 @@ const ProcessSection = () => {
 
         <div className="relative">
           {/* Timeline line */}
-          <div className="hidden md:block absolute left-1/2 top-0 w-1 h-full bg-gradient-to-b from-brand-pink via-brand-purple to-brand-blue transform -translate-x-1/2"></div>
+          <motion.div 
+            className="hidden md:block absolute left-1/2 top-0 w-1 h-full bg-gradient-to-b from-brand-pink via-brand-purple to-brand-blue transform -translate-x-1/2"
+            initial={{ height: 0, opacity: 0 }}
+            whileInView={{ height: '100%', opacity: 1 }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
+            viewport={{ once: true }}
+          />
           
           {/* Timeline steps */}
           <div className="space-y-12 md:space-y-0 relative">
@@ -67,22 +140,44 @@ const ProcessSection = () => {
                   index % 2 === 0 ? "md:text-right" : ""
                 }`}
               >
-                <div
-                  className={`hidden md:block absolute top-0 left-1/2 w-8 h-8 rounded-full bg-brand-gradient transform -translate-x-1/2 z-10`}
-                ></div>
+                <motion.div
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  transition={{ 
+                    type: "spring", 
+                    stiffness: 260, 
+                    damping: 20,
+                    delay: step.delay + 0.3 
+                  }}
+                  viewport={{ once: true }}
+                  className={`hidden md:flex absolute top-0 left-1/2 w-12 h-12 rounded-full bg-gradient-to-br ${step.color} transform -translate-x-1/2 z-10 items-center justify-center shadow-lg shadow-purple-500/20`}
+                >
+                  {step.icon}
+                </motion.div>
                 
                 <div
                   className={`md:pr-12 ${
-                    index % 2 === 1 ? "md:col-start-2" : ""
-                  } mb-8 md:mb-24`}
+                    index % 2 === 1 ? "md:col-start-2 md:pl-12 md:pr-0" : ""
+                  } mb-8 md:mb-32 relative`}
                 >
-                  <div className="flex items-center mb-4 md:justify-start">
-                    <div className="md:hidden mr-4 w-10 h-10 rounded-full bg-brand-gradient flex items-center justify-center">
-                      {step.icon}
+                  <motion.div 
+                    className={`glass-effect p-6 rounded-lg relative ${index % 2 === 0 ? "md:mr-8" : "md:ml-8"}`}
+                    whileHover={{ y: -5, boxShadow: "0 10px 30px -15px rgba(174, 59, 255, 0.3)" }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="flex items-center mb-4 md:justify-start">
+                      <div className={`md:hidden mr-4 w-10 h-10 rounded-full bg-gradient-to-br ${step.color} flex items-center justify-center`}>
+                        {step.icon}
+                      </div>
+                      <h3 className="text-2xl font-bold gradient-text">{step.title}</h3>
                     </div>
-                    <h3 className="text-2xl font-bold">{step.title}</h3>
-                  </div>
-                  <p className="text-white/70">{step.description}</p>
+                    <p className="text-white/80">{step.description}</p>
+                    
+                    {/* Step number */}
+                    <div className="absolute top-0 right-0 md:block hidden">
+                      <span className="text-6xl font-black opacity-10 select-none">{index + 1}</span>
+                    </div>
+                  </motion.div>
                 </div>
               </motion.div>
             ))}

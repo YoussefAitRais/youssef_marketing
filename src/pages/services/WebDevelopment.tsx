@@ -1,13 +1,11 @@
 
 import React from "react";
-import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
-import { Monitor, Code, CheckCircle, ArrowRight } from "lucide-react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import BookingSection from "@/components/BookingSection";
+import { Monitor, Code, CheckCircle, ArrowRight, Database, Layout, Smartphone } from "lucide-react";
+import ServiceLayout from "@/components/layouts/ServiceLayout";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const WebDevelopment = () => {
   const technologies = [
@@ -19,31 +17,46 @@ const WebDevelopment = () => {
     {
       title: "Custom Web Applications",
       description: "Fully customized web applications built from the ground up to meet your specific business needs.",
-      icon: <Code className="w-5 h-5 text-brand-pink" />
+      icon: <Code className="w-6 h-6" />,
+      gradient: "from-brand-pink to-brand-purple"
     },
     {
       title: "E-commerce Solutions",
       description: "Robust online stores with secure payment processing, inventory management, and customer portals.",
-      icon: <Monitor className="w-5 h-5 text-brand-purple" />
+      icon: <Monitor className="w-6 h-6" />,
+      gradient: "from-brand-purple to-brand-blue"
     },
     {
       title: "Mobile-Responsive Design",
       description: "Websites that look and function flawlessly across all devices and screen sizes.",
-      icon: <Monitor className="w-5 h-5 text-brand-blue" />
+      icon: <Smartphone className="w-6 h-6" />,
+      gradient: "from-brand-blue to-brand-pink"
+    },
+    {
+      title: "Database Architecture",
+      description: "Scalable and efficient database design that ensures optimal performance and data integrity.",
+      icon: <Database className="w-6 h-6" />,
+      gradient: "from-brand-pink to-brand-purple"
+    },
+    {
+      title: "UI/UX Design",
+      description: "Beautiful and intuitive user interfaces that provide an exceptional user experience.",
+      icon: <Layout className="w-6 h-6" />,
+      gradient: "from-brand-purple to-brand-blue"
+    },
+    {
+      title: "Performance Optimization",
+      description: "Fast-loading websites optimized for search engines and user engagement.",
+      icon: <CheckCircle className="w-6 h-6" />,
+      gradient: "from-brand-blue to-brand-pink"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-brand-black text-white overflow-x-hidden">
-      <Helmet>
-        <title>Web & App Development | Lina Prime Solutions</title>
-        <meta 
-          name="description" 
-          content="Custom digital products built with modern frameworks like Next.js, Django, Shopify & WordPress. Scalable solutions tailored to your business needs."
-        />
-      </Helmet>
-      
-      <Navbar />
+    <ServiceLayout
+      title="Web & App Development"
+      description="Custom digital products built with modern frameworks like Next.js, Django, Shopify & WordPress. Scalable solutions tailored to your business needs."
+    >
       
       {/* Hero Section */}
       <section className="pt-32 pb-16">
@@ -116,21 +129,38 @@ const WebDevelopment = () => {
             </p>
           </motion.div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {serviceFeatures.map((feature, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
+                className="group"
               >
-                <Card className="bg-white/5 border-white/10 p-6 h-full">
-                  <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center mb-4">
+                <Card className={cn(
+                  "bg-white/5 border-white/10 p-8 h-full overflow-hidden relative",
+                  "hover:bg-white/10 hover:border-white/20 transition-all duration-300",
+                  "backdrop-blur-lg"
+                )}>
+                  <div className={cn(
+                    "w-16 h-16 rounded-2xl bg-gradient-to-br flex items-center justify-center mb-6",
+                    "group-hover:scale-110 transition-transform duration-300",
+                    feature.gradient
+                  )}>
                     {feature.icon}
                   </div>
-                  <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-                  <p className="text-white/70 mb-4">{feature.description}</p>
+                  <h3 className="text-xl font-bold mb-3 group-hover:text-white transition-colors">{feature.title}</h3>
+                  <p className="text-white/70 group-hover:text-white/90 transition-colors">{feature.description}</p>
+                  
+                  {/* Background gradient */}
+                  <div className={cn(
+                    "absolute -right-32 -bottom-32 w-64 h-64 rounded-full opacity-0 blur-3xl transition-all duration-500",
+                    "bg-gradient-to-br",
+                    feature.gradient,
+                    "group-hover:opacity-10"
+                  )} />
                 </Card>
               </motion.div>
             ))}
@@ -233,11 +263,8 @@ const WebDevelopment = () => {
         </div>
       </section>
       
-      {/* Booking Section */}
-      <BookingSection />
-      
-      <Footer />
-    </div>
+
+    </ServiceLayout>
   );
 };
 

@@ -1,13 +1,11 @@
 
 import React from "react";
-import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
-import { Rocket, Code, Server, ArrowRight } from "lucide-react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import BookingSection from "@/components/BookingSection";
+import { Rocket, Code, Server, ArrowRight, Database, Cloud, Users, Shield } from "lucide-react";
+import ServiceLayout from "@/components/layouts/ServiceLayout";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const SaasIncubation = () => {
   const expertise = [
@@ -20,31 +18,46 @@ const SaasIncubation = () => {
     {
       title: "MVP Development",
       description: "Rapidly build a minimum viable product to validate your idea and attract early adopters and investors.",
-      icon: <Rocket className="w-5 h-5 text-brand-pink" />
+      icon: <Rocket className="w-6 h-6" />,
+      gradient: "from-brand-pink to-brand-purple"
     },
     {
       title: "Full-Stack Development",
       description: "End-to-end development of your SaaS product with scalable architecture and modern tech stack.",
-      icon: <Code className="w-5 h-5 text-brand-purple" />
+      icon: <Code className="w-6 h-6" />,
+      gradient: "from-brand-purple to-brand-blue"
     },
     {
       title: "Technical Infrastructure",
       description: "Cloud infrastructure setup, database architecture, API development, and integration solutions.",
-      icon: <Server className="w-5 h-5 text-brand-blue" />
+      icon: <Server className="w-6 h-6" />,
+      gradient: "from-brand-blue to-brand-pink"
+    },
+    {
+      title: "Database Architecture",
+      description: "Scalable and secure database design with multi-tenant support and data isolation.",
+      icon: <Database className="w-6 h-6" />,
+      gradient: "from-brand-pink to-brand-purple"
+    },
+    {
+      title: "Cloud Solutions",
+      description: "Cloud-native architecture with auto-scaling, monitoring, and high availability.",
+      icon: <Cloud className="w-6 h-6" />,
+      gradient: "from-brand-purple to-brand-blue"
+    },
+    {
+      title: "Security & Compliance",
+      description: "Enterprise-grade security with data encryption, authentication, and compliance measures.",
+      icon: <Shield className="w-6 h-6" />,
+      gradient: "from-brand-blue to-brand-pink"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-brand-black text-white overflow-x-hidden">
-      <Helmet>
-        <title>SaaS Incubation | Lina Prime Solutions</title>
-        <meta 
-          name="description" 
-          content="Transform your idea into a market-ready SaaS product. From MVP design to multi-tenant dashboards and payment integrations, we build scalable solutions."
-        />
-      </Helmet>
-      
-      <Navbar />
+    <ServiceLayout
+      title="SaaS Incubation"
+      description="Transform your idea into a market-ready SaaS product. From MVP design to multi-tenant dashboards and payment integrations, we build scalable solutions."
+    >
       
       {/* Hero Section */}
       <section className="pt-32 pb-16">
@@ -117,21 +130,38 @@ const SaasIncubation = () => {
             </p>
           </motion.div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {serviceFeatures.map((feature, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
+                className="group"
               >
-                <Card className="bg-white/5 border-white/10 p-6 h-full">
-                  <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center mb-4">
+                <Card className={cn(
+                  "bg-white/5 border-white/10 p-8 h-full overflow-hidden relative",
+                  "hover:bg-white/10 hover:border-white/20 transition-all duration-300",
+                  "backdrop-blur-lg"
+                )}>
+                  <div className={cn(
+                    "w-16 h-16 rounded-2xl bg-gradient-to-br flex items-center justify-center mb-6",
+                    "group-hover:scale-110 transition-transform duration-300",
+                    feature.gradient
+                  )}>
                     {feature.icon}
                   </div>
-                  <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-                  <p className="text-white/70 mb-4">{feature.description}</p>
+                  <h3 className="text-xl font-bold mb-3 group-hover:text-white transition-colors">{feature.title}</h3>
+                  <p className="text-white/70 group-hover:text-white/90 transition-colors">{feature.description}</p>
+                  
+                  {/* Background gradient */}
+                  <div className={cn(
+                    "absolute -right-32 -bottom-32 w-64 h-64 rounded-full opacity-0 blur-3xl transition-all duration-500",
+                    "bg-gradient-to-br",
+                    feature.gradient,
+                    "group-hover:opacity-10"
+                  )} />
                 </Card>
               </motion.div>
             ))}
@@ -191,15 +221,19 @@ const SaasIncubation = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 * index }}
                 viewport={{ once: true }}
-                className="flex flex-col md:flex-row items-start md:items-center gap-6"
+                className="flex flex-col md:flex-row items-start md:items-center gap-6 group"
               >
-                <div className="text-4xl md:text-5xl font-bold text-white/20 w-16 flex-shrink-0">
+                <div className="text-4xl md:text-5xl font-bold text-white/20 w-16 flex-shrink-0 group-hover:text-brand-purple transition-colors">
                   {phase.step}
                 </div>
-                <div className="flex-grow">
-                  <h3 className="text-xl font-bold mb-2">{phase.title}</h3>
-                  <p className="text-white/70">{phase.description}</p>
-                </div>
+                <Card className={cn(
+                  "flex-grow bg-white/5 border-white/10 p-6",
+                  "hover:bg-white/10 hover:border-white/20 transition-all duration-300",
+                  "backdrop-blur-lg"
+                )}>
+                  <h3 className="text-xl font-bold mb-2 group-hover:text-white transition-colors">{phase.title}</h3>
+                  <p className="text-white/70 group-hover:text-white/90 transition-colors">{phase.description}</p>
+                </Card>
               </motion.div>
             ))}
           </div>
@@ -284,11 +318,8 @@ const SaasIncubation = () => {
         </div>
       </section>
       
-      {/* Booking Section */}
-      <BookingSection />
-      
-      <Footer />
-    </div>
+
+    </ServiceLayout>
   );
 };
 
