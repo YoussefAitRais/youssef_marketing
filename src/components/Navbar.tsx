@@ -78,8 +78,8 @@ const Navbar = () => {
           variants={logoVariants}
         >
           <a href="/" className="flex items-center gap-3">
-            <img src="/logo-nav.png" alt="Lina Prime Solutions" className="h-12 w-auto mix-blend-screen brightness-200" />
-            <span className="text-2xl font-bold font-montserrat">
+            <img src="/logo-nav.png" alt="Lina Prime Solutions" className="h-10 w-auto mix-blend-screen brightness-200" />
+            <span className="text-2xl font-bold font-montserrat hidden sm:inline-block">
               <span className="gradient-text">Lina Prime </span> Solutions
             </span>
           </a>
@@ -135,68 +135,104 @@ const Navbar = () => {
           </motion.div>
         </motion.nav>
 
-        {/* Mobile Navigation Toggle */}
-        <motion.button 
-          className="md:hidden text-white"
-          onClick={toggleMenu}
+        {/* Mobile Menu Button */}
+        <motion.button
+          className="md:hidden text-white p-2 relative z-50"
+          onClick={() => setIsOpen(!isOpen)}
+          whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          aria-label="Toggle menu"
         >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
+          <div className="relative w-6 h-6">
+            <motion.span
+              className="absolute top-2 left-0 w-6 h-0.5 bg-white rounded-full"
+              animate={isOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
+              transition={{ duration: 0.2 }}
+            />
+            <motion.span
+              className="absolute top-4 left-0 w-6 h-0.5 bg-white rounded-full"
+              animate={isOpen ? { opacity: 0 } : { opacity: 1 }}
+              transition={{ duration: 0.2 }}
+            />
+            <motion.span
+              className="absolute top-6 left-0 w-6 h-0.5 bg-white rounded-full"
+              animate={isOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
+              transition={{ duration: 0.2 }}
+            />
+          </div>
         </motion.button>
 
         {/* Mobile Navigation Menu */}
         <AnimatePresence>
           {isOpen && (
-            <motion.div 
-              className="fixed inset-0 top-16 bg-black/95 z-50 flex flex-col items-center justify-start pt-10 md:hidden"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 bg-black/95 backdrop-blur-lg z-40 md:hidden"
             >
-              <nav className="flex flex-col items-center space-y-6">
+              <nav className="flex flex-col items-center justify-center h-full space-y-8 p-4">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 }}
+                  className="w-full max-w-sm mx-auto mb-8"
+                >
+                  <img 
+                    src="/logo-nav.png" 
+                    alt="Lina Prime Solutions" 
+                    className="h-12 w-auto mx-auto mix-blend-screen brightness-200" 
+                  />
+                </motion.div>
+                
                 <motion.a 
                   href="/#services" 
-                  className="text-xl text-white/80 hover:text-white transition-colors"
+                  className="text-2xl font-medium text-white/90 hover:text-white transition-colors relative group"
                   onClick={() => setIsOpen(false)}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
                 >
                   Services
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-gradient group-hover:w-full transition-all duration-300" />
                 </motion.a>
                 <motion.a 
                   href="/#process" 
-                  className="text-xl text-white/80 hover:text-white transition-colors"
+                  className="text-2xl font-medium text-white/90 hover:text-white transition-colors relative group"
                   onClick={() => setIsOpen(false)}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
                 >
                   Process
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-gradient group-hover:w-full transition-all duration-300" />
                 </motion.a>
                 <motion.a 
                   href="/#about" 
-                  className="text-xl text-white/80 hover:text-white transition-colors"
+                  className="text-2xl font-medium text-white/90 hover:text-white transition-colors relative group"
                   onClick={() => setIsOpen(false)}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 }}
                 >
                   About
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-gradient group-hover:w-full transition-all duration-300" />
                 </motion.a>
                 <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="mt-4"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 }}
+                  className="pt-4"
                 >
                   <Button 
-                    className="bg-brand-gradient animate-gradient-shift"
+                    className="bg-brand-gradient animate-gradient-shift px-8 py-6 text-lg shadow-lg shadow-purple-500/20"
                     onClick={() => {
                       setIsOpen(false);
-                      window.scrollTo({
-                        top: document.getElementById("book-call").offsetTop - 100,
-                        behavior: "smooth",
-                      });
+                      const bookCallSection = document.getElementById("book-call");
+                      if (bookCallSection) {
+                        bookCallSection.scrollIntoView({ behavior: "smooth" });
+                      }
                     }}
                   >
                     Book Free Strategy Call
