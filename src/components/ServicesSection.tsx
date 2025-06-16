@@ -1,75 +1,68 @@
-
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Monitor, Cpu, TrendingUp, Rocket, Code, Database, LineChart, Layers } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "react-i18next";
 
 const serviceItems = [
   {
     id: "web-dev",
-    title: "Web & App Development",
-    description: "Custom digital products built with modern frameworks like Next.js, Django, Shopify & WordPress. Scalable solutions tailored to your business needs.",
     icon: <Monitor className="w-8 h-8" />,
     gradient: "from-pink-500 to-brand-pink",
     delay: 0.1,
     link: "/services/web-development",
     features: [
-      { icon: <Code size={16} />, text: "Custom Web Applications" },
-      { icon: <Layers size={16} />, text: "Responsive Design" },
-      { icon: <Database size={16} />, text: "API Integration" }
+      { icon: <Code size={16} />, key: "feature1" },
+      { icon: <Layers size={16} />, key: "feature2" },
+      { icon: <Database size={16} />, key: "feature3" }
     ],
     bgAccent: "bg-brand-pink/5"
   },
   {
     id: "ai-automation",
-    title: "AI & Workflow Automations",
-    description: "Leverage AI to streamline operations and boost productivity. From OpenAI-powered chatbots to n8n workflow pipelines that save time and reduce errors.",
     icon: <Cpu className="w-8 h-8" />,
     gradient: "from-purple-500 to-brand-purple",
     delay: 0.3,
     link: "/services/ai-automation",
     features: [
-      { icon: <Cpu size={16} />, text: "AI-Powered Chatbots" },
-      { icon: <Layers size={16} />, text: "Workflow Automation" },
-      { icon: <Database size={16} />, text: "Data Processing" }
+      { icon: <Cpu size={16} />, key: "feature1" },
+      { icon: <Layers size={16} />, key: "feature2" },
+      { icon: <Database size={16} />, key: "feature3" }
     ],
     bgAccent: "bg-brand-purple/5"
   },
   {
     id: "growth",
-    title: "Growth Consulting",
-    description: "Data-backed strategies for sustainable growth. Optimize your conversion funnels, SEO, paid advertising, and analytics to maximize ROI.",
     icon: <TrendingUp className="w-8 h-8" />,
     gradient: "from-indigo-500 to-blue-500",
     delay: 0.5,
     link: "/services/growth-consulting",
     features: [
-      { icon: <LineChart size={16} />, text: "Analytics & Reporting" },
-      { icon: <TrendingUp size={16} />, text: "Conversion Optimization" },
-      { icon: <Layers size={16} />, text: "Marketing Strategy" }
+      { icon: <LineChart size={16} />, key: "feature1" },
+      { icon: <TrendingUp size={16} />, key: "feature2" },
+      { icon: <Layers size={16} />, key: "feature3" }
     ],
     bgAccent: "bg-blue-600/5"
   },
   {
     id: "saas",
-    title: "SaaS Incubation",
-    description: "Transform your idea into a market-ready SaaS product. From MVP design to multi-tenant dashboards and payment integrations, we build scalable solutions.",
     icon: <Rocket className="w-8 h-8" />,
     gradient: "from-blue-500 to-brand-blue",
     delay: 0.7,
     link: "/services/saas-incubation",
     features: [
-      { icon: <Code size={16} />, text: "MVP Development" },
-      { icon: <Database size={16} />, text: "Multi-tenant Architecture" },
-      { icon: <Layers size={16} />, text: "Subscription Management" }
+      { icon: <Code size={16} />, key: "feature1" },
+      { icon: <Database size={16} />, key: "feature2" },
+      { icon: <Layers size={16} />, key: "feature3" }
     ],
     bgAccent: "bg-brand-blue/5"
   }
 ];
 
-const ServiceCard = ({ id, title, description, icon, gradient, features, bgAccent, delay, link }) => {
+const ServiceCard = ({ id, icon, gradient, features, bgAccent, delay, link }) => {
+  const { t } = useTranslation();
   const [isHovered, setIsHovered] = useState(false);
   
   return (
@@ -117,7 +110,7 @@ const ServiceCard = ({ id, title, description, icon, gradient, features, bgAccen
                 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-white/90 mb-2"
                 animate={{ opacity: isHovered ? 1 : 0.9 }}
               >
-                {title}
+                {t(`services.sectionCards.${id}.title`)}
               </motion.h3>
               <motion.div 
                 className={`h-1 w-12 bg-gradient-to-r ${gradient} rounded-full`}
@@ -129,7 +122,7 @@ const ServiceCard = ({ id, title, description, icon, gradient, features, bgAccen
           </div>
           
           {/* Description with gradient text */}
-          <p className="text-base text-white/80 mb-8 leading-relaxed">{description}</p>
+          <p className="text-base text-white/80 mb-8 leading-relaxed">{t(`services.sectionCards.${id}.desc`)}</p>
           
           {/* Features list with improved animations */}
           <div className="space-y-4 mt-auto">
@@ -149,7 +142,7 @@ const ServiceCard = ({ id, title, description, icon, gradient, features, bgAccen
                 >
                   {feature.icon}
                 </motion.div>
-                <span className="text-sm text-white/90 font-medium">{feature.text}</span>
+                <span className="text-sm text-white/90 font-medium">{t(`services.sectionCards.${id}.features.${feature.key}`)}</span>
               </motion.div>
             ))}
           </div>
@@ -162,7 +155,7 @@ const ServiceCard = ({ id, title, description, icon, gradient, features, bgAccen
               variant="ghost" 
               className={`w-full bg-gradient-to-r ${gradient} hover:opacity-90 border-0 text-white shadow-lg group flex items-center justify-center py-5 text-base font-semibold`}
             >
-              <span>Explore Service</span>
+              <span>{t("services.explore")}</span>
               <ArrowRight size={20} className="ml-2 group-hover:translate-x-2 transition-transform duration-300" />
             </Button>
           </a>
@@ -187,6 +180,7 @@ const ServiceCard = ({ id, title, description, icon, gradient, features, bgAccen
 };
 
 const ServicesSection = () => {
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState("all");
   
   const filteredServices = activeTab === "all" ? 
@@ -252,15 +246,15 @@ const ServicesSection = () => {
               SERVICES
             </motion.span>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 relative">
-              Our <span className="gradient-text">Services</span>
+              {t("services.heading.prefix")} {" "}
+              <span className="gradient-text">{t("services.heading.colored")}</span>
             </h2>
           </div>
           
           <div className="h-1 w-20 mx-auto bg-brand-gradient rounded-full mb-6"></div>
           
           <p className="text-white/70 max-w-2xl mx-auto">
-            We provide end-to-end solutions to help ambitious businesses scale efficiently through 
-            technology, automation, and data-driven strategies.
+            {t("services.description")}
           </p>
         </motion.div>
 

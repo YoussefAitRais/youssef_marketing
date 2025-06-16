@@ -6,8 +6,10 @@ import ServiceLayout from "@/components/layouts/ServiceLayout";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useTranslation } from "react-i18next";
 
 const GrowthConsulting = () => {
+  const { t } = useTranslation();
   const expertise = [
     "Conversion Optimization", "SEO", "Analytics", "Paid Media", 
     "Customer Journey", "A/B Testing", "Marketing Funnel", "Growth Strategy", 
@@ -16,38 +18,38 @@ const GrowthConsulting = () => {
   
   const serviceFeatures = [
     {
-      title: "Data-Driven Strategy",
-      description: "Comprehensive growth strategies based on thorough data analysis and market research.",
+      title: t('services.growth.features.dataStrategy.title'),
+      description: t('services.growth.features.dataStrategy.description'),
       icon: <BarChart className="w-6 h-6" />,
       gradient: "from-brand-pink to-brand-purple"
     },
     {
-      title: "Conversion Optimization",
-      description: "Identify and eliminate friction points in your customer journey to increase conversion rates.",
+      title: t('services.growth.features.conversion.title'),
+      description: t('services.growth.features.conversion.description'),
       icon: <Target className="w-6 h-6" />,
       gradient: "from-brand-purple to-brand-blue"
     },
     {
-      title: "Growth Analysis",
-      description: "In-depth analysis of your current growth metrics to identify opportunities and challenges.",
+      title: t('services.growth.features.analysis.title'),
+      description: t('services.growth.features.analysis.description'),
       icon: <TrendingUp className="w-6 h-6" />,
       gradient: "from-brand-blue to-brand-pink"
     },
     {
-      title: "Performance Tracking",
-      description: "Real-time monitoring and reporting of key performance indicators and growth metrics.",
+      title: t('services.growth.features.performance.title'),
+      description: t('services.growth.features.performance.description'),
       icon: <LineChart className="w-6 h-6" />,
       gradient: "from-brand-pink to-brand-purple"
     },
     {
-      title: "User Acquisition",
-      description: "Strategic approaches to attract and convert high-quality leads into customers.",
+      title: t('services.growth.features.acquisition.title'),
+      description: t('services.growth.features.acquisition.description'),
       icon: <Users className="w-6 h-6" />,
       gradient: "from-brand-purple to-brand-blue"
     },
     {
-      title: "Marketing Strategy",
-      description: "Comprehensive marketing plans that align with your business goals and target audience.",
+      title: t('services.growth.features.marketing.title'),
+      description: t('services.growth.features.marketing.description'),
       icon: <Megaphone className="w-6 h-6" />,
       gradient: "from-brand-blue to-brand-pink"
     }
@@ -55,8 +57,8 @@ const GrowthConsulting = () => {
 
   return (
     <ServiceLayout
-      title="Growth Consulting"
-      description="Data-backed strategies for sustainable growth. Optimize your conversion funnels, SEO, paid advertising, and analytics to maximize ROI."
+      title={t('services.growth.meta.title')}
+      description={t('services.growth.meta.description')}
     >
       
       {/* Hero Section */}
@@ -69,10 +71,10 @@ const GrowthConsulting = () => {
               transition={{ duration: 0.6 }}
             >
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                Growth <span className="gradient-text">Consulting</span>
+                {t('services.growth.hero.title')} <span className="gradient-text">{t('services.growth.hero.titleColored')}</span>
               </h1>
               <p className="text-xl text-white/70 mb-8">
-                Data-backed strategies for sustainable growth. Optimize your conversion funnels, SEO, paid advertising, and analytics to maximize ROI.
+                {t('services.growth.hero.subtitle')}
               </p>
               <div className="flex flex-wrap gap-3 mb-8">
                 {expertise.map((skill, index) => (
@@ -103,9 +105,9 @@ const GrowthConsulting = () => {
                 />
               </div>
               <div className="absolute -bottom-6 -right-6 bg-white/5 backdrop-blur-md border border-white/10 px-6 py-4 rounded-lg shadow-lg">
-                <p className="text-sm font-medium">Average ROI</p>
-                <p className="text-3xl font-bold gradient-text">3.5x</p>
-                <p className="text-white/70 text-sm">on client investment</p>
+                <p className="text-sm font-medium">{t('services.growth.hero.stats.label')}</p>
+                <p className="text-3xl font-bold gradient-text">{t('services.growth.hero.stats.value')}</p>
+                <p className="text-white/70 text-sm">{t('services.growth.hero.stats.subtext')}</p>
               </div>
             </motion.div>
           </div>
@@ -123,10 +125,10 @@ const GrowthConsulting = () => {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              What We <span className="gradient-text">Offer</span>
+              {t('services.growth.offer.title')} <span className="gradient-text">{t('services.growth.offer.titleColored')}</span>
             </h2>
             <p className="text-white/70 max-w-2xl mx-auto">
-              Our growth consulting services are designed to help businesses identify and capitalize on opportunities for sustainable growth.
+              {t('services.growth.offer.subtitle')}
             </p>
           </motion.div>
           
@@ -180,10 +182,10 @@ const GrowthConsulting = () => {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Our <span className="gradient-text">Methodology</span>
+              {t('services.growth.methodology.title')} <span className="gradient-text">{t('services.growth.methodology.titleColored')}</span>
             </h2>
             <p className="text-white/70 max-w-2xl mx-auto">
-              We follow a structured approach to help businesses achieve sustainable growth.
+              {t('services.growth.methodology.subtitle')}
             </p>
           </motion.div>
           
@@ -191,28 +193,28 @@ const GrowthConsulting = () => {
             {[
               {
                 step: "01",
-                title: "Audit & Analysis",
-                description: "We conduct a comprehensive audit of your current marketing efforts, analytics, and growth metrics to identify opportunities and challenges."
+                title: t('services.growth.methodology.steps.1.title'),
+                description: t('services.growth.methodology.steps.1.description')
               },
               {
                 step: "02",
-                title: "Strategy Development",
-                description: "Based on our analysis, we develop a customized growth strategy that aligns with your business goals and market position."
+                title: t('services.growth.methodology.steps.2.title'),
+                description: t('services.growth.methodology.steps.2.description')
               },
               {
                 step: "03",
-                title: "Implementation",
-                description: "We help you implement the strategy, providing guidance, resources, and hands-on support as needed."
+                title: t('services.growth.methodology.steps.3.title'),
+                description: t('services.growth.methodology.steps.3.description')
               },
               {
                 step: "04",
-                title: "Testing & Optimization",
-                description: "We continuously test different approaches, measure results, and optimize your growth strategy for maximum ROI."
+                title: t('services.growth.methodology.steps.4.title'),
+                description: t('services.growth.methodology.steps.4.description')
               },
               {
                 step: "05",
-                title: "Scaling",
-                description: "Once we identify what works, we help you scale your efforts to achieve sustainable, long-term growth."
+                title: t('services.growth.methodology.steps.5.title'),
+                description: t('services.growth.methodology.steps.5.description')
               }
             ].map((phase, index) => (
               <motion.div
@@ -251,17 +253,17 @@ const GrowthConsulting = () => {
             className="bg-white/5 border border-white/10 rounded-xl p-8 md:p-12 shadow-lg shadow-purple-900/10 text-center"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to <span className="gradient-text">accelerate your growth?</span>
+              {t('services.growth.cta.title')} <span className="gradient-text">{t('services.growth.cta.titleColored')}</span>
             </h2>
             <p className="text-white/70 text-lg mb-8 max-w-2xl mx-auto">
-              Contact us today to discuss how our data-backed growth strategies can help your business thrive.
+              {t('services.growth.cta.subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Button className="bg-brand-gradient animate-gradient-shift py-6 px-8 text-lg">
-                Get Started
+                {t('services.growth.cta.primaryButton')}
               </Button>
               <Button variant="outline" className="border-white/20 py-6 px-8 text-lg">
-                View Our Work
+                {t('services.growth.cta.secondaryButton')}
               </Button>
             </div>
           </motion.div>

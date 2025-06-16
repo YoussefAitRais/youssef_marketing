@@ -6,8 +6,10 @@ import ServiceLayout from "@/components/layouts/ServiceLayout";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useTranslation } from "react-i18next";
 
 const SaasIncubation = () => {
+  const { t } = useTranslation();
   const expertise = [
     "MVP Development", "Product Strategy", "UX/UI Design", "Payment Integration", 
     "Multi-tenant Architecture", "User Management", "Subscription Management", "Analytics", 
@@ -16,38 +18,38 @@ const SaasIncubation = () => {
   
   const serviceFeatures = [
     {
-      title: "MVP Development",
-      description: "Rapidly build a minimum viable product to validate your idea and attract early adopters and investors.",
+      title: t('services.saas.features.mvp.title'),
+      description: t('services.saas.features.mvp.description'),
       icon: <Rocket className="w-6 h-6" />,
       gradient: "from-brand-pink to-brand-purple"
     },
     {
-      title: "Full-Stack Development",
-      description: "End-to-end development of your SaaS product with scalable architecture and modern tech stack.",
+      title: t('services.saas.features.fullstack.title'),
+      description: t('services.saas.features.fullstack.description'),
       icon: <Code className="w-6 h-6" />,
       gradient: "from-brand-purple to-brand-blue"
     },
     {
-      title: "Technical Infrastructure",
-      description: "Cloud infrastructure setup, database architecture, API development, and integration solutions.",
+      title: t('services.saas.features.infrastructure.title'),
+      description: t('services.saas.features.infrastructure.description'),
       icon: <Server className="w-6 h-6" />,
       gradient: "from-brand-blue to-brand-pink"
     },
     {
-      title: "Database Architecture",
-      description: "Scalable and secure database design with multi-tenant support and data isolation.",
+      title: t('services.saas.features.database.title'),
+      description: t('services.saas.features.database.description'),
       icon: <Database className="w-6 h-6" />,
       gradient: "from-brand-pink to-brand-purple"
     },
     {
-      title: "Cloud Solutions",
-      description: "Cloud-native architecture with auto-scaling, monitoring, and high availability.",
+      title: t('services.saas.features.cloud.title'),
+      description: t('services.saas.features.cloud.description'),
       icon: <Cloud className="w-6 h-6" />,
       gradient: "from-brand-purple to-brand-blue"
     },
     {
-      title: "Security & Compliance",
-      description: "Enterprise-grade security with data encryption, authentication, and compliance measures.",
+      title: t('services.saas.features.security.title'),
+      description: t('services.saas.features.security.description'),
       icon: <Shield className="w-6 h-6" />,
       gradient: "from-brand-blue to-brand-pink"
     }
@@ -55,8 +57,8 @@ const SaasIncubation = () => {
 
   return (
     <ServiceLayout
-      title="SaaS Incubation"
-      description="Transform your idea into a market-ready SaaS product. From MVP design to multi-tenant dashboards and payment integrations, we build scalable solutions."
+      title={t('services.saas.meta.title')}
+      description={t('services.saas.meta.description')}
     >
       
       {/* Hero Section */}
@@ -69,10 +71,10 @@ const SaasIncubation = () => {
               transition={{ duration: 0.6 }}
             >
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                SaaS <span className="gradient-text">Incubation</span>
+                {t('services.saas.hero.title')} <span className="gradient-text">{t('services.saas.hero.titleColored')}</span>
               </h1>
               <p className="text-xl text-white/70 mb-8">
-                Transform your idea into a market-ready SaaS product. From MVP design to multi-tenant dashboards and payment integrations, we build scalable solutions.
+                {t('services.saas.hero.subtitle')}
               </p>
               <div className="flex flex-wrap gap-3 mb-8">
                 {expertise.map((skill, index) => (
@@ -103,9 +105,9 @@ const SaasIncubation = () => {
                 />
               </div>
               <div className="absolute -bottom-6 -right-6 bg-white/5 backdrop-blur-md border border-white/10 px-6 py-4 rounded-lg shadow-lg">
-                <p className="text-sm font-medium">Success rate</p>
-                <p className="text-3xl font-bold gradient-text">90%</p>
-                <p className="text-white/70 text-sm">of MVPs launched</p>
+                <p className="text-sm font-medium">{t('services.saas.hero.stats.label')}</p>
+                <p className="text-3xl font-bold gradient-text">{t('services.saas.hero.stats.value')}</p>
+                <p className="text-white/70 text-sm">{t('services.saas.hero.stats.subtext')}</p>
               </div>
             </motion.div>
           </div>
@@ -123,10 +125,10 @@ const SaasIncubation = () => {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              What We <span className="gradient-text">Offer</span>
+              {t('services.saas.offer.title')} <span className="gradient-text">{t('services.saas.offer.titleColored')}</span>
             </h2>
             <p className="text-white/70 max-w-2xl mx-auto">
-              Our comprehensive SaaS incubation services cover everything from product strategy to full-scale development and launch.
+              {t('services.saas.offer.subtitle')}
             </p>
           </motion.div>
           
@@ -180,10 +182,10 @@ const SaasIncubation = () => {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              SaaS Development <span className="gradient-text">Roadmap</span>
+              {t('services.saas.roadmap.title')} <span className="gradient-text">{t('services.saas.roadmap.titleColored')}</span>
             </h2>
             <p className="text-white/70 max-w-2xl mx-auto">
-              We follow a proven roadmap to transform your idea into a successful SaaS product.
+              {t('services.saas.roadmap.subtitle')}
             </p>
           </motion.div>
           
@@ -191,28 +193,28 @@ const SaasIncubation = () => {
             {[
               {
                 step: "01",
-                title: "Discovery & Strategy",
-                description: "We work closely with you to understand your vision, target market, and business goals to develop a comprehensive product strategy."
+                title: t('services.saas.roadmap.steps.1.title'),
+                description: t('services.saas.roadmap.steps.1.description')
               },
               {
                 step: "02",
-                title: "UX/UI Design",
-                description: "Our designers create intuitive user experiences and visually appealing interfaces that align with your brand and meet user expectations."
+                title: t('services.saas.roadmap.steps.2.title'),
+                description: t('services.saas.roadmap.steps.2.description')
               },
               {
                 step: "03",
-                title: "MVP Development",
-                description: "We build a minimum viable product with core features to validate your concept, gather user feedback, and attract early investors."
+                title: t('services.saas.roadmap.steps.3.title'),
+                description: t('services.saas.roadmap.steps.3.description')
               },
               {
                 step: "04",
-                title: "Testing & Refinement",
-                description: "We conduct thorough testing to ensure your product is bug-free, secure, and delivers an excellent user experience."
+                title: t('services.saas.roadmap.steps.4.title'),
+                description: t('services.saas.roadmap.steps.4.description')
               },
               {
                 step: "05",
-                title: "Launch & Growth",
-                description: "We support your product launch with technical expertise and help you implement growth strategies to acquire and retain users."
+                title: t('services.saas.roadmap.steps.5.title'),
+                description: t('services.saas.roadmap.steps.5.description')
               }
             ].map((phase, index) => (
               <motion.div
@@ -251,24 +253,24 @@ const SaasIncubation = () => {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Key <span className="gradient-text">Features</span>
+              {t('services.saas.keyFeatures.title')} <span className="gradient-text">{t('services.saas.keyFeatures.titleColored')}</span>
             </h2>
             <p className="text-white/70 max-w-2xl mx-auto">
-              Our SaaS products come equipped with essential features for success in today's competitive market.
+              {t('services.saas.keyFeatures.subtitle')}
             </p>
           </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              "Multi-tenant Architecture",
-              "User Authentication & Authorization",
-              "Subscription Management",
-              "Payment Gateway Integration",
-              "API Development",
-              "Analytics Dashboard",
-              "Customizable User Roles",
-              "Notification System",
-              "White-labeling Options"
+              t('services.saas.keyFeatures.items.1'),
+              t('services.saas.keyFeatures.items.2'),
+              t('services.saas.keyFeatures.items.3'),
+              t('services.saas.keyFeatures.items.4'),
+              t('services.saas.keyFeatures.items.5'),
+              t('services.saas.keyFeatures.items.6'),
+              t('services.saas.keyFeatures.items.7'),
+              t('services.saas.keyFeatures.items.8'),
+              t('services.saas.keyFeatures.items.9')
             ].map((feature, index) => (
               <motion.div
                 key={index}
@@ -301,17 +303,17 @@ const SaasIncubation = () => {
             className="bg-white/5 border border-white/10 rounded-xl p-8 md:p-12 shadow-lg shadow-purple-900/10 text-center"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to <span className="gradient-text">build your SaaS product?</span>
+              {t('services.saas.cta.title')} <span className="gradient-text">{t('services.saas.cta.titleColored')}</span>
             </h2>
             <p className="text-white/70 text-lg mb-8 max-w-2xl mx-auto">
-              Contact us today to discuss your idea and see how we can help bring it to life.
+              {t('services.saas.cta.subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Button className="bg-brand-gradient animate-gradient-shift py-6 px-8 text-lg">
-                Get Started
+                {t('services.saas.cta.primaryButton')}
               </Button>
               <Button variant="outline" className="border-white/20 py-6 px-8 text-lg">
-                View Our Work
+                {t('services.saas.cta.secondaryButton')}
               </Button>
             </div>
           </motion.div>

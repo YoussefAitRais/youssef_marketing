@@ -1,12 +1,14 @@
-
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const Navbar = () => {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
@@ -97,7 +99,7 @@ const Navbar = () => {
             className="text-white/80 hover:text-white transition-colors relative group"
             variants={itemVariants}
           >
-            Services
+            {t("navbar.services")}
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-gradient group-hover:w-full transition-all duration-300"></span>
           </motion.a>
           <motion.a 
@@ -105,7 +107,7 @@ const Navbar = () => {
             className="text-white/80 hover:text-white transition-colors relative group"
             variants={itemVariants}
           >
-            Process
+            {t("navbar.process")}
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-gradient group-hover:w-full transition-all duration-300"></span>
           </motion.a>
           <motion.a 
@@ -113,7 +115,7 @@ const Navbar = () => {
             className="text-white/80 hover:text-white transition-colors relative group"
             variants={itemVariants}
           >
-            About
+            {t("navbar.about")}
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-gradient group-hover:w-full transition-all duration-300"></span>
           </motion.a>
           <motion.div
@@ -130,9 +132,12 @@ const Navbar = () => {
                 }
               }}
             >
-              Book Free Strategy Call
+              {t("navbar.bookCall")}
             </Button>
           </motion.div>
+          <div className="hidden md:block ml-4">
+            <LanguageSwitcher />
+          </div>
         </motion.nav>
 
         {/* Mobile Menu Button */}
@@ -194,7 +199,7 @@ const Navbar = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
                 >
-                  Services
+                  {t("navbar.services")}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-gradient group-hover:w-full transition-all duration-300" />
                 </motion.a>
                 <motion.a 
@@ -205,7 +210,7 @@ const Navbar = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
                 >
-                  Process
+                  {t("navbar.process")}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-gradient group-hover:w-full transition-all duration-300" />
                 </motion.a>
                 <motion.a 
@@ -216,7 +221,7 @@ const Navbar = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
                 >
-                  About
+                  {t("navbar.about")}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-gradient group-hover:w-full transition-all duration-300" />
                 </motion.a>
                 <motion.div
@@ -235,8 +240,15 @@ const Navbar = () => {
                       }
                     }}
                   >
-                    Book Free Strategy Call
+                    {t("navbar.bookCall")}
                   </Button>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.6 }}
+                >
+                  <LanguageSwitcher />
                 </motion.div>
               </nav>
             </motion.div>

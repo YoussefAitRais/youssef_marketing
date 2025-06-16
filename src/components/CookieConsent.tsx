@@ -1,12 +1,13 @@
-
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
+import { useTranslation } from "react-i18next";
 
 const CookieConsent = () => {
+  const { t } = useTranslation();
   const [showConsent, setShowConsent] = useState(false);
   const { toast } = useToast();
 
@@ -26,8 +27,8 @@ const CookieConsent = () => {
     localStorage.setItem("cookiesAccepted", "true");
     setShowConsent(false);
     toast({
-      title: "Cookies Accepted",
-      description: "Thank you for accepting cookies.",
+      title: t("cookies.accepted.title"),
+      description: t("cookies.accepted.desc"),
     });
   };
 
@@ -35,8 +36,8 @@ const CookieConsent = () => {
     localStorage.setItem("cookiesDeclined", "true");
     setShowConsent(false);
     toast({
-      title: "Cookies Declined",
-      description: "You have declined cookies. Some features may be limited.",
+      title: t("cookies.declined.title"),
+      description: t("cookies.declined.desc"),
     });
   };
 
@@ -53,11 +54,11 @@ const CookieConsent = () => {
       <div className="container mx-auto p-4 md:p-6">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div className="flex-1">
-            <h3 className="text-xl font-semibold mb-2">We use cookies</h3>
+            <h3 className="text-xl font-semibold mb-2">{t("cookies.banner.title")}</h3>
             <p className="text-white/80 text-sm md:text-base">
-              This website uses cookies to enhance your browsing experience, analyze site traffic, and provide personalized content. By clicking "Accept", you consent to our use of cookies. 
+              {t("cookies.banner.desc")} 
               <Link to="/cookies-policy" className="text-blue-400 hover:underline ml-1">
-                Learn more
+                {t("cookies.banner.learn")}
               </Link>
             </p>
           </div>
@@ -68,7 +69,7 @@ const CookieConsent = () => {
               onClick={declineCookies}
               className="border-gray-600 text-white"
             >
-              Decline
+              {t("cookies.banner.decline")}
             </Button>
             <Button 
               variant="default" 
@@ -76,7 +77,7 @@ const CookieConsent = () => {
               onClick={acceptCookies}
               className="bg-gradient-to-r from-[#FF2F92] to-[#1AD7FF] hover:opacity-90 text-white"
             >
-              Accept
+              {t("cookies.banner.accept")}
             </Button>
           </div>
         </div>

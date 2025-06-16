@@ -1,15 +1,16 @@
-
 import React from "react";
 import { motion } from "framer-motion";
 import { Award, Users, CheckCircle } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const stats = [
-  { value: "50+", label: "Completed Projects", icon: <CheckCircle className="w-5 h-5" />, color: "from-pink-500 to-brand-pink" },
-  { value: "96%", label: "Client Retention", icon: <Users className="w-5 h-5" />, color: "from-purple-500 to-brand-purple" },
-  { value: "8", label: "Industry Awards", icon: <Award className="w-5 h-5" />, color: "from-blue-500 to-brand-blue" }
+  { id: "projects", value: "50+", icon: <CheckCircle className="w-5 h-5" />, color: "from-pink-500 to-brand-pink" },
+  { id: "retention", value: "96%", icon: <Users className="w-5 h-5" />, color: "from-purple-500 to-brand-purple" },
+  { id: "awards", value: "8", icon: <Award className="w-5 h-5" />, color: "from-blue-500 to-brand-blue" }
 ];
 
 const AboutSection = () => {
+  const { t } = useTranslation();
   return (
     <section id="about" className="py-20 bg-white/5 relative overflow-hidden">
       {/* Background decorative elements */}
@@ -65,11 +66,11 @@ const AboutSection = () => {
               animate={{ opacity: [0.03, 0.05, 0.03] }}
               transition={{ duration: 5, repeat: Infinity }}
             >
-              ABOUT US
+              {t("about.heading.colored").toUpperCase()}
             </motion.span>
             
             <h2 className="text-3xl md:text-4xl font-bold mb-2">
-              About <span className="gradient-text">Lina Prime</span>
+              {t("about.heading.prefix")} <span className="gradient-text">{t("about.heading.colored")}</span>
             </h2>
             
             <div className="h-1 w-20 bg-brand-gradient rounded-full mb-6"></div>
@@ -81,9 +82,7 @@ const AboutSection = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              Lina Prime was founded with a vision to help ambitious businesses scale through
-              technology. Our name is inspired by the young palm tree (Lina), symbolizing growth,
-              resilience and reaching new heights.
+              {t("about.paragraph1")}
             </motion.p>
             
             <motion.p 
@@ -93,8 +92,7 @@ const AboutSection = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              Our team combines deep technical expertise with business acumen, creating solutions
-              that not only solve today's challenges but set you up for tomorrow's opportunities.
+              {t("about.paragraph2")}
             </motion.p>
             
             <motion.p 
@@ -104,8 +102,7 @@ const AboutSection = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              We pride ourselves on being more than service providers—we're growth partners
-              committed to your long-term success.
+              {t("about.paragraph3")}
             </motion.p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
@@ -140,7 +137,7 @@ const AboutSection = () => {
                     {stat.value}
                   </div>
                   
-                  <div className="text-sm text-white/70">{stat.label}</div>
+                  <div className="text-sm text-white/70">{t(`about.stats.${stat.id}`)}</div>
                 </motion.div>
               ))}
             </div>
@@ -167,8 +164,8 @@ const AboutSection = () => {
                         <path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM3.6 9h16.8M3.6 15h16.8M12 3a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z" />
                       </svg>
                     </div>
-                    <p className="text-lg font-semibold gradient-text mb-1">Global Reach</p>
-                    <p className="text-sm text-white/70">Serving Clients Worldwide</p>
+                    <p className="text-lg font-semibold gradient-text mb-1">{t("about.features.global.title")}</p>
+                    <p className="text-sm text-white/70">{t("about.features.global.desc")}</p>
                   </div>
                 </div>
               </motion.div>
@@ -183,12 +180,11 @@ const AboutSection = () => {
                   <div className="text-center">
                     <div className="w-16 h-16 mx-auto mb-4">
                       <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                        <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" />
-                        <path d="M12 8v4l3 3" />
+                        <path d="M21 12h-4l-3 9L9 3l-3 9H2" />
                       </svg>
                     </div>
-                    <p className="text-lg font-semibold gradient-text mb-1">24/7 Support</p>
-                    <p className="text-sm text-white/70">Always Here for You</p>
+                    <p className="text-lg font-semibold gradient-text mb-1">{t("about.features.support.title")}</p>
+                    <p className="text-sm text-white/70">{t("about.features.support.desc")}</p>
                   </div>
                 </div>
               </motion.div>
@@ -208,8 +204,8 @@ const AboutSection = () => {
                         <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                       </svg>
                     </div>
-                    <p className="text-lg font-semibold gradient-text mb-1">Scalable Solutions</p>
-                    <p className="text-sm text-white/70">Built for Growth</p>
+                    <p className="text-lg font-semibold gradient-text mb-1">{t("about.features.scalable.title")}</p>
+                    <p className="text-sm text-white/70">{t("about.features.scalable.desc")}</p>
                   </div>
                 </div>
               </motion.div>
@@ -227,8 +223,8 @@ const AboutSection = () => {
                         <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
                       </svg>
                     </div>
-                    <p className="text-lg font-semibold gradient-text mb-1">Performance First</p>
-                    <p className="text-sm text-white/70">Optimized Solutions</p>
+                    <p className="text-lg font-semibold gradient-text mb-1">{t("about.features.performance.title")}</p>
+                    <p className="text-sm text-white/70">{t("about.features.performance.desc")}</p>
                   </div>
                 </div>
               </motion.div>

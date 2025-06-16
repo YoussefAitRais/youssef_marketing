@@ -1,5 +1,5 @@
-
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Mail, Twitter, Linkedin, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const Footer = () => {
+  const { t } = useTranslation();
   const fadeIn = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
@@ -30,7 +31,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-white/70 mb-6">
-              Engineer smarter systems today, unlock unstoppable growth tomorrow.
+              {t("footer.tagline")}
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-white/70 hover:text-white transition-colors transform hover:scale-110 duration-300">
@@ -55,12 +56,11 @@ const Footer = () => {
             transition={{ ...fadeIn.transition, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h4 className="text-lg font-bold mb-6">Quick Links</h4>
+            <h4 className="text-lg font-bold mb-6">{t("footer.quicklinks.title")}</h4>
             <ul className="space-y-3">
-              <li><a href="/#services" className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">Services</a></li>
-              <li><a href="/#process" className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">Process</a></li>
-              <li><a href="/#about" className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">About Us</a></li>
-              
+              <li><a href="/#services" className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">{t("navbar.services")}</a></li>
+              <li><a href="/#process" className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">{t("navbar.process")}</a></li>
+              <li><a href="/#about" className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">{t("navbar.about")}</a></li>
             </ul>
           </motion.div>
 
@@ -71,12 +71,12 @@ const Footer = () => {
             transition={{ ...fadeIn.transition, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <h4 className="text-lg font-bold mb-6">Services</h4>
+            <h4 className="text-lg font-bold mb-6">{t("footer.services.title")}</h4>
             <ul className="space-y-3">
-              <li><a href="/services/web-development" className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">Web Development</a></li>
-              <li><a href="/services/ai-automation" className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">AI Automations</a></li>
-              <li><a href="/services/growth-consulting" className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">Growth Consulting</a></li>
-              <li><a href="/services/saas-incubation" className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">SaaS Incubation</a></li>
+              <li><a href="/services/web-development" className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">{t("services.sectionCards.web-dev.title")}</a></li>
+              <li><a href="/services/ai-automation" className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">{t("services.sectionCards.ai-automation.title")}</a></li>
+              <li><a href="/services/growth-consulting" className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">{t("services.sectionCards.growth.title")}</a></li>
+              <li><a href="/services/saas-incubation" className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">{t("services.sectionCards.saas.title")}</a></li>
             </ul>
           </motion.div>
 
@@ -87,16 +87,16 @@ const Footer = () => {
             transition={{ ...fadeIn.transition, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <h4 className="text-lg font-bold mb-6">Subscribe to Our Newsletter</h4>
-            <p className="text-white/70 mb-4">Get the latest tips on tech, growth, and automation.</p>
+            <h4 className="text-lg font-bold mb-6">{t("footer.news.title")}</h4>
+            <p className="text-white/70 mb-4">{t("footer.news.desc")}</p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Input 
                 type="email" 
-                placeholder="Your email" 
+                placeholder={t("footer.news.placeholder")} 
                 className="bg-white/10 border-white/20 text-white focus:ring-brand-purple focus:border-brand-purple transition-all duration-300"
               />
               <Button className="bg-brand-gradient animate-gradient-shift hover:scale-105 transition-transform duration-300">
-                Subscribe
+                {t("footer.news.subscribe")}
               </Button>
             </div>
           </motion.div>
@@ -105,20 +105,20 @@ const Footer = () => {
         {/* Bottom */}
         <div className="border-t border-white/10 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-white/50 text-sm mb-4 md:mb-0">
-            © {new Date().getFullYear()} Lina Prime Solutions LLC. All rights reserved.
+            {new Date().getFullYear()} Lina Prime Solutions LLC. {t("footer.copyright")}
           </p>
           <div className="flex flex-wrap justify-center gap-4 md:gap-6">
             <a href="/privacy-policy" className="text-white/50 hover:text-white text-sm transition-colors">
-              Privacy Policy
+              {t("footer.policies.privacy")}
             </a>
             <a href="/terms-of-service" className="text-white/50 hover:text-white text-sm transition-colors">
-              Terms of Service
+              {t("footer.policies.terms")}
             </a>
             <a href="/cookies-policy" className="text-white/50 hover:text-white text-sm transition-colors">
-              Cookies Policy
+              {t("footer.policies.cookies")}
             </a>
             <a href="/disclaimer" className="text-white/50 hover:text-white text-sm transition-colors">
-              Disclaimer
+              {t("footer.policies.disclaimer")}
             </a>
           </div>
         </div>

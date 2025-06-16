@@ -1,10 +1,11 @@
-
 import React, { useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { useTranslation, Trans } from "react-i18next";
 import { motion, useAnimation } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
 const HeroSection = () => {
+  const { t } = useTranslation();
   const controlsImage = useAnimation();
   const controlsText = useAnimation();
 
@@ -104,8 +105,7 @@ const HeroSection = () => {
                   WebkitTextFillColor: "transparent"
                 }}
               >
-                Prime Your Growth with{" "}
-                <span>Code, AI & Strategy</span>
+                <Trans i18nKey="hero.headline" components={{ strong: <span/> }} values={{ strong: t("hero.strong") }} />
               </motion.h1>
             </div>
             
@@ -115,8 +115,7 @@ const HeroSection = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.8 }}
             >
-              We help ambitious businesses scale through custom web solutions, AI-driven automations, 
-              and data-backed growth strategies. Engineer smarter systems today, unlock unstoppable growth tomorrow.
+              {t("hero.sub")}
             </motion.p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -136,7 +135,7 @@ const HeroSection = () => {
                     }
                   }}
                 >
-                  <span className="mr-2">Book Free Strategy Call</span>
+                  <span className="mr-2">{t("hero.cta")}</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </motion.div>

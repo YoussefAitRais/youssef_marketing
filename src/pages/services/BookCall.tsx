@@ -5,30 +5,32 @@ import { MessageSquare, Calendar, Video, CheckCircle2 } from "lucide-react";
 import ServiceLayout from "@/components/layouts/ServiceLayout";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+import { useTranslation } from "react-i18next";
 
 const BookCall = () => {
+  const { t } = useTranslation();
   const benefits = [
     {
-      title: "Expert Consultation",
-      description: "Get personalized insights and strategies from our experienced team of professionals.",
+      title: t('services.bookCall.benefits.items.expert.title'),
+      description: t('services.bookCall.benefits.items.expert.description'),
       icon: <MessageSquare className="w-6 h-6" />,
       gradient: "from-brand-pink to-brand-purple"
     },
     {
-      title: "Flexible Scheduling",
-      description: "Choose a time that works best for you with our easy online booking system.",
+      title: t('services.bookCall.benefits.items.scheduling.title'),
+      description: t('services.bookCall.benefits.items.scheduling.description'),
       icon: <Calendar className="w-6 h-6" />,
       gradient: "from-brand-purple to-brand-blue"
     },
     {
-      title: "Virtual Meeting",
-      description: "Connect with us from anywhere in the world via high-quality video conferencing.",
+      title: t('services.bookCall.benefits.items.virtual.title'),
+      description: t('services.bookCall.benefits.items.virtual.description'),
       icon: <Video className="w-6 h-6" />,
       gradient: "from-brand-blue to-brand-pink"
     },
     {
-      title: "Action Plan",
-      description: "Receive a clear, actionable roadmap tailored to your business goals and challenges.",
+      title: t('services.bookCall.benefits.items.actionPlan.title'),
+      description: t('services.bookCall.benefits.items.actionPlan.description'),
       icon: <CheckCircle2 className="w-6 h-6" />,
       gradient: "from-brand-pink to-brand-purple"
     }
@@ -36,8 +38,8 @@ const BookCall = () => {
 
   return (
     <ServiceLayout
-      title="Book a Free Strategy Call"
-      description="Schedule your free strategy call with our experts and discover how we can help you grow your business with custom solutions."
+      title={t('services.bookCall.meta.title')}
+      description={t('services.bookCall.meta.description')}
     >
       
       {/* Hero Section */}
@@ -50,10 +52,10 @@ const BookCall = () => {
             className="text-center max-w-3xl mx-auto"
           >
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Schedule Your <span className="gradient-text">Free Strategy Call</span>
+              {t('services.bookCall.hero.title')} <span className="gradient-text">{t('services.bookCall.hero.titleColored')}</span>
             </h1>
             <p className="text-xl text-white/70 mb-8">
-              Our team is ready to help you solve your business challenges and explore opportunities for growth. Book a no-obligation consultation today.
+              {t('services.bookCall.hero.subtitle')}
             </p>
           </motion.div>
         </div>
@@ -70,10 +72,10 @@ const BookCall = () => {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Why Book a <span className="gradient-text">Strategy Call</span>
+              {t('services.bookCall.benefits.title')} <span className="gradient-text">{t('services.bookCall.benefits.titleColored')}</span>
             </h2>
             <p className="text-white/70 max-w-2xl mx-auto">
-              Discover how our expert consultation can help transform your business and accelerate growth.
+              {t('services.bookCall.benefits.subtitle')}
             </p>
           </motion.div>
           
@@ -127,29 +129,29 @@ const BookCall = () => {
             className="text-center mb-12"
           >
             <h2 className="text-3xl font-bold mb-4">
-              What Our Clients <span className="gradient-text">Say</span>
+              {t('services.bookCall.testimonials.title')} <span className="gradient-text">{t('services.bookCall.testimonials.titleColored')}</span>
             </h2>
             <p className="text-white/70 max-w-2xl mx-auto">
-              Don't just take our word for it. Here's what others are saying about their strategy calls with us.
+              {t('services.bookCall.testimonials.subtitle')}
             </p>
           </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
-                quote: "The strategy call was eye-opening. I got more value in 30 minutes than I've received from months of working with other consultants.",
-                name: "Sarah Johnson",
-                role: "CEO, TechStart Inc."
+                quote: t('services.bookCall.testimonials.items.0.quote'),
+                name: t('services.bookCall.testimonials.items.0.name'),
+                role: t('services.bookCall.testimonials.items.0.role')
               },
               {
-                quote: "Within minutes, they identified critical issues in our workflow that were costing us thousands. Their solution was simple yet effective.",
-                name: "Michael Rodriguez",
-                role: "Operations Director, GrowthHub"
+                quote: t('services.bookCall.testimonials.items.1.quote'),
+                name: t('services.bookCall.testimonials.items.1.name'),
+                role: t('services.bookCall.testimonials.items.1.role')
               },
               {
-                quote: "What impressed me most was how prepared they were for our call. They had researched our business and had actionable suggestions ready.",
-                name: "Emma Chen",
-                role: "Founder, EcoConnect"
+                quote: t('services.bookCall.testimonials.items.2.quote'),
+                name: t('services.bookCall.testimonials.items.2.name'),
+                role: t('services.bookCall.testimonials.items.2.role')
               }
             ].map((testimonial, index) => (
               <motion.div

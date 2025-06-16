@@ -1,37 +1,18 @@
-
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "react-i18next";
 
 const testimonials = [
-  {
-    quote: "Lina Prime transformed our outdated systems into sleek, automated workflows that saved us 20+ hours per week. Their team was incredibly knowledgeable and responsive.",
-    author: "Sarah Johnson",
-    position: "CTO, TechFlow Inc.",
-    initials: "SJ"
-  },
-  {
-    quote: "Working with Lina Prime on our SaaS MVP was a game-changer. They delivered on time and created a scalable architecture that's easy to expand as we grow.",
-    author: "Michael Chen",
-    position: "Founder, DataPulse",
-    initials: "MC"
-  },
-  {
-    quote: "Our ecommerce conversion rate jumped 195% after Lina Prime redesigned our customer journey. Data-driven decisions and beautiful UI combined perfectly.",
-    author: "Priya Patel",
-    position: "Marketing Director, StyleHouse",
-    initials: "PP"
-  },
-  {
-    quote: "The AI chatbot Lina built for us handles 75% of customer inquiries automatically, improving our response time while reducing support costs. Truly innovative.",
-    author: "David Wilson",
-    position: "Customer Success Lead, ServiceNow",
-    initials: "DW"
-  }
+  { id: "sarah", initials: "SJ" },
+  { id: "michael", initials: "MC" },
+  { id: "priya", initials: "PP" },
+  { id: "david", initials: "DW" }
 ];
 
 const TestimonialsSection = () => {
+  const { t } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [autoplay, setAutoplay] = useState(true);
 
@@ -64,6 +45,9 @@ const TestimonialsSection = () => {
   };
 
   const currentTestimonial = testimonials[currentIndex];
+  const quote = t(`testimonials.items.${currentTestimonial.id}.quote`);
+  const author = t(`testimonials.items.${currentTestimonial.id}.author`);
+  const position = t(`testimonials.items.${currentTestimonial.id}.position`);
 
   return (
     <section className="py-20 relative overflow-hidden">
@@ -121,17 +105,17 @@ const TestimonialsSection = () => {
               animate={{ opacity: [0.03, 0.05, 0.03] }}
               transition={{ duration: 5, repeat: Infinity }}
             >
-              TESTIMONIALS
+              {t("testimonials.heading.colored").toUpperCase()}
             </motion.span>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 relative">
-              What Our <span className="gradient-text">Clients Say</span>
+              {t("testimonials.heading.prefix")} <span className="gradient-text">{t("testimonials.heading.colored")}</span>
             </h2>
           </div>
           
           <div className="h-1 w-20 mx-auto bg-brand-gradient rounded-full mb-6"></div>
           
           <p className="text-white/70 max-w-2xl mx-auto">
-            Don't just take our word for it. Here's what our clients have to say about working with us.
+            {t("testimonials.description")}
           </p>
         </motion.div>
 
@@ -161,9 +145,9 @@ const TestimonialsSection = () => {
                       <span className="text-2xl font-bold">{currentTestimonial.initials}</span>
                     </div>
                     <div className="text-center md:text-left">
-                      <p className="text-xl font-semibold mb-1 gradient-text">{currentTestimonial.author}</p>
-                      <p className="text-sm text-white/70 mb-4">{currentTestimonial.position}</p>
-                      <p className="text-lg md:text-xl italic text-white/90">"{currentTestimonial.quote}"</p>
+                      <p className="text-xl font-semibold mb-1 gradient-text">{author}</p>
+                      <p className="text-sm text-white/70 mb-4">{position}</p>
+                      <p className="text-lg md:text-xl italic text-white/90">"{quote}"</p>
                     </div>
                   </div>
                 </motion.div>

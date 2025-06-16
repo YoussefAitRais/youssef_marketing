@@ -1,40 +1,17 @@
-
 import React from "react";
 import { motion } from "framer-motion";
 import { Search, PenTool, Rocket, TrendingUp } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const processSteps = [
-  {
-    icon: <Search className="w-6 h-6" />,
-    title: "Discover",
-    description: "We analyze your business needs, goals, and audience to create a tailored strategy.",
-    delay: 0.1,
-    color: "from-pink-500 to-brand-pink"
-  },
-  {
-    icon: <PenTool className="w-6 h-6" />,
-    title: "Design",
-    description: "We create wireframes, prototypes, and technical specifications for your approval.",
-    delay: 0.3,
-    color: "from-purple-500 to-brand-purple"
-  },
-  {
-    icon: <Rocket className="w-6 h-6" />,
-    title: "Deploy",
-    description: "We develop, test, and launch your solution with rigorous quality assurance.",
-    delay: 0.5,
-    color: "from-indigo-500 to-purple-600"
-  },
-  {
-    icon: <TrendingUp className="w-6 h-6" />,
-    title: "Scale",
-    description: "We optimize, refine, and expand your solution based on real-world data and feedback.",
-    delay: 0.7,
-    color: "from-blue-500 to-brand-blue"
-  }
+  { id: "discover", icon: <Search className="w-6 h-6" />, delay: 0.1, color: "from-pink-500 to-brand-pink" },
+  { id: "design", icon: <PenTool className="w-6 h-6" />, delay: 0.3, color: "from-purple-500 to-brand-purple" },
+  { id: "deploy", icon: <Rocket className="w-6 h-6" />, delay: 0.5, color: "from-indigo-500 to-purple-600" },
+  { id: "scale", icon: <TrendingUp className="w-6 h-6" />, delay: 0.7, color: "from-blue-500 to-brand-blue" }
 ];
 
 const ProcessSection = () => {
+  const { t } = useTranslation();
   return (
     <section id="process" className="py-20 bg-white/5 relative overflow-hidden">
       {/* Background decorative elements */}
@@ -102,18 +79,17 @@ const ProcessSection = () => {
               animate={{ opacity: [0.03, 0.05, 0.03] }}
               transition={{ duration: 5, repeat: Infinity }}
             >
-              PROCESS
+              {t("process.heading.colored").toUpperCase()}
             </motion.span>
             <h2 className="text-3xl md:text-4xl font-bold mb-4 relative">
-              How We <span className="gradient-text">Work</span>
+              {t("process.heading.prefix")} <span className="gradient-text">{t("process.heading.colored")}</span>
             </h2>
           </div>
           
           <div className="h-1 w-20 mx-auto bg-brand-gradient rounded-full mb-6"></div>
           
           <p className="text-white/70 max-w-2xl mx-auto">
-            Our streamlined four-step process ensures efficient delivery of solutions that 
-            match your business goals and exceed expectations.
+            {t("process.description")}
           </p>
         </motion.div>
 
@@ -169,9 +145,9 @@ const ProcessSection = () => {
                       <div className={`md:hidden mr-4 w-10 h-10 rounded-full bg-gradient-to-br ${step.color} flex items-center justify-center`}>
                         {step.icon}
                       </div>
-                      <h3 className="text-2xl font-bold gradient-text">{step.title}</h3>
+                      <h3 className="text-2xl font-bold gradient-text">{t(`process.steps.${step.id}.title`)}</h3>
                     </div>
-                    <p className="text-white/80">{step.description}</p>
+                    <p className="text-white/80">{t(`process.steps.${step.id}.desc`)}</p>
                     
                     {/* Step number */}
                     <div className="absolute top-0 right-0 md:block hidden">

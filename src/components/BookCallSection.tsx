@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { Calendar, Clock, Phone, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -6,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
 const BookCallSection = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -63,10 +65,10 @@ const BookCallSection = () => {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Book Your Free <span className="gradient-text">Strategy Call</span>
+              {t("bookcall.heading.prefix")} <span className="gradient-text">{t("bookcall.heading.colored")}</span>
             </h2>
             <p className="text-white/80 text-lg max-w-2xl mx-auto">
-              Let's discuss how we can help your business grow. Schedule a free 30-minute strategy call with our experts.
+              {t("bookcall.description")}
             </p>
           </motion.div>
 
@@ -80,20 +82,20 @@ const BookCallSection = () => {
             {[
               {
                 icon: <Calendar className="w-6 h-6" />,
-                title: "Pick a Time",
-                description: "Choose a time that works best for your schedule",
+                title: t("bookcall.cards.pick.title"),
+                description: t("bookcall.cards.pick.desc"),
                 gradient: "from-brand-pink to-brand-purple",
               },
               {
                 icon: <Phone className="w-6 h-6" />,
-                title: "Free Consultation",
-                description: "30-minute strategy call with our experts",
+                title: t("bookcall.cards.consult.title"),
+                description: t("bookcall.cards.consult.desc"),
                 gradient: "from-brand-purple to-brand-blue",
               },
               {
                 icon: <Send className="w-6 h-6" />,
-                title: "Get a Plan",
-                description: "Receive a tailored action plan for your business",
+                title: t("bookcall.cards.plan.title"),
+                description: t("bookcall.cards.plan.desc"),
                 gradient: "from-brand-blue to-brand-pink",
               },
             ].map((item, index) => (
@@ -123,21 +125,21 @@ const BookCallSection = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-white/90 mb-2">
-                    Your Name
+                    {t("bookcall.form.name")}
                   </label>
                   <Input
                     id="name"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="John Doe"
+                    placeholder={t("bookcall.form.namePlaceholder")}
                     className="w-full bg-white/5 border-white/10 text-white placeholder:text-white/50"
                     required
                   />
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-white/90 mb-2">
-                    Email Address
+                    {t("bookcall.form.email")}
                   </label>
                   <Input
                     id="email"
@@ -145,14 +147,14 @@ const BookCallSection = () => {
                     type="email"
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="john@example.com"
+                    placeholder={t("bookcall.form.emailPlaceholder")}
                     className="w-full bg-white/5 border-white/10 text-white placeholder:text-white/50"
                     required
                   />
                 </div>
                 <div>
                   <label htmlFor="phone" className="block text-sm font-medium text-white/90 mb-2">
-                    Phone Number
+                    {t("bookcall.form.phone")}
                   </label>
                   <Input
                     id="phone"
@@ -160,20 +162,20 @@ const BookCallSection = () => {
                     type="tel"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="+1 (555) 000-0000"
+                    placeholder={t("bookcall.form.phonePlaceholder")}
                     className="w-full bg-white/5 border-white/10 text-white placeholder:text-white/50"
                   />
                 </div>
                 <div>
                   <label htmlFor="company" className="block text-sm font-medium text-white/90 mb-2">
-                    Company Name
+                    {t("bookcall.form.company")}
                   </label>
                   <Input
                     id="company"
                     name="company"
                     value={formData.company}
                     onChange={handleChange}
-                    placeholder="Your Company"
+                    placeholder={t("bookcall.form.companyPlaceholder")}
                     className="w-full bg-white/5 border-white/10 text-white placeholder:text-white/50"
                   />
                 </div>
@@ -181,14 +183,14 @@ const BookCallSection = () => {
               
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-white/90 mb-2">
-                  How can we help?
+                  {t("bookcall.form.message")}
                 </label>
                 <Textarea
                   id="message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Tell us about your project and goals..."
+                  placeholder={t("bookcall.form.messagePlaceholder")}
                   className="w-full bg-white/5 border-white/10 text-white placeholder:text-white/50 min-h-[100px]"
                 />
               </div>
@@ -198,7 +200,7 @@ const BookCallSection = () => {
                   type="submit"
                   className="bg-brand-gradient hover:opacity-90 text-white px-8 py-6 text-lg font-semibold rounded-xl"
                 >
-                  Schedule Your Call
+                  {t("bookcall.schedule")}
                   <Clock className="ml-2 w-5 h-5" />
                 </Button>
               </div>

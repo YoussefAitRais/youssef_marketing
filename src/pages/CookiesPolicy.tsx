@@ -1,16 +1,18 @@
 
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
 
 const CookiesPolicy = () => {
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen bg-brand-black text-white overflow-x-hidden">
       <Helmet>
-        <title>Cookies Policy | Lina Prime Solutions LLC</title>
-        <meta name="description" content="Cookies policy for Lina Prime Solutions LLC." />
+        <title>{`${t('policies.cookies.title')} | Lina Prime Solutions LLC`}</title>
+        <meta name="description" content={t('policies.cookies.meta')} />
       </Helmet>
       
       <Navbar />
@@ -22,59 +24,59 @@ const CookiesPolicy = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-3xl md:text-4xl font-bold mb-6 gradient-text">Cookies Policy</h1>
+            <h1 className="text-3xl md:text-4xl font-bold mb-6 gradient-text">{t('policies.cookies.title')}</h1>
             
             <div className="prose prose-lg prose-invert max-w-none">
-              <p className="text-white/80">Last Updated: May 17, 2025</p>
+              <p className="text-white/80">{t('policies.cookies.updated')}</p>
               
-              <h2 className="text-2xl font-bold mt-8 mb-4">1. What Are Cookies</h2>
+              <h2 className="text-2xl font-bold mt-8 mb-4">{t('policies.cookies.sections.1.heading')}</h2>
               <p className="text-white/80">
-                Cookies are small pieces of text sent to your web browser by a website you visit. A cookie file is stored in your web browser and allows the Service or a third-party to recognize you and make your next visit easier and more useful to you.
+                {t('policies.cookies.sections.1.p1')}
               </p>
               <p className="text-white/80">
-                Cookies can be "persistent" or "session" cookies. Persistent cookies remain on your personal computer or mobile device when you go offline, while session cookies are deleted as soon as you close your web browser.
+                {t('policies.cookies.sections.1.p2')}
               </p>
               
-              <h2 className="text-2xl font-bold mt-8 mb-4">2. How Lina Prime Solutions LLC Uses Cookies</h2>
+              <h2 className="text-2xl font-bold mt-8 mb-4">{t('policies.cookies.sections.2.heading')}</h2>
               <p className="text-white/80">
-                When you use and access our website, we may place a number of cookie files in your web browser. We use cookies for the following purposes:
+                {t('policies.cookies.sections.2.intro')}
               </p>
               <ul className="list-disc pl-6 text-white/80 mb-6">
-                <li>Essential cookies: To enable core functionality such as security, network management, and accessibility.</li>
-                <li>Analytics cookies: To help us understand how visitors interact with our website by collecting and reporting information anonymously.</li>
-                <li>Marketing cookies: To enable us to recognize and count the number of visitors and to see how visitors move around our website when they are using it.</li>
-                <li>Functionality cookies: To recognize you when you return to our website.</li>
+                <li>{t('policies.cookies.sections.2.list.essential')}</li>
+                <li>{t('policies.cookies.sections.2.list.analytics')}</li>
+                <li>{t('policies.cookies.sections.2.list.marketing')}</li>
+                <li>{t('policies.cookies.sections.2.list.functionality')}</li>
               </ul>
               
-              <h2 className="text-2xl font-bold mt-8 mb-4">3. Third-Party Cookies</h2>
+              <h2 className="text-2xl font-bold mt-8 mb-4">{t('policies.cookies.sections.3.heading')}</h2>
               <p className="text-white/80">
-                In addition to our own cookies, we may also use various third-party cookies to report usage statistics of the Service, deliver advertisements on and through the Service, and so on.
+                {t('policies.cookies.sections.3.p')}
               </p>
               
-              <h2 className="text-2xl font-bold mt-8 mb-4">4. What Are Your Choices Regarding Cookies</h2>
+              <h2 className="text-2xl font-bold mt-8 mb-4">{t('policies.cookies.sections.4.heading')}</h2>
               <p className="text-white/80">
-                If you'd like to delete cookies or instruct your web browser to delete or refuse cookies, please visit the help pages of your web browser.
+                {t('policies.cookies.sections.4.p1')}
               </p>
               <p className="text-white/80">
-                Please note, however, that if you delete cookies or refuse to accept them, you might not be able to use all of the features we offer, you may not be able to store your preferences, and some of our pages might not display properly.
+                {t('policies.cookies.sections.4.p2')}
               </p>
               
-              <h2 className="text-2xl font-bold mt-8 mb-4">5. Where Can You Find More Information About Cookies</h2>
+              <h2 className="text-2xl font-bold mt-8 mb-4">{t('policies.cookies.sections.5.heading')}</h2>
               <p className="text-white/80">
-                You can learn more about cookies and the following third-party websites:
+                {t('policies.cookies.sections.5.p')}
               </p>
               <ul className="list-disc pl-6 text-white/80 mb-6">
-                <li>AllAboutCookies: <a href="http://www.allaboutcookies.org/" className="text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer">http://www.allaboutcookies.org/</a></li>
-                <li>Network Advertising Initiative: <a href="http://www.networkadvertising.org/" className="text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer">http://www.networkadvertising.org/</a></li>
+                <li>{t('policies.cookies.sections.5.links.allabout')}: <a href="http://www.allaboutcookies.org/" className="text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer">http://www.allaboutcookies.org/</a></li>
+                <li>{t('policies.cookies.sections.5.links.nai')}: <a href="http://www.networkadvertising.org/" className="text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer">http://www.networkadvertising.org/</a></li>
               </ul>
               
-              <h2 className="text-2xl font-bold mt-8 mb-4">6. Contact Us</h2>
+              <h2 className="text-2xl font-bold mt-8 mb-4">{t('policies.cookies.sections.6.heading')}</h2>
               <p className="text-white/80">
-                If you have any questions about our Cookies Policy, please contact us at:
+                {t('policies.cookies.sections.6.intro')}
               </p>
               <p className="text-white/80">
-                Lina Prime Solutions LLC<br />
-                Email: cookies@linaprimesolutions.com
+                {t('policies.cookies.sections.6.address')}<br />
+                {t('policies.cookies.sections.6.email')}
               </p>
             </div>
           </motion.div>

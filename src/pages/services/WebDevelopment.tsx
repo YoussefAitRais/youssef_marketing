@@ -6,8 +6,11 @@ import ServiceLayout from "@/components/layouts/ServiceLayout";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useTranslation } from "react-i18next";
 
 const WebDevelopment = () => {
+  const { t } = useTranslation();
+  
   const technologies = [
     "Next.js", "React", "TypeScript", "Node.js", "Django", 
     "WordPress", "Shopify", "Tailwind CSS", "MongoDB", "PostgreSQL"
@@ -15,38 +18,38 @@ const WebDevelopment = () => {
   
   const serviceFeatures = [
     {
-      title: "Custom Web Applications",
-      description: "Fully customized web applications built from the ground up to meet your specific business needs.",
+      title: t('services.webDev.features.customApps.title'),
+      description: t('services.webDev.features.customApps.description'),
       icon: <Code className="w-6 h-6" />,
       gradient: "from-brand-pink to-brand-purple"
     },
     {
-      title: "E-commerce Solutions",
-      description: "Robust online stores with secure payment processing, inventory management, and customer portals.",
+      title: t('services.webDev.features.ecommerce.title'),
+      description: t('services.webDev.features.ecommerce.description'),
       icon: <Monitor className="w-6 h-6" />,
       gradient: "from-brand-purple to-brand-blue"
     },
     {
-      title: "Mobile-Responsive Design",
-      description: "Websites that look and function flawlessly across all devices and screen sizes.",
+      title: t('services.webDev.features.responsive.title'),
+      description: t('services.webDev.features.responsive.description'),
       icon: <Smartphone className="w-6 h-6" />,
       gradient: "from-brand-blue to-brand-pink"
     },
     {
-      title: "Database Architecture",
-      description: "Scalable and efficient database design that ensures optimal performance and data integrity.",
+      title: t('services.webDev.features.database.title'),
+      description: t('services.webDev.features.database.description'),
       icon: <Database className="w-6 h-6" />,
       gradient: "from-brand-pink to-brand-purple"
     },
     {
-      title: "UI/UX Design",
-      description: "Beautiful and intuitive user interfaces that provide an exceptional user experience.",
+      title: t('services.webDev.features.uiux.title'),
+      description: t('services.webDev.features.uiux.description'),
       icon: <Layout className="w-6 h-6" />,
       gradient: "from-brand-purple to-brand-blue"
     },
     {
-      title: "Performance Optimization",
-      description: "Fast-loading websites optimized for search engines and user engagement.",
+      title: t('services.webDev.features.performance.title'),
+      description: t('services.webDev.features.performance.description'),
       icon: <CheckCircle className="w-6 h-6" />,
       gradient: "from-brand-blue to-brand-pink"
     }
@@ -54,8 +57,8 @@ const WebDevelopment = () => {
 
   return (
     <ServiceLayout
-      title="Web & App Development"
-      description="Custom digital products built with modern frameworks like Next.js, Django, Shopify & WordPress. Scalable solutions tailored to your business needs."
+      title={t('services.webDev.meta.title')}
+      description={t('services.webDev.meta.description')}
     >
       
       {/* Hero Section */}
@@ -68,10 +71,10 @@ const WebDevelopment = () => {
               transition={{ duration: 0.6 }}
             >
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                Web & App <span className="gradient-text">Development</span>
+                {t('services.webDev.hero.title')} <span className="gradient-text">{t('services.webDev.hero.titleColored')}</span>
               </h1>
               <p className="text-xl text-white/70 mb-8">
-                Custom digital products built with modern frameworks. Scalable solutions tailored to your business needs.
+                {t('services.webDev.hero.subtitle')}
               </p>
               <div className="flex flex-wrap gap-3 mb-8">
                 {technologies.map((tech, index) => (
@@ -102,9 +105,9 @@ const WebDevelopment = () => {
                 />
               </div>
               <div className="absolute -bottom-6 -right-6 bg-white/5 backdrop-blur-md border border-white/10 px-6 py-4 rounded-lg shadow-lg">
-                <p className="text-sm font-medium">Our expertise</p>
-                <p className="text-3xl font-bold gradient-text">50+ projects</p>
-                <p className="text-white/70 text-sm">Successfully delivered</p>
+                <p className="text-sm font-medium">{t('services.webDev.hero.expertise.label')}</p>
+                <p className="text-3xl font-bold gradient-text">{t('services.webDev.hero.expertise.count')}</p>
+                <p className="text-white/70 text-sm">{t('services.webDev.hero.expertise.subtext')}</p>
               </div>
             </motion.div>
           </div>
@@ -122,10 +125,10 @@ const WebDevelopment = () => {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              What We <span className="gradient-text">Offer</span>
+              {t('services.webDev.offer.title')} <span className="gradient-text">{t('services.webDev.offer.titleColored')}</span>
             </h2>
             <p className="text-white/70 max-w-2xl mx-auto">
-              We build scalable, secure, and high-performance digital products that help businesses achieve their goals.
+              {t('services.webDev.offer.subtitle')}
             </p>
           </motion.div>
           
@@ -179,10 +182,10 @@ const WebDevelopment = () => {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Our <span className="gradient-text">Process</span>
+              {t('services.webDev.process.title')} <span className="gradient-text">{t('services.webDev.process.titleColored')}</span>
             </h2>
             <p className="text-white/70 max-w-2xl mx-auto">
-              We follow a structured approach to ensure your project is delivered on time and exceeds expectations.
+              {t('services.webDev.process.subtitle')}
             </p>
           </motion.div>
           
@@ -190,28 +193,28 @@ const WebDevelopment = () => {
             {[
               {
                 step: "01",
-                title: "Discovery & Planning",
-                description: "We start by understanding your business goals, target audience, and requirements to create a detailed project plan."
+                title: t('services.webDev.process.steps.1.title'),
+                description: t('services.webDev.process.steps.1.description')
               },
               {
                 step: "02",
-                title: "Design & Prototyping",
-                description: "Our designers create wireframes and interactive prototypes to visualize the user experience before development begins."
+                title: t('services.webDev.process.steps.2.title'),
+                description: t('services.webDev.process.steps.2.description')
               },
               {
                 step: "03",
-                title: "Development",
-                description: "Our engineers build your application using modern frameworks and best practices for performance and security."
+                title: t('services.webDev.process.steps.3.title'),
+                description: t('services.webDev.process.steps.3.description')
               },
               {
                 step: "04",
-                title: "Testing & Deployment",
-                description: "We thoroughly test your application and deploy it to your chosen infrastructure with continuous integration."
+                title: t('services.webDev.process.steps.4.title'),
+                description: t('services.webDev.process.steps.4.description')
               },
               {
                 step: "05",
-                title: "Ongoing Support",
-                description: "We provide maintenance, updates, and support to ensure your application continues to perform optimally."
+                title: t('services.webDev.process.steps.5.title'),
+                description: t('services.webDev.process.steps.5.description')
               }
             ].map((phase, index) => (
               <motion.div
@@ -246,17 +249,17 @@ const WebDevelopment = () => {
             className="bg-white/5 border border-white/10 rounded-xl p-8 md:p-12 shadow-lg shadow-purple-900/10 text-center"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to <span className="gradient-text">build your next digital product?</span>
+              {t('services.webDev.cta.title')} <span className="gradient-text">{t('services.webDev.cta.titleColored')}</span>
             </h2>
             <p className="text-white/70 text-lg mb-8 max-w-2xl mx-auto">
-              Contact us today to discuss your project and see how we can help bring your vision to life.
+              {t('services.webDev.cta.subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Button className="bg-brand-gradient animate-gradient-shift py-6 px-8 text-lg">
-                Get Started
+                {t('services.webDev.cta.primaryButton')}
               </Button>
               <Button variant="outline" className="border-white/20 py-6 px-8 text-lg">
-                View Our Work
+                {t('services.webDev.cta.secondaryButton')}
               </Button>
             </div>
           </motion.div>

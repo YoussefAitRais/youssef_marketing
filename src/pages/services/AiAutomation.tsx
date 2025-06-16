@@ -6,8 +6,10 @@ import ServiceLayout from "@/components/layouts/ServiceLayout";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useTranslation } from "react-i18next";
 
 const AiAutomation = () => {
+  const { t } = useTranslation();
   const technologies = [
     "OpenAI", "GPT-4", "n8n", "Zapier", "Langchain", 
     "Python", "Machine Learning", "Data Processing", "NLP", "Computer Vision"
@@ -15,38 +17,38 @@ const AiAutomation = () => {
   
   const serviceFeatures = [
     {
-      title: "AI-Powered Chatbots",
-      description: "Intelligent conversational interfaces that can handle customer inquiries, support requests, and more.",
+      title: t('services.aiAuto.features.chatbots.title'),
+      description: t('services.aiAuto.features.chatbots.description'),
       icon: <Bot className="w-6 h-6" />,
       gradient: "from-brand-pink to-brand-purple"
     },
     {
-      title: "Workflow Automation",
-      description: "Streamline repetitive tasks and business processes to improve efficiency and reduce errors.",
+      title: t('services.aiAuto.features.workflow.title'),
+      description: t('services.aiAuto.features.workflow.description'),
       icon: <Workflow className="w-6 h-6" />,
       gradient: "from-brand-purple to-brand-blue"
     },
     {
-      title: "Data Analysis & Insights",
-      description: "Extract valuable insights from your data using machine learning and advanced analytics.",
+      title: t('services.aiAuto.features.dataAnalysis.title'),
+      description: t('services.aiAuto.features.dataAnalysis.description'),
       icon: <Cpu className="w-6 h-6" />,
       gradient: "from-brand-blue to-brand-pink"
     },
     {
-      title: "Natural Language Processing",
-      description: "Process and understand human language for sentiment analysis, text classification, and more.",
+      title: t('services.aiAuto.features.nlp.title'),
+      description: t('services.aiAuto.features.nlp.description'),
       icon: <MessageSquare className="w-6 h-6" />,
       gradient: "from-brand-pink to-brand-purple"
     },
     {
-      title: "Machine Learning Models",
-      description: "Custom ML models for prediction, recommendation, and pattern recognition.",
+      title: t('services.aiAuto.features.ml.title'),
+      description: t('services.aiAuto.features.ml.description'),
       icon: <Brain className="w-6 h-6" />,
       gradient: "from-brand-purple to-brand-blue"
     },
     {
-      title: "Document Intelligence",
-      description: "Automated document processing and data extraction using AI and OCR technology.",
+      title: t('services.aiAuto.features.document.title'),
+      description: t('services.aiAuto.features.document.description'),
       icon: <FileSearch className="w-6 h-6" />,
       gradient: "from-brand-blue to-brand-pink"
     }
@@ -54,8 +56,8 @@ const AiAutomation = () => {
 
   return (
     <ServiceLayout
-      title="AI & Workflow Automations"
-      description="Leverage AI to streamline operations and boost productivity. From OpenAI-powered chatbots to n8n workflow pipelines that save time and reduce errors."
+      title={t('services.aiAuto.meta.title')}
+      description={t('services.aiAuto.meta.description')}
     >
       
       {/* Hero Section */}
@@ -68,10 +70,10 @@ const AiAutomation = () => {
               transition={{ duration: 0.6 }}
             >
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                AI & Workflow <span className="gradient-text">Automations</span>
+                {t('services.aiAuto.hero.title')} <span className="gradient-text">{t('services.aiAuto.hero.titleColored')}</span>
               </h1>
               <p className="text-xl text-white/70 mb-8">
-                Leverage AI to streamline operations and boost productivity. Workflow automations that save time and reduce errors.
+                {t('services.aiAuto.hero.subtitle')}
               </p>
               <div className="flex flex-wrap gap-3 mb-8">
                 {technologies.map((tech, index) => (
@@ -102,9 +104,9 @@ const AiAutomation = () => {
                 />
               </div>
               <div className="absolute -bottom-6 -right-6 bg-white/5 backdrop-blur-md border border-white/10 px-6 py-4 rounded-lg shadow-lg">
-                <p className="text-sm font-medium">Time saved</p>
-                <p className="text-3xl font-bold gradient-text">40+ hours</p>
-                <p className="text-white/70 text-sm">per week on average</p>
+                <p className="text-sm font-medium">{t('services.aiAuto.hero.stats.label')}</p>
+                <p className="text-3xl font-bold gradient-text">{t('services.aiAuto.hero.stats.value')}</p>
+                <p className="text-white/70 text-sm">{t('services.aiAuto.hero.stats.subtext')}</p>
               </div>
             </motion.div>
           </div>
@@ -122,10 +124,10 @@ const AiAutomation = () => {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              What We <span className="gradient-text">Offer</span>
+              {t('services.aiAuto.offer.title')} <span className="gradient-text">{t('services.aiAuto.offer.titleColored')}</span>
             </h2>
             <p className="text-white/70 max-w-2xl mx-auto">
-              We build AI-powered solutions and automation workflows that help businesses operate more efficiently.
+              {t('services.aiAuto.offer.subtitle')}
             </p>
           </motion.div>
           
@@ -179,30 +181,30 @@ const AiAutomation = () => {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Common <span className="gradient-text">Use Cases</span>
+              {t('services.aiAuto.useCases.title')} <span className="gradient-text">{t('services.aiAuto.useCases.titleColored')}</span>
             </h2>
             <p className="text-white/70 max-w-2xl mx-auto">
-              Discover how our AI and automation solutions can transform different aspects of your business.
+              {t('services.aiAuto.useCases.subtitle')}
             </p>
           </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
               {
-                title: "Customer Support Automation",
-                description: "AI-powered chatbots that can handle common customer inquiries, route complex issues to human agents, and provide 24/7 support."
+                title: t('services.aiAuto.useCases.items.support.title'),
+                description: t('services.aiAuto.useCases.items.support.description')
               },
               {
-                title: "Document Processing",
-                description: "Automatically extract data from invoices, receipts, and other documents, reducing manual data entry and errors."
+                title: t('services.aiAuto.useCases.items.document.title'),
+                description: t('services.aiAuto.useCases.items.document.description')
               },
               {
-                title: "Sales & Marketing Automation",
-                description: "Automate lead qualification, follow-ups, and personalized marketing campaigns based on customer behavior."
+                title: t('services.aiAuto.useCases.items.sales.title'),
+                description: t('services.aiAuto.useCases.items.sales.description')
               },
               {
-                title: "Internal Process Automation",
-                description: "Streamline approval workflows, data synchronization between systems, and repetitive administrative tasks."
+                title: t('services.aiAuto.useCases.items.internal.title'),
+                description: t('services.aiAuto.useCases.items.internal.description')
               }
             ].map((useCase, index) => (
               <motion.div
@@ -239,17 +241,17 @@ const AiAutomation = () => {
             className="bg-white/5 border border-white/10 rounded-xl p-8 md:p-12 shadow-lg shadow-purple-900/10 text-center"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Ready to <span className="gradient-text">automate your business?</span>
+              {t('services.aiAuto.cta.title')} <span className="gradient-text">{t('services.aiAuto.cta.titleColored')}</span>
             </h2>
             <p className="text-white/70 text-lg mb-8 max-w-2xl mx-auto">
-              Contact us today to discuss how we can help you leverage AI and automation to increase efficiency and productivity.
+              {t('services.aiAuto.cta.subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Button className="bg-brand-gradient animate-gradient-shift py-6 px-8 text-lg">
-                Get Started
+                {t('services.aiAuto.cta.primaryButton')}
               </Button>
               <Button variant="outline" className="border-white/20 py-6 px-8 text-lg">
-                View Our Work
+                {t('services.aiAuto.cta.secondaryButton')}
               </Button>
             </div>
           </motion.div>
