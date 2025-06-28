@@ -64,11 +64,14 @@ const BookCallSection = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {t("bookcall.heading.prefix")} <span className="gradient-text">{t("bookcall.heading.colored")}</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              {t('bookcall.new_heading')}
             </h2>
+            <p className="text-2xl md:text-3xl font-semibold text-white mb-4">
+              {t('bookcall.new_subheading')}
+            </p>
             <p className="text-white/80 text-lg max-w-2xl mx-auto">
-              {t("bookcall.description")}
+              {t('bookcall.new_description')}
             </p>
           </motion.div>
 

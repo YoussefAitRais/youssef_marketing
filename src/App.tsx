@@ -14,7 +14,7 @@ import NotFound from "./pages/NotFound";
 import WebDevelopment from "./pages/services/WebDevelopment";
 import AiAutomation from "./pages/services/AiAutomation";
 import GrowthConsulting from "./pages/services/GrowthConsulting";
-import SaasIncubation from "./pages/services/SaasIncubation";
+
 import BookCall from "./pages/services/BookCall";
 import CookieConsent from "./components/CookieConsent";
 import "./App.css";
@@ -38,7 +38,7 @@ const App = () => (
             <Route path="/services/web-development" element={<WebDevelopment />} />
             <Route path="/services/ai-automation" element={<AiAutomation />} />
             <Route path="/services/growth-consulting" element={<GrowthConsulting />} />
-            <Route path="/services/saas-incubation" element={<SaasIncubation />} />
+            
             <Route path="/services/book-call" element={<BookCall />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />

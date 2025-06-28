@@ -78,7 +78,7 @@ const HeroSection = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={controlsText}
-            className="text-center lg:text-left"
+            className="text-center lg:text-left rtl:lg:text-right"
           >
             <div className="relative mb-8">
               <motion.span 
@@ -127,7 +127,7 @@ const HeroSection = () => {
               >
                 <div className="absolute -inset-0.5 bg-brand-gradient rounded-lg blur-sm opacity-75 group-hover:opacity-100 transition duration-300"></div>
                 <Button
-                  className="bg-brand-black relative text-lg px-8 py-6 border border-white/10 group-hover:border-white/0 transition-all"
+                  className="bg-brand-black relative text-lg px-8 py-6 border border-white/10 group-hover:border-white/0 transition-all flex items-center rtl:flex-row-reverse"
                   onClick={() => {
                     const bookCallSection = document.getElementById('book-call');
                     if (bookCallSection) {
@@ -135,8 +135,8 @@ const HeroSection = () => {
                     }
                   }}
                 >
-                  <span className="mr-2">{t("hero.cta")}</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <span className="mr-2 rtl:mr-0 rtl:ml-2">{t("hero.cta")}</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform rtl:rotate-180 rtl:group-hover:-translate-x-1" />
                 </Button>
               </motion.div>
               

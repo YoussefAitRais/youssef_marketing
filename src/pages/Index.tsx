@@ -5,11 +5,13 @@ import { motion, useAnimation } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import ServicesSection from "@/components/ServicesSection";
+import PackSection from "@/components/PackSection";
 import ProcessSection from "@/components/ProcessSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import AboutSection from "@/components/AboutSection";
 import CtaSection from "@/components/CtaSection";
 import BookCallSection from "@/components/BookCallSection";
+import BannerSection from "@/components/BannerSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -45,10 +47,12 @@ const Index = () => {
       
       <Navbar />
       <HeroSection />
+      <BannerSection />
       <ServicesSection />
+      <PackSection />
       <ProcessSection />
-      <TestimonialsSection />
       <AboutSection />
+      <TestimonialsSection />
       <BookCallSection />
       <Footer />
     </motion.div>

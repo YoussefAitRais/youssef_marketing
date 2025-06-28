@@ -1,9 +1,10 @@
 {
   "navbar": {
-    "services": "Services",
-    "process": "Process",
-    "about": "About",
-    "bookCall": "Book Free Strategy Call"
+    "home": "Home",
+    "services": "Our Services",
+    "about": "About Us",
+    "blog": "Blog",
+    "bookConsultation": "Book Your Free Consultation"
   },
   "hero": {
     "headline": "Prime Your Growth with {{strong}}",
@@ -419,40 +420,31 @@
       }
     },
     "sectionCards": {
-      "web-dev": {
-        "title": "Web & App Development",
-        "desc": "Custom digital products built with modern frameworks like Next.js, Django, Shopify & WordPress. Scalable solutions tailored to your business needs.",
+      "web-development": {
+        "title": "بناء وتصميم المواقع",
+        "desc": "واجهة احترافية تزيد من مصداقيتك وتحويلاتك.",
         "features": {
-          "feature1": "Custom Web Applications",
-          "feature2": "Responsive Design",
-          "feature3": "API Integration"
+          "feature1": "تصميم موقع عصري يعكس هويتك التجارية.",
+          "feature2": "تحسين تجربة المستخدم لتعزيز التفاعل.",
+          "feature3": "تحسين سرعة الموقع وأدائه لنتائج أفضل."
         }
       },
-      "ai-automation": {
-        "title": "AI & Workflow Automations",
-        "desc": "Leverage AI to streamline operations and boost productivity. From OpenAI-powered chatbots to n8n workflow pipelines that save time and reduce errors.",
+      "content-writing": {
+        "title": "كتابة المحتوى",
+        "desc": "محتوى يجذب الانتباه ويحسن المبيعات.",
         "features": {
-          "feature1": "AI-Powered Chatbots",
-          "feature2": "Workflow Automation",
-          "feature3": "Data Processing"
+          "feature1": "كتابة مقالات احترافية تجذب الجمهور المستهدف.",
+          "feature2": "إعداد نصوص إعلانية قوية تزيد من معدل النقر والتحويل.",
+          "feature3": "إنشاء محتوى تفاعلي لحساباتك الاجتماعية يعزز ولاء العملاء."
         }
       },
-      "growth": {
-        "title": "Growth Consulting",
-        "desc": "Data-backed strategies for sustainable growth. Optimize your conversion funnels, SEO, paid advertising, and analytics to maximize ROI.",
+      "marketing-system": {
+        "title": "النظام التسويقي الفعال",
+        "desc": "اجعل عملاءك يأتون إليك بدلاً من مطاردتهم!",
         "features": {
-          "feature1": "Analytics & Reporting",
-          "feature2": "Conversion Optimization",
-          "feature3": "Marketing Strategy"
-        }
-      },
-      "saas": {
-        "title": "SaaS Incubation",
-        "desc": "Transform your idea into a market-ready SaaS product. From MVP design to multi-tenant dashboards and payment integrations, we build scalable solutions.",
-        "features": {
-          "feature1": "MVP Development",
-          "feature2": "Multi-tenant Architecture",
-          "feature3": "Subscription Management"
+          "feature1": "تحليل جمهورك المستهدف وتصميم رحلة العميل المثالية.",
+          "feature2": "إنشاء صفحات الهبوط المصممة للتحويلات العالية.",
+          "feature3": "إعداد الإعلانات والرسائل التسويقية لجذب العملاء المحتملين."
         }
       }
     }
@@ -531,6 +523,26 @@
       "messagePlaceholder": "Tell us about your project and goals..."
     },
     "schedule": "Schedule Your Call"
+  },
+  "whyChooseMe": {
+    "heading": "Why Choose Me?",
+    "cards": [
+      {
+        "id": "experience",
+        "title": "Practical experience in achieving results for service providers & coaches.",
+        "description": "I've helped numerous service providers and coaches grow their businesses with effective marketing strategies. I guarantee data-driven solutions for optimal results."
+      },
+      {
+        "id": "customized",
+        "title": "Customized marketing solutions for your unique business.",
+        "description": "One size doesn't fit all! I study your business and provide tailored marketing solutions that sustainably boost your growth."
+      },
+      {
+        "id": "guarantee",
+        "title": "Golden Guarantee: Money back if you don't get expected results!",
+        "description": "I guarantee a risk-free investment. You can get your money back if the promised results aren't achieved, no questions asked."
+      }
+    ]
   },
   "cookies": {
     "banner": {

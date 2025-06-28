@@ -1,7 +1,9 @@
 
 import type { Config } from "tailwindcss";
+import rtl from 'tailwindcss-rtl';
 
 export default {
+  plugins: [rtl],
 	darkMode: ["class"],
 	content: [
 		"./pages/**/*.{ts,tsx}",
@@ -20,9 +22,7 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				montserrat: ['Montserrat', 'sans-serif'],
-				poppins: ['Poppins', 'sans-serif'],
-				sans: ['Inter', 'sans-serif'],
+				sans: ['"IBM Plex Sans Arabic"', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
