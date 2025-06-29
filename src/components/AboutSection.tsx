@@ -39,11 +39,9 @@ const AboutSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <DecorativeLine color="from-blue-500 to-cyan-500" />
-          <h2 className="text-3xl md:text-4xl font-bold my-6 text-white">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient-brand">
             {t('whyChooseMe.heading')}
           </h2>
-          <DecorativeLine color="from-pink-500 to-purple-500" />
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -5,6 +5,13 @@
 @tailwind components;
 @tailwind utilities;
 
+.text-gradient-brand {
+  @apply bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

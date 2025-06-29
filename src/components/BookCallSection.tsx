@@ -64,7 +64,7 @@ const BookCallSection = () => {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient-brand">
               {t('bookcall.new_heading')}
             </h2>
             <p className="text-2xl md:text-3xl font-semibold text-white mb-4">
@@ -85,8 +85,8 @@ const BookCallSection = () => {
             {[
               {
                 icon: <Calendar className="w-6 h-6" />,
-                title: t("bookcall.cards.pick.title"),
-                description: t("bookcall.cards.pick.desc"),
+                title: t("bookcall.new_heading"),
+                description: t("bookcall.new_heading"),
                 gradient: "from-brand-pink to-brand-purple",
               },
               {

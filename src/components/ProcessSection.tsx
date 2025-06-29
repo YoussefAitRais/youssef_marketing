@@ -81,12 +81,12 @@ const ProcessSection = () => {
             >
               {t("process.heading.colored").toUpperCase()}
             </motion.span>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 relative">
-              {t("process.heading.prefix")} <span className="gradient-text">{t("process.heading.colored")}</span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient-brand">
+              {t("process.heading.prefix")} {t("process.heading.colored")}
             </h2>
           </div>
           
-          <div className="h-1 w-20 mx-auto bg-brand-gradient rounded-full mb-6"></div>
+
           
           <p className="text-white/70 max-w-2xl mx-auto">
             {t("process.description")}
