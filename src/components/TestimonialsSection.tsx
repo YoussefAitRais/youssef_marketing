@@ -138,7 +138,7 @@ const TestimonialsSection = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.5 }}
-                  className="glass-effect rounded-lg p-8 shadow-xl shadow-purple-500/5 w-full"
+                  className="bg-black/20 border border-white/10 rounded-lg p-8 shadow-xl shadow-purple-500/5 w-full backdrop-blur-lg"
                 >
                   <div className="flex flex-col md:flex-row items-center md:items-start gap-6 mb-6">
                     <div className="w-20 h-20 rounded-full bg-gradient-to-br from-brand-pink to-brand-purple flex items-center justify-center flex-shrink-0 shadow-lg shadow-purple-500/20">

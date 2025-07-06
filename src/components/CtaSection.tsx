@@ -56,18 +56,10 @@ const CtaSection = () => {
                 transition={{ duration: 0.5, delay: 0.6 }}
                 viewport={{ once: true }}
               >
-                <Button asChild className="bg-brand-gradient animate-gradient-shift flex items-center gap-2 py-6 text-base w-full shadow-lg shadow-pink-900/20">
+                <Button asChild className="bg-brand-new-blue text-white font-semibold rounded-lg flex items-center gap-2 py-6 text-base w-full hover:opacity-90 transition-opacity">
                   <Link to="/services/book-call">
                     <Mail className="w-5 h-5" />
                     <span className="relative z-10">Book Free Strategy Call</span>
-                    <motion.div 
-                      className="absolute inset-0 rounded-md opacity-0 bg-white"
-                      initial={{ opacity: 0 }}
-                      whileHover={{ 
-                        opacity: 0.2, 
-                        transition: { duration: 0.3 } 
-                      }}
-                    />
                   </Link>
                 </Button>
               </motion.div>
@@ -81,16 +73,8 @@ const CtaSection = () => {
                 transition={{ duration: 0.5, delay: 0.8 }}
                 viewport={{ once: true }}
               >
-                <Button variant="outline" className="border-white/20 hover:bg-white/10 py-6 text-base w-full backdrop-blur-sm">
+                <Button variant="ghost" className="text-white font-semibold rounded-lg hover:bg-transparent hover:text-brand-new-blue transition-colors py-6 text-base w-full">
                   <span className="relative z-10">View Our Work</span>
-                  <motion.div 
-                    className="absolute inset-0 rounded-md opacity-0 bg-gradient-to-r from-brand-pink to-brand-blue"
-                    initial={{ opacity: 0 }}
-                    whileHover={{ 
-                      opacity: 0.1, 
-                      transition: { duration: 0.3 } 
-                    }}
-                  />
                 </Button>
               </motion.div>
             </div>

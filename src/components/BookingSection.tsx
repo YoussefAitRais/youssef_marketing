@@ -125,7 +125,7 @@ const BookingSection = () => {
               
               <Button 
                 type="submit" 
-                className="bg-brand-gradient animate-gradient-shift w-full py-6 shadow-lg shadow-purple-900/20" 
+                className="bg-brand-new-blue text-white font-semibold rounded-lg w-full py-6 hover:opacity-90 transition-opacity" 
                 disabled={isSubmitting}
               >
                 {isSubmitting ? "Submitting..." : "Schedule My Free Call"}

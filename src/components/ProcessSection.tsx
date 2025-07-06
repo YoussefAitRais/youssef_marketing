@@ -13,7 +13,7 @@ const processSteps = [
 const ProcessSection = () => {
   const { t } = useTranslation();
   return (
-    <section id="process" className="py-20 bg-white/5 relative overflow-hidden">
+    <section id="process" className="py-20 relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <svg className="absolute left-0 top-0 h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">

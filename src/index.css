@@ -100,7 +100,10 @@
   }
 
   body {
-    @apply bg-brand-black text-white font-sans;
+    @apply text-white font-sans;
+    background-color: #070414; /* Fallback */
+    background: linear-gradient(90deg, #0e0829 0%, #000000 50%, #1E1E1E 100%);
+    color: hsl(var(--foreground));
   }
 
   h1, h2, h3, h4, h5, h6 {

@@ -73,6 +73,7 @@ export default {
 					purple: '#AE3BFF',
 					blue: '#1AD7FF',
 					black: '#000000',
+					'new-blue': '#3c24ad',
 				}
 			},
 			borderRadius: {

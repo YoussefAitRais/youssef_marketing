@@ -15,13 +15,13 @@ const ServiceCard = ({ card, image, color, delay }) => {
       transition={{ duration: 0.5, delay }}
       viewport={{ once: true }}
       // This is the outer frame (اطار), with a dark background and padding.
-      className="bg-[#1C1C1C] border border-gray-800 rounded-2xl p-4 h-full"
+      className="bg-black/20 border border-white/10 rounded-2xl p-4 h-full backdrop-blur-lg"
     >
       {/* This is the inner content block, with a black background. */}
-      <div className="bg-black rounded-lg overflow-hidden h-full flex flex-col">
+      <div className="bg-transparent rounded-lg overflow-hidden h-full flex flex-col">
         {/* Top part: Browser window with image */}
         <div>
-          <div className="bg-gray-900 p-3 border-b border-gray-700">
+                    <div className="bg-black/30 p-3 border-b border-white/10">
             <div className="flex items-center space-x-2 rtl:space-x-reverse">
               <div className="w-3 h-3 rounded-full bg-red-500"></div>
               <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
@@ -59,7 +59,7 @@ const ServicesSection = () => {
   const serviceCards = t('services.cards', { returnObjects: true });
 
   return (
-    <section id="services" className="py-20 md:py-32 relative bg-gradient-to-b from-black to-gray-900">
+    <section id="services" className="py-20 md:py-32 relative">
        <div className="absolute inset-0 overflow-hidden -z-10">
         <motion.div
           className="absolute -left-40 -top-40 w-96 h-96 rounded-full bg-pink-500/10 blur-3xl"

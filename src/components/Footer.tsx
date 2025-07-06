@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 
 const Footer = () => {
   const { t } = useTranslation();
+  const serviceCards = t('services.cards', { returnObjects: true }) || [];
   const fadeIn = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
@@ -15,7 +16,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="py-16 bg-black border-t border-white/10">
+    <footer className="py-16 bg-transparent border-t border-white/10">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Company Info */}
@@ -27,7 +28,7 @@ const Footer = () => {
           >
             <div className="text-center lg:text-left">
               <div className="flex items-center justify-center lg:justify-start gap-3 mb-4">
-                <img src="/logo.png" alt="Lina Prime Solutions" className="h-32 w-auto mix-blend-screen brightness-200" />
+                <img src="/ProfileInstagram.jpg" alt={t("footer.logoAlt")} className="h-16 w-16 rounded-full object-cover" />
               </div>
             </div>
             <p className="text-white/70 mb-6">
@@ -73,10 +74,13 @@ const Footer = () => {
           >
             <h4 className="text-lg font-bold mb-6">{t("footer.services.title")}</h4>
             <ul className="space-y-3">
-              <li><a href="/services/web-development" className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">{t("services.sectionCards.web-dev.title")}</a></li>
-              <li><a href="/services/ai-automation" className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">{t("services.sectionCards.ai-automation.title")}</a></li>
-              <li><a href="/services/growth-consulting" className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">{t("services.sectionCards.growth.title")}</a></li>
-              <li><a href="/services/saas-incubation" className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">{t("services.sectionCards.saas.title")}</a></li>
+              {Array.isArray(serviceCards) && serviceCards.map((service) => (
+                <li key={service.id}>
+                  <a href="#services" className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">
+                    {service.title}
+                  </a>
+                </li>
+              ))}
             </ul>
           </motion.div>
 
@@ -95,7 +99,7 @@ const Footer = () => {
                 placeholder={t("footer.news.placeholder")} 
                 className="bg-white/10 border-white/20 text-white focus:ring-brand-purple focus:border-brand-purple transition-all duration-300"
               />
-              <Button className="bg-brand-gradient animate-gradient-shift hover:scale-105 transition-transform duration-300">
+              <Button type="submit" className="bg-brand-new-blue text-white font-semibold rounded-lg hover:opacity-90 transition-opacity">
                 {t("footer.news.subscribe")}
               </Button>
             </div>
@@ -103,9 +107,15 @@ const Footer = () => {
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-white/10 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-white/50 text-sm mb-4 md:mb-0">
-            {new Date().getFullYear()} Lina Prime Solutions LLC. {t("footer.copyright")}
+        <motion.div
+          initial={fadeIn.initial}
+          whileInView={fadeIn.animate}
+          transition={{ ...fadeIn.transition, delay: 0.5 }}
+          viewport={{ once: true }}
+          className="border-t border-white/10 mt-16 pt-8 flex flex-col-reverse md:flex-row justify-between items-center gap-6"
+        >
+          <p className="text-white/50 text-sm">
+            {t("footer.copyright")}
           </p>
           <div className="flex flex-wrap justify-center gap-4 md:gap-6">
             <a href="/privacy-policy" className="text-white/50 hover:text-white text-sm transition-colors">
@@ -121,7 +131,7 @@ const Footer = () => {
               {t("footer.policies.disclaimer")}
             </a>
           </div>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );

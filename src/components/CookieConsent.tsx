@@ -75,7 +75,7 @@ const CookieConsent = () => {
               variant="default" 
               size="sm" 
               onClick={acceptCookies}
-              className="bg-gradient-to-r from-[#FF2F92] to-[#1AD7FF] hover:opacity-90 text-white"
+              className="bg-brand-new-blue hover:opacity-90 text-white rounded-lg"
             >
               {t("cookies.banner.accept")}
             </Button>
