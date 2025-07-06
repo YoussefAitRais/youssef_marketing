@@ -6,8 +6,8 @@ import { useTranslation } from "react-i18next";
 const processSteps = [
   { id: "discover", icon: <Search className="w-6 h-6" />, delay: 0.1, color: "from-pink-500 to-brand-pink" },
   { id: "design", icon: <PenTool className="w-6 h-6" />, delay: 0.3, color: "from-purple-500 to-brand-purple" },
-  { id: "deploy", icon: <Rocket className="w-6 h-6" />, delay: 0.5, color: "from-indigo-500 to-purple-600" },
-  { id: "scale", icon: <TrendingUp className="w-6 h-6" />, delay: 0.7, color: "from-blue-500 to-brand-blue" }
+  { id: "launch", icon: <Rocket className="w-6 h-6" />, delay: 0.5, color: "from-indigo-500 to-purple-600" },
+  { id: "expand", icon: <TrendingUp className="w-6 h-6" />, delay: 0.7, color: "from-blue-500 to-brand-blue" }
 ];
 
 const ProcessSection = () => {
@@ -74,15 +74,9 @@ const ProcessSection = () => {
           />
           
           <div className="relative">
-            <motion.span 
-              className="absolute -top-8 left-1/2 transform -translate-x-1/2 text-6xl md:text-7xl opacity-5 font-black text-white select-none tracking-widest"
-              animate={{ opacity: [0.03, 0.05, 0.03] }}
-              transition={{ duration: 5, repeat: Infinity }}
-            >
-              {t("process.heading.colored").toUpperCase()}
-            </motion.span>
+
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient-brand">
-              {t("process.heading.prefix")} {t("process.heading.colored")}
+              {t("process.heading.prefix")}
             </h2>
           </div>
           
@@ -147,7 +141,7 @@ const ProcessSection = () => {
                       </div>
                       <h3 className="text-2xl font-bold gradient-text">{t(`process.steps.${step.id}.title`)}</h3>
                     </div>
-                    <p className="text-white/80">{t(`process.steps.${step.id}.desc`)}</p>
+                    <p className="text-white/80">{t(`process.steps.${step.id}.description`)}</p>
                     
                     {/* Step number */}
                     <div className="absolute top-0 right-0 md:block hidden">
