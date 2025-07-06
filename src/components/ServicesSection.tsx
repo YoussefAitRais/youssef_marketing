@@ -2,34 +2,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
-const serviceItems = [
-  {
-    id: 'marketing-system',
-    image: '/placeholder.svg',
-    color: 'text-yellow-400',
-    delay: 0.1,
-  },
-  {
-    id: 'web-development',
-    image: '/placeholder.svg',
-    color: 'text-yellow-400',
-    delay: 0.3,
-  },
-  {
-    id: 'content-writing',
-    image: '/placeholder.svg',
-    color: 'text-yellow-400',
-    delay: 0.5,
-  },
-];
-
-const ServiceCard = ({ id, image, color, delay }) => {
-  const { t, i18n } = useTranslation();
-  const features = ['feature1', 'feature2', 'feature3', 'feature4'];
+const ServiceCard = ({ card, image, color, delay }) => {
+  const { i18n } = useTranslation();
   const isRtl = i18n.dir() === 'rtl';
 
-  const title = t(`services.sectionCards.${id}.title`);
-  const desc = t(`services.sectionCards.${id}.desc`);
+  const { title, description } = card;
 
   return (
     <motion.div
@@ -59,16 +36,17 @@ const ServiceCard = ({ id, image, color, delay }) => {
         {/* Bottom part: Text content */}
         <div className={`p-6 flex-grow flex flex-col ${isRtl ? 'text-right' : 'text-left'}`}>
           <h3 className={`text-2xl font-bold ${color} mb-3`}>{title}</h3>
-          <p className="text-white/90 mb-4 text-lg">{desc}</p>
-          <ul className="space-y-3 text-gray-400 flex-grow">
-            {features.map((featureKey) => {
-              const featureText = t(`services.sectionCards.${id}.features.${featureKey}`);
-              return !featureText || featureText.includes('features.') ? null : (
-                <li key={featureKey}>
-                  {featureText}
+          <ul className="space-y-4 text-white/90 flex-grow text-lg">
+            {Array.isArray(description) && description.map((item, index) => (
+                <li key={index} className="relative pl-6 rtl:pr-6 rtl:pl-0">
+                    <span
+                        className={`absolute left-0 rtl:right-0 top-2 w-2.5 h-2.5 rounded-full ${
+                            index % 2 === 0 ? 'bg-pink-500' : 'bg-yellow-400'
+                        }`}
+                    ></span>
+                    {item}
                 </li>
-              );
-            })}
+            ))}
           </ul>
         </div>
       </div>
@@ -78,6 +56,7 @@ const ServiceCard = ({ id, image, color, delay }) => {
 
 const ServicesSection = () => {
   const { t } = useTranslation();
+  const serviceCards = t('services.cards', { returnObjects: true });
 
   return (
     <section id="services" className="py-20 md:py-32 relative bg-gradient-to-b from-black to-gray-900">
@@ -125,8 +104,14 @@ const ServicesSection = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {serviceItems.map((service) => (
-            <ServiceCard key={service.id} {...service} />
+          {Array.isArray(serviceCards) && serviceCards.map((card, index) => (
+            <ServiceCard 
+              key={card.id || index} 
+              card={card}
+              image={card.image}
+              color="text-yellow-400"
+              delay={index * 0.2 + 0.1}
+            />
           ))}
         </div>
       </div>

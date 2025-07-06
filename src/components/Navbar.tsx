@@ -4,13 +4,13 @@ import { cn } from "@/lib/utils";
 import { useLocation, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
+
 
 const Navbar = () => {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-    const location = useLocation();
+  const location = useLocation();
 
   const handleLinkClick = (e, href) => {
     e.preventDefault();
@@ -101,7 +101,6 @@ const Navbar = () => {
           <Button className="bg-brand-gradient animate-gradient-shift shadow-md shadow-purple-500/20 hover:shadow-lg hover:shadow-purple-500/30 transition-shadow duration-300">
             {t("navbar.bookConsultation")}
           </Button>
-          <LanguageSwitcher />
         </div>
 
         <button
@@ -154,9 +153,7 @@ const Navbar = () => {
               <Button className="bg-brand-gradient animate-gradient-shift shadow-md shadow-purple-500/20 w-full mt-4 py-6 text-lg">
                 {t("navbar.bookConsultation")}
               </Button>
-              <div className="pt-4">
-                <LanguageSwitcher />
-              </div>
+
             </motion.div>
           )}
         </AnimatePresence>
