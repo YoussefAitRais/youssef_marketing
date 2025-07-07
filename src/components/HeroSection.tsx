@@ -45,13 +45,14 @@ const HeroSection = () => {
             {t("hero.headline")}
           </motion.h1>
 
-          {/* Subheadline */}
+          {/* New Subheading */}
           <motion.p
             variants={itemVariants}
-            className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto mt-6 mb-10"
+            className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mt-8 mb-4"
           >
-            {t("hero.subheadline")}
           </motion.p>
+
+
 
           {/* CTA Buttons */}
           <motion.div

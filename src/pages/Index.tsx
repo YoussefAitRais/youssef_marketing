@@ -31,7 +31,7 @@ const Index = () => {
       className="min-h-screen bg-brand-black text-white overflow-x-hidden relative"
     >
       <Helmet>
-        <title>Lina Prime Solutions LLC | Web, AI & Growth Strategy</title>
+        <title>يوسف للتسويق</title>
         <meta 
           name="description" 
           content="Engineer smarter systems today, unlock unstoppable growth tomorrow with our custom web development, AI automations, and data-backed growth strategies."

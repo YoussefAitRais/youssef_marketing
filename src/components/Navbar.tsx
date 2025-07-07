@@ -11,23 +11,7 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
-  const handleLinkClick = (e, href) => {
-    e.preventDefault();
-    setIsOpen(false);
 
-    if (href === "/") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      return;
-    }
-
-    if (href.startsWith("/#")) {
-      const id = href.substring(2);
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-  };
 
   useEffect(() => {
     setIsOpen(false);
@@ -45,7 +29,7 @@ const Navbar = () => {
     { href: "/", label: "navbar.home" },
     { href: "/#services", label: "navbar.services" },
     { href: "/#process", label: "navbar.process" },
-    { href: "/#whyChooseMe", label: "navbar.about" },
+    { href: "/#about", label: "navbar.about" },
     { href: "/blog", label: "navbar.blog" },
   ];
 
@@ -54,35 +38,17 @@ const Navbar = () => {
     visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
   };
 
-  const renderNavLink = (link, isMobile = false) => {
-    const isExternalPage = link.href === "/blog";
-
-    if (isExternalPage) {
-      return (
-        <Link
-          key={link.href}
-          to={link.href}
-          onClick={() => setIsOpen(false)}
-          className={isMobile ? "text-white text-lg" : "text-white/80 hover:text-white transition-colors relative group"}
-        >
-          {t(link.label)}
-          {!isMobile && <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-gradient group-hover:w-full transition-all duration-300"></span>}
-        </Link>
-      );
-    }
-
-    return (
-      <a
-        key={link.href}
-        href={link.href}
-        onClick={(e) => handleLinkClick(e, link.href)}
-        className={isMobile ? "text-white text-lg" : "text-white/80 hover:text-white transition-colors relative group cursor-pointer"}
-      >
-        {t(link.label)}
-        {!isMobile && <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-gradient group-hover:w-full transition-all duration-300"></span>}
-      </a>
-    );
-  };
+  const renderNavLink = (link, isMobile = false) => (
+    <Link
+      key={link.href}
+      to={link.href}
+      onClick={() => setIsOpen(false)}
+      className={isMobile ? "text-white text-lg" : "text-white hover:text-white/80 transition-colors relative group"}
+    >
+      {t(link.label)}
+      {!isMobile && <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-gradient group-hover:w-full transition-all duration-300"></span>}
+    </Link>
+  );
 
   return (
     <header
@@ -94,14 +60,10 @@ const Navbar = () => {
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between relative">
         {/* Logo / Personal Photo */}
         <motion.div initial="hidden" animate="visible" variants={logoVariants}>
-          <a href="/" className="flex items-center gap-3">
-            <img
-              src="/ProfileInstagram.jpg"
-              alt={t('navbar.logoAlt') || 'Youssef'}
-              className="h-12 w-12 rounded-full object-cover"
-            />
-            <span className="text-xl font-bold text-white">{t('global.name', 'يوسف')}</span>
-          </a>
+          <Link to="/" className="flex items-center space-x-4 rtl:space-x-reverse">
+            <img src="/ProfileInstagram.jpg" alt={t('navbar.logoAlt')} className="h-12 w-12 rounded-full object-cover border-2 border-brand-new-blue" />
+            <span className="text-2xl font-bold text-white">يوسف</span>
+          </Link>
         </motion.div>
 
         {/* Desktop Navigation */}
@@ -112,7 +74,7 @@ const Navbar = () => {
         {/* CTA Button */}
         <div className="hidden md:flex items-center space-x-4">
           <Button asChild className="bg-brand-new-blue text-white font-semibold rounded-lg px-5 py-2 hover:opacity-90 transition-opacity">
-            <a href="/#contact">{t("navbar.bookConsultation")}</a>
+            <Link to="/services/book-call">{t("navbar.bookConsultation")}</Link>
           </Button>
         </div>
 
@@ -141,7 +103,7 @@ const Navbar = () => {
                 asChild
                 className="bg-brand-gradient text-white font-semibold rounded-full px-6 py-3 w-full mt-4"
               >
-                <a href="/#contact" onClick={(e) => handleLinkClick(e, '/#contact')}>{t("navbar.bookConsultation")}</a>
+                <Link to="/services/book-call" onClick={() => setIsOpen(false)}>{t("navbar.bookConsultation")}</Link>
               </Button>
             </nav>
           </motion.div>

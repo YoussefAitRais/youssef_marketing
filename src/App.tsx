@@ -14,9 +14,13 @@ import NotFound from "./pages/NotFound";
 import WebDevelopment from "./pages/services/WebDevelopment";
 import AiAutomation from "./pages/services/AiAutomation";
 import GrowthConsulting from "./pages/services/GrowthConsulting";
-
+import Articles from "./pages/Articles";
+import ContentWriting from './pages/services/ContentWriting';
+import MarketingSystem from './pages/services/MarketingSystem';
+import WebDesign from './pages/services/WebDesign';
 import BookCall from "./pages/services/BookCall";
 import CookieConsent from "./components/CookieConsent";
+import ScrollToHashElement from "./components/ScrollToHashElement";
 import "./App.css";
 
 const queryClient = new QueryClient();
@@ -28,6 +32,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <ScrollToHashElement />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
@@ -38,7 +43,10 @@ const App = () => (
             <Route path="/services/web-development" element={<WebDevelopment />} />
             <Route path="/services/ai-automation" element={<AiAutomation />} />
             <Route path="/services/growth-consulting" element={<GrowthConsulting />} />
-            
+            <Route path="/blog" element={<Articles />} />
+            <Route path="/services/content-writing" element={<ContentWriting />} />
+            <Route path="/services/marketing-funnels" element={<MarketingSystem />} />
+            <Route path="/services/web-design" element={<WebDesign />} />
             <Route path="/services/book-call" element={<BookCall />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />

@@ -16,7 +16,7 @@ const ServiceLayout = ({ children, title, description, metaImage }: ServiceLayou
   return (
     <div className="min-h-screen bg-brand-black text-white overflow-x-hidden">
       <Helmet>
-        <title>{title} | Lina Prime Solutions</title>
+        <title>{title} | يوسف للتسويق</title>
         <meta name="description" content={description} />
         {metaImage && <meta property="og:image" content={metaImage} />}
       </Helmet>

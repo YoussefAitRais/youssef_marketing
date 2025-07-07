@@ -1,12 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 const ServiceCard = ({ card, image, color, delay }) => {
   const { i18n } = useTranslation();
   const isRtl = i18n.dir() === 'rtl';
 
-  const { title, description } = card;
+  const { title, description, link, button } = card;
 
   return (
     <motion.div
@@ -15,7 +16,7 @@ const ServiceCard = ({ card, image, color, delay }) => {
       transition={{ duration: 0.5, delay }}
       viewport={{ once: true }}
       // This is the outer frame (اطار), with a dark background and padding.
-      className="bg-black/20 border border-white/10 rounded-2xl p-4 h-full backdrop-blur-lg"
+      className="bg-black/20 border border-white/10 rounded-2xl p-4 h-full backdrop-blur-lg flex flex-col"
     >
       {/* This is the inner content block, with a black background. */}
       <div className="bg-transparent rounded-lg overflow-hidden h-full flex flex-col">
@@ -48,6 +49,14 @@ const ServiceCard = ({ card, image, color, delay }) => {
                 </li>
             ))}
           </ul>
+          <div className="mt-8">
+            <Link 
+              to={link}
+              className="inline-block bg-brand-new-blue text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 ease-in-out hover:bg-blue-700 hover:shadow-lg hover:shadow-brand-new-blue/40 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-brand-new-blue"
+            >
+              {button}
+            </Link>
+          </div>
         </div>
       </div>
     </motion.div>

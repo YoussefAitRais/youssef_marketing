@@ -11,7 +11,7 @@ const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen bg-brand-black text-white overflow-x-hidden">
       <Helmet>
-        <title>{`${t('policies.privacy.title')} | Lina Prime Solutions LLC`}</title>
+        <title>{`${t('policies.privacy.title')} | يوسف للتسويق`}</title>
         <meta name="description" content={t('policies.privacy.meta')} />
       </Helmet>
       
