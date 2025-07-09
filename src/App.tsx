@@ -1,10 +1,12 @@
 
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import CookieConsent from "./components/CookieConsent";
+import ScrollToHashElement from "./components/ScrollToHashElement";
 import Index from "./pages/Index";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
@@ -19,9 +21,7 @@ import ContentWriting from './pages/services/ContentWriting';
 import MarketingSystem from './pages/services/MarketingSystem';
 import WebDesign from './pages/services/WebDesign';
 import BookCall from "./pages/services/BookCall";
-import CookieConsent from "./components/CookieConsent";
-import ScrollToHashElement from "./components/ScrollToHashElement";
-import "./App.css";
+import MainLayout from "./components/layouts/MainLayout";
 
 const queryClient = new QueryClient();
 

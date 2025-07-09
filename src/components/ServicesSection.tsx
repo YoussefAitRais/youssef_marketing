@@ -16,13 +16,13 @@ const ServiceCard = ({ card, image, color, delay }) => {
       transition={{ duration: 0.5, delay }}
       viewport={{ once: true }}
       // This is the outer frame (اطار), with a dark background and padding.
-      className="bg-black/20 border border-white/10 rounded-2xl p-4 h-full backdrop-blur-lg flex flex-col"
+      className="bg-gradient-to-r from-[#232325] to-[#230c33] border border-white/10 rounded-2xl p-4 h-full backdrop-blur-lg flex flex-col"
     >
       {/* This is the inner content block, with a black background. */}
-      <div className="bg-transparent rounded-lg overflow-hidden h-full flex flex-col">
+      <div className="bg-gradient-to-r from-[#232325] to-[#230c33] rounded-lg overflow-hidden h-full flex flex-col">
         {/* Top part: Browser window with image */}
         <div>
-                    <div className="bg-black/30 p-3 border-b border-white/10">
+                    <div className="bg-gradient-to-r from-[#232325] to-[#230c33] p-3 border-b border-white/10">
             <div className="flex items-center space-x-2 rtl:space-x-reverse">
               <div className="w-3 h-3 rounded-full bg-red-500"></div>
               <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
@@ -107,7 +107,7 @@ const ServicesSection = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient-brand">
             {t("services.heading.prefix")}
           </h2>
-          <p className="text-white/70 max-w-2xl mx-auto">
+          <p className="text-white max-w-2xl mx-auto">
             {t("services.description")}
           </p>
         </motion.div>
@@ -118,7 +118,7 @@ const ServicesSection = () => {
               key={card.id || index} 
               card={card}
               image={card.image}
-              color="text-yellow-400"
+              color="text-purple-500"
               delay={index * 0.2 + 0.1}
             />
           ))}

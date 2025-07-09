@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Mail, Twitter, Linkedin, Instagram } from "lucide-react";
+import { Mail, Linkedin, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
@@ -31,16 +31,16 @@ const Footer = () => {
                 <img src="/ProfileInstagram.jpg" alt={t("footer.logoAlt")} className="h-16 w-16 rounded-full object-cover" />
               </div>
             </div>
-            <p className="text-white/70 mb-6">
+            <p className="text-white mb-6">
               {t("footer.tagline")}
             </p>
             <div className="flex items-center">
-              <a href="#" className="text-white/70 hover:text-white transition-colors transform hover:scale-110 duration-300">
+              <a href="https://www.instagram.com/youssefmarketing007/" className="text-white hover:text-white transition-colors transform hover:scale-110 duration-300">
                 <Instagram className="w-5 h-5" />
               </a>
               <div style={{ width: '1.5rem' }} />
-              <a href="#" className="text-white/70 hover:text-white transition-colors transform hover:scale-110 duration-300">
-                <Twitter className="w-5 h-5" />
+              <a href="https://x.com/Youssef007__" className="flex items-center justify-center w-5 h-5 hover:scale-110 duration-300">
+                <img src="XXX.png" alt="X" className="w-full h-full object-contain" />
               </a>
             </div>
           </motion.div>
@@ -54,9 +54,9 @@ const Footer = () => {
           >
             <h4 className="text-lg font-bold mb-6">{t("footer.quicklinks.title")}</h4>
             <ul className="space-y-3">
-              <li><Link to="/#services" className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">{t("navbar.services")}</Link></li>
-              <li><Link to="/#process" className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">{t("navbar.process")}</Link></li>
-              <li><Link to="/#about" className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">{t("navbar.about")}</Link></li>
+              <li><Link to="/#services" className="text-white hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">{t("navbar.services")}</Link></li>
+              <li><Link to="/#process" className="text-white hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">{t("navbar.process")}</Link></li>
+              <li><Link to="/#about" className="text-white hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">{t("navbar.about")}</Link></li>
             </ul>
           </motion.div>
 
@@ -71,7 +71,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {Array.isArray(serviceCards) && serviceCards.map((service) => (
                 <li key={service.id}>
-                  <Link to="/#services" className="text-white/70 hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">
+                  <Link to="/#services" className="text-white hover:text-white transition-colors hover:translate-x-1 inline-block transform duration-300">
                     {service.title}
                   </Link>
                 </li>
@@ -86,13 +86,13 @@ const Footer = () => {
             transition={{ ...fadeIn.transition, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <h4 className="text-lg font-bold mb-6">{t("footer.news.title")}</h4>
-            <p className="text-white/70 mb-4">{t("footer.news.desc")}</p>
+            <h4 className="text-lg  font-bold mb-6">{t("footer.news.title")}</h4>
+            <p className="text-white mb-4">{t("footer.news.desc")}</p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Input 
                 type="email" 
                 placeholder={t("footer.news.placeholder")} 
-                className="bg-white/10 border-white/20 text-white focus:ring-brand-purple focus:border-brand-purple transition-all duration-300"
+                className="bg-white border-white/20 text-white focus:ring-brand-purple focus:border-brand-purple transition-all duration-300"
               />
               <Button type="submit" className="bg-brand-new-blue text-white font-semibold rounded-lg hover:opacity-90 transition-opacity">
                 {t("footer.news.subscribe")}
@@ -107,22 +107,22 @@ const Footer = () => {
           whileInView={fadeIn.animate}
           transition={{ ...fadeIn.transition, delay: 0.5 }}
           viewport={{ once: true }}
-          className="border-t border-white/10 mt-16 pt-8 flex flex-col-reverse md:flex-row-reverse justify-between items-center gap-6"
+          className="border-t border-white mt-16 pt-8 flex flex-col-reverse md:flex-row-reverse justify-between items-center gap-6"
         >
-          <p className="text-white/50 text-sm">
+          <p className="text-white text-sm">
             {t("footer.copyright")}
           </p>
           <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-            <Link to="/privacy-policy" className="text-white/50 hover:text-white text-sm transition-colors">
+            <Link to="/privacy-policy" className="text-white hover:text-white text-sm transition-colors">
               {t("footer.policies.privacy")}
             </Link>
-            <Link to="/terms-of-service" className="text-white/50 hover:text-white text-sm transition-colors">
+            <Link to="/terms-of-service" className="text-white hover:text-white text-sm transition-colors">
               {t("footer.policies.terms")}
             </Link>
-            <Link to="/cookies-policy" className="text-white/50 hover:text-white text-sm transition-colors">
+            <Link to="/cookies-policy" className="text-white hover:text-white text-sm transition-colors">
               {t("footer.policies.cookies")}
             </Link>
-            <Link to="/disclaimer" className="text-white/50 hover:text-white text-sm transition-colors">
+            <Link to="/disclaimer" className="text-white hover:text-white text-sm transition-colors">
               {t("footer.policies.disclaimer")}
             </Link>
           </div>

@@ -5,10 +5,14 @@ import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
 
 const testimonials = [
-  { id: "sarah", initials: "SJ" },
-  { id: "michael", initials: "MC" },
-  { id: "priya", initials: "PP" },
-  { id: "david", initials: "DW" }
+  {
+    id: "medyaismail",
+    image: "/Medyaismail.jpg",
+  },
+  {
+    id: "hananemarketing",
+    image: "/hananmarketing.jpg",
+  },
 ];
 
 const TestimonialsSection = () => {
@@ -141,9 +145,7 @@ const TestimonialsSection = () => {
                   className="bg-black/20 border border-white/10 rounded-lg p-8 shadow-xl shadow-purple-500/5 w-full backdrop-blur-lg"
                 >
                   <div className="flex flex-col md:flex-row items-center md:items-start gap-6 mb-6">
-                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-brand-pink to-brand-purple flex items-center justify-center flex-shrink-0 shadow-lg shadow-purple-500/20">
-                      <span className="text-2xl font-bold">{currentTestimonial.initials}</span>
-                    </div>
+                    <img src={currentTestimonial.image} alt={author} className="w-20 h-20 rounded-full object-cover flex-shrink-0 shadow-lg shadow-purple-500/20" />
                     <div className="text-center md:text-left">
                       <p className="text-xl font-semibold mb-1 gradient-text">{author}</p>
                       <p className="text-sm text-white/70 mb-4">{position}</p>

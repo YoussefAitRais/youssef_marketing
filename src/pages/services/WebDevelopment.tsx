@@ -1,8 +1,8 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Monitor, Code, CheckCircle, ArrowRight, Database, Layout, Smartphone } from "lucide-react";
-import ServiceLayout from "@/components/layouts/ServiceLayout";
+import { Helmet } from "react-helmet-async";
+import { Monitor, Code, CheckCircle, ArrowRight, Database, Layout, Smartphone, Shield } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -16,51 +16,109 @@ const WebDevelopment = () => {
     "WordPress", "Shopify", "Tailwind CSS", "MongoDB", "PostgreSQL"
   ];
   
+  const customAppsTitle = t('services.webDev.features.customApps.title');
+  const customAppsDesc = t('services.webDev.features.customApps.description');
+  const ecommerceTitle = t('services.webDev.features.ecommerce.title');
+  const ecommerceDesc = t('services.webDev.features.ecommerce.description');
+  const responsiveTitle = t('services.webDev.features.responsive.title');
+  const responsiveDesc = t('services.webDev.features.responsive.description');
+  const databaseTitle = t('services.webDev.features.database.title');
+  const databaseDesc = t('services.webDev.features.database.description');
+  const uiuxTitle = t('services.webDev.features.uiux.title');
+  const uiuxDesc = t('services.webDev.features.uiux.description');
+  const performanceTitle = t('services.webDev.features.performance.title');
+  const performanceDesc = t('services.webDev.features.performance.description');
+  const securityTitle = t('services.webDev.features.security.title');
+  const securityDesc = t('services.webDev.features.security.description');
+  const scalabilityTitle = t('services.webDev.features.scalability.title');
+  const scalabilityDesc = t('services.webDev.features.scalability.description');
+
+  const processSteps = [
+    {
+      step: "01",
+      title: t('services.webDev.process.steps.1.title'),
+      description: t('services.webDev.process.steps.1.description')
+    },
+    {
+      step: "02",
+      title: t('services.webDev.process.steps.2.title'),
+      description: t('services.webDev.process.steps.2.description')
+    },
+    {
+      step: "03",
+      title: t('services.webDev.process.steps.3.title'),
+      description: t('services.webDev.process.steps.3.description')
+    },
+    {
+      step: "04",
+      title: t('services.webDev.process.steps.4.title'),
+      description: t('services.webDev.process.steps.4.description')
+    },
+    {
+      step: "05",
+      title: t('services.webDev.process.steps.5.title'),
+      description: t('services.webDev.process.steps.5.description')
+    }
+  ];
+
   const serviceFeatures = [
     {
-      title: t('services.webDev.features.customApps.title'),
-      description: t('services.webDev.features.customApps.description'),
+      title: customAppsTitle,
+      description: customAppsDesc,
       icon: <Code className="w-6 h-6" />,
       gradient: "from-brand-pink to-brand-purple"
     },
     {
-      title: t('services.webDev.features.ecommerce.title'),
-      description: t('services.webDev.features.ecommerce.description'),
+      title: ecommerceTitle,
+      description: ecommerceDesc,
       icon: <Monitor className="w-6 h-6" />,
       gradient: "from-brand-purple to-brand-blue"
     },
     {
-      title: t('services.webDev.features.responsive.title'),
-      description: t('services.webDev.features.responsive.description'),
+      title: responsiveTitle,
+      description: responsiveDesc,
       icon: <Smartphone className="w-6 h-6" />,
       gradient: "from-brand-blue to-brand-pink"
     },
     {
-      title: t('services.webDev.features.database.title'),
-      description: t('services.webDev.features.database.description'),
+      title: databaseTitle,
+      description: databaseDesc,
       icon: <Database className="w-6 h-6" />,
       gradient: "from-brand-pink to-brand-purple"
     },
     {
-      title: t('services.webDev.features.uiux.title'),
-      description: t('services.webDev.features.uiux.description'),
+      title: uiuxTitle,
+      description: uiuxDesc,
       icon: <Layout className="w-6 h-6" />,
       gradient: "from-brand-purple to-brand-blue"
     },
     {
-      title: t('services.webDev.features.performance.title'),
-      description: t('services.webDev.features.performance.description'),
+      title: performanceTitle,
+      description: performanceDesc,
       icon: <CheckCircle className="w-6 h-6" />,
       gradient: "from-brand-blue to-brand-pink"
+    },
+    {
+      title: securityTitle,
+      description: securityDesc,
+      icon: <Shield className="w-6 h-6" />,
+      gradient: "from-brand-pink to-brand-orange"
+    },
+    {
+      title: scalabilityTitle,
+      description: scalabilityDesc,
+      icon: <Database className="w-6 h-6" />,
+      gradient: "from-brand-orange to-brand-red"
     }
   ];
 
   return (
-    <ServiceLayout
-      title={t('services.webDev.meta.title')}
-      description={t('services.webDev.meta.description')}
-    >
-      
+    <div className="min-h-screen bg-gradient-to-r from-[#232325] to-[#230c33] text-white overflow-x-hidden">
+      <Helmet>
+        <title>{t('services.webDev.meta.title')} | يوسف للتسويق</title>
+        <meta name="description" content={t('services.webDev.meta.description')} />
+      </Helmet>
+
       {/* Hero Section */}
       <section className="pt-32 pb-16">
         <div className="container mx-auto px-4 md:px-6">
@@ -115,7 +173,7 @@ const WebDevelopment = () => {
       </section>
       
       {/* Features Section */}
-      <section className="py-16">
+      <section className="py-16 bg-gradient-to-r from-[#232325] to-[#230c33]">
         <div className="container mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -124,7 +182,7 @@ const WebDevelopment = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-brand-new-blue">
               {t('services.webDev.offer.title')} <span className="gradient-text">{t('services.webDev.offer.titleColored')}</span>
             </h2>
             <p className="text-white/70 max-w-2xl mx-auto">
@@ -145,13 +203,10 @@ const WebDevelopment = () => {
                 <Card className={cn(
                   "bg-white/5 border-white/10 p-8 h-full overflow-hidden relative",
                   "hover:bg-white/10 hover:border-white/20 transition-all duration-300",
-                  "backdrop-blur-lg"
+                  "backdrop-blur-lg",
+                  feature.gradient
                 )}>
-                  <div className={cn(
-                    "w-16 h-16 rounded-2xl bg-gradient-to-br flex items-center justify-center mb-6",
-                    "group-hover:scale-110 transition-transform duration-300",
-                    feature.gradient
-                  )}>
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br flex items-center justify-center mb-6">
                     {feature.icon}
                   </div>
                   <h3 className="text-xl font-bold mb-3 group-hover:text-white transition-colors">{feature.title}</h3>
@@ -172,7 +227,7 @@ const WebDevelopment = () => {
       </section>
       
       {/* Process Section */}
-      <section className="py-16 bg-white/5">
+      <section className="py-16 bg-gradient-to-r from-[#232325] to-[#230c33]">
         <div className="container mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -181,7 +236,7 @@ const WebDevelopment = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-brand-new-blue">
               {t('services.webDev.process.title')} <span className="gradient-text">{t('services.webDev.process.titleColored')}</span>
             </h2>
             <p className="text-white/70 max-w-2xl mx-auto">
@@ -239,7 +294,7 @@ const WebDevelopment = () => {
       </section>
       
       {/* CTA Section */}
-      <section className="py-16">
+      <section className="py-16 bg-gradient-to-r from-[#232325] to-[#230c33]">
         <div className="container mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -248,7 +303,7 @@ const WebDevelopment = () => {
             viewport={{ once: true }}
             className="bg-white/5 border border-white/10 rounded-xl p-8 md:p-12 shadow-lg shadow-purple-900/10 text-center"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-brand-new-blue">
               {t('services.webDev.cta.title')} <span className="gradient-text">{t('services.webDev.cta.titleColored')}</span>
             </h2>
             <p className="text-white/70 text-lg mb-8 max-w-2xl mx-auto">
@@ -267,7 +322,7 @@ const WebDevelopment = () => {
       </section>
       
 
-    </ServiceLayout>
+    </div>
   );
 };
 

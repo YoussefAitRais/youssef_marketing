@@ -21,7 +21,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center pt-32 pb-20 overflow-hidden relative">
+    <section className="min-h-screen flex items-center justify-center pt-32 pb-20 overflow-hidden relative bg-gradient-to-r from-[#232325] to-[#230c33]">
       {/* Background Glows */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] max-w-3xl max-h-3xl">
         <div className="absolute inset-0 rounded-full bg-brand-purple opacity-20 blur-3xl"></div>
@@ -48,13 +48,10 @@ const HeroSection = () => {
           {/* New Subheading */}
           <motion.p
             variants={itemVariants}
-            className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mt-8 mb-4"
+            className="text-xl md:text-2xl text-white max-w-3xl mx-auto mt-8 mb-4"
           >
+            {t("hero.sub")} <span className="text-[#a955f7]">{t("")}</span>
           </motion.p>
-
-
-
-          {/* CTA Buttons */}
           <motion.div
             variants={itemVariants}
             className="flex flex-col sm:flex-row items-center gap-4"

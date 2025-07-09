@@ -26,7 +26,7 @@ const BookCall = () => {
     >
       <div className="bg-gradient-to-b from-gray-900 to-black text-white">
         {/* Hero Section */}
-        <section className="pt-32 pb-16 text-center">
+        <section className="min-h-screen flex items-center justify-center pt-32 pb-20 overflow-hidden relative bg-gradient-to-r from-[#232325] to-[#230c33]">
           <div className="container mx-auto px-4 md:px-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

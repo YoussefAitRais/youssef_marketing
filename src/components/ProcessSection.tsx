@@ -4,16 +4,44 @@ import { Search, PenTool, Rocket, TrendingUp } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const processSteps = [
-  { id: "discover", icon: <Search className="w-6 h-6" />, delay: 0.1, color: "from-pink-500 to-brand-pink" },
-  { id: "design", icon: <PenTool className="w-6 h-6" />, delay: 0.3, color: "from-purple-500 to-brand-purple" },
-  { id: "launch", icon: <Rocket className="w-6 h-6" />, delay: 0.5, color: "from-indigo-500 to-purple-600" },
-  { id: "expand", icon: <TrendingUp className="w-6 h-6" />, delay: 0.7, color: "from-blue-500 to-brand-blue" }
+  { 
+    id: "discover", 
+    icon: <Search className="w-8 h-8" />, 
+    delay: 0.1, 
+    color: "from-pink-500 to-brand-pink",
+    title: "Discover",
+    description: "Understanding your needs and goals"
+  },
+  { 
+    id: "design", 
+    icon: <PenTool className="w-8 h-8" />, 
+    delay: 0.3, 
+    color: "from-purple-500 to-brand-purple",
+    title: "Design",
+    description: "Creating tailored solutions"
+  },
+  { 
+    id: "launch", 
+    icon: <Rocket className="w-8 h-8" />, 
+    delay: 0.5, 
+    color: "from-indigo-500 to-purple-600",
+    title: "Launch",
+    description: "Bringing ideas to life"
+  },
+  { 
+    id: "expand", 
+    icon: <TrendingUp className="w-8 h-8" />, 
+    delay: 0.7, 
+    color: "from-blue-500 to-brand-blue",
+    title: "Expand",
+    description: "Scaling for growth"
+  }
 ];
 
 const ProcessSection = () => {
   const { t } = useTranslation();
   return (
-    <section id="process" className="py-20 relative overflow-hidden">
+    <section id="process" className="py-32 relative overflow-hidden bg-gradient-to-r from-black/90 to-black/80">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <svg className="absolute left-0 top-0 h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -21,31 +49,31 @@ const ProcessSection = () => {
             d="M0,0 L100,0 L100,100 L0,100 Z"
             fill="none"
             stroke="rgba(174, 59, 255, 0.1)"
-            strokeWidth="0.5"
+            strokeWidth="1"
             vectorEffect="non-scaling-stroke"
             initial={{ pathLength: 0 }}
             animate={{ pathLength: 1 }}
             transition={{ duration: 2, ease: "easeInOut" }}
           />
         </svg>
-        {[...Array(5)].map((_, i) => (
+        {[...Array(8)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute rounded-full bg-brand-purple/5"
+            className="absolute rounded-full bg-gradient-to-r from-brand-pink/10 via-brand-purple/10 to-brand-blue/10"
             style={{
-              width: Math.random() * 300 + 50 + 'px',
-              height: Math.random() * 300 + 50 + 'px',
+              width: Math.random() * 400 + 50 + 'px',
+              height: Math.random() * 400 + 50 + 'px',
               left: Math.random() * 100 + '%',
               top: Math.random() * 100 + '%',
               transform: 'translate(-50%, -50%)',
             }}
             animate={{
-              scale: [1, 1.2, 1],
-              opacity: [0.1, 0.2, 0.1],
+              scale: [1, 1.3, 1],
+              opacity: [0.1, 0.3, 0.1],
             }}
             transition={{
               repeat: Infinity,
-              duration: Math.random() * 10 + 10,
+              duration: Math.random() * 15 + 15,
               delay: Math.random() * 5,
               ease: "easeInOut",
             }}
@@ -55,42 +83,39 @@ const ProcessSection = () => {
       
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="text-center mb-20 relative"
+          className="text-center mb-24 relative"
         >
           {/* Decorative elements */}
           <motion.div 
-            className="absolute -left-10 top-0 w-20 h-20 rounded-full bg-brand-pink/10 blur-xl"
-            animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+            className="absolute -left-12 top-0 w-24 h-24 rounded-full bg-gradient-to-r from-brand-pink/10 to-brand-pink/5 blur-2xl"
+            animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.6, 0.3] }}
             transition={{ duration: 5, repeat: Infinity }}
           />
           <motion.div 
-            className="absolute -right-10 bottom-0 w-20 h-20 rounded-full bg-brand-blue/10 blur-xl"
-            animate={{ scale: [1.2, 1, 1.2], opacity: [0.3, 0.5, 0.3] }}
+            className="absolute -right-12 bottom-0 w-24 h-24 rounded-full bg-gradient-to-r from-brand-blue/10 to-brand-blue/5 blur-2xl"
+            animate={{ scale: [1.3, 1, 1.3], opacity: [0.3, 0.6, 0.3] }}
             transition={{ duration: 5, delay: 1, repeat: Infinity }}
           />
           
           <div className="relative">
-
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient-brand">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient-brand">
               {t("process.heading.prefix")}
             </h2>
+            <div className="w-16 h-1 bg-gradient-to-r from-brand-pink to-brand-purple mx-auto mb-8 rounded-full"></div>
+            <p className="text-white/80 max-w-3xl mx-auto text-lg leading-relaxed">
+              {t("process.description")}
+            </p>
           </div>
-          
-
-          
-          <p className="text-white/70 max-w-2xl mx-auto">
-            {t("process.description")}
-          </p>
         </motion.div>
 
         <div className="relative">
           {/* Timeline line */}
           <motion.div 
-            className="hidden md:block absolute left-1/2 top-0 w-1 h-full bg-gradient-to-b from-brand-pink via-brand-purple to-brand-blue transform -translate-x-1/2"
+            className="hidden md:block absolute left-1/2 top-0 w-1.5 h-full bg-gradient-to-b from-brand-pink via-brand-purple to-brand-blue transform -translate-x-1/2 rounded-full"
             initial={{ height: 0, opacity: 0 }}
             whileInView={{ height: '100%', opacity: 1 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
