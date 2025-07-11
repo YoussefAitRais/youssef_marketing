@@ -44,25 +44,25 @@ const PortfolioSection: React.FC = () => {
                         <div className="flex items-center gap-3 mb-4">
                           <div className="w-7 h-7 bg-yellow-500 rounded-md flex items-center justify-center font-bold text-black text-sm">$</div>
                           <div>
-                            <h3 className="font-bold text-sm">{item.name}</h3>
-                            <p className="text-xs text-white/80">{item.category}</p>
+                            <h3 className="font-bold text-base">{item.name}</h3>
+                            <p className="text-sm text-white/80">{item.category}</p>
                           </div>
                         </div>
-                        <h2 className="text-xl md:text-2xl font-bold text-[#a456f6]">
+                        <h2 className="text-2xl md:text-3xl font-bold text-[#a456f6]">
                           {item.title}
                         </h2>
                       </div>
                       <div>
-                        <h4 className="font-semibold text-[#a456f6] mb-1 text-xs">{t('portfolio.challenge')}</h4>
-                        <p className="text-white text-xs">{item.challenge}</p>
+                        <h4 className="font-semibold text-[#a456f6] mb-1 text-sm">{t('portfolio.challenge')}</h4>
+                        <p className="text-white text-sm">{item.challenge}</p>
                       </div>
                       <div>
-                        <h4 className="font-semibold text-[#a456f6] mb-1 text-xs">{t('portfolio.solution')}</h4>
-                        <p className="text-white text-xs">{item.solution}</p>
+                        <h4 className="font-semibold text-[#a456f6] mb-1 text-sm">{t('portfolio.solution')}</h4>
+                        <p className="text-white text-sm">{item.solution}</p>
                       </div>
                       <div>
-                        <h4 className="font-semibold text-[#a456f6] mb-1 text-xs">{t('portfolio.additional_results')}</h4>
-                        <ul className="list-disc list-inside text-white text-xs flex flex-col gap-1">
+                        <h4 className="font-semibold text-[#a456f6] mb-1 text-sm">{t('portfolio.additional_results')}</h4>
+                        <ul className="list-disc list-inside text-white text-sm flex flex-col gap-1">
                           {item.results.map((result: string) => <li key={result}>{result}</li>)}
                         </ul>
                       </div>
@@ -77,9 +77,9 @@ const PortfolioSection: React.FC = () => {
                     {/* Right Column */}
                     <div className="flex flex-col items-center justify-center gap-8 bg-black/20 p-8 rounded-lg">
                       <div className="text-center">
-                        <p className="text-4xl md:text-5xl font-bold text-[#a456f6]">{item.mainMetric}</p>
-                        <p className="text-sm font-semibold text-white">{t(item.metricDescriptionKey)}</p>
-                        <p className="text-xs text-white/80">{t(item.metricTimelineKey)}</p>
+                        <p className="text-5xl md:text-6xl font-bold text-[#a456f6]">{item.mainMetric}</p>
+                        <p className="text-base font-semibold text-white">{t(item.metricDescriptionKey)}</p>
+                        <p className="text-sm text-white/80">{t(item.metricTimelineKey)}</p>
                       </div>
                       <div className="w-full">
                         <p className="text-center text-sm text-white/80 mb-2">{t('portfolio.performance_over_time')}</p>

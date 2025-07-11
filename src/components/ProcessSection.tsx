@@ -135,20 +135,7 @@ const ProcessSection = () => {
                   index % 2 === 0 ? "md:text-right" : ""
                 }`}
               >
-                <motion.div
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  transition={{ 
-                    type: "spring", 
-                    stiffness: 260, 
-                    damping: 20,
-                    delay: step.delay + 0.3 
-                  }}
-                  viewport={{ once: true }}
-                  className={`hidden md:flex absolute top-0 left-1/2 w-12 h-12 rounded-full bg-gradient-to-br ${step.color} transform -translate-x-1/2 z-10 items-center justify-center shadow-lg shadow-purple-500/20`}
-                >
-                  {step.icon}
-                </motion.div>
+
                 
                 <div
                   className={`md:pr-12 ${

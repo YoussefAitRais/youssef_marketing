@@ -16,7 +16,7 @@ const ServiceCard = ({ card, image, color, delay }) => {
       transition={{ duration: 0.5, delay }}
       viewport={{ once: true }}
       // This is the outer frame (اطار), with a dark background and padding.
-      className="bg-gradient-to-r from-[#232325] to-[#230c33] border border-white/10 rounded-2xl p-4 h-full backdrop-blur-lg flex flex-col"
+      className="bg-gradient-to-r from-[#232325] to-[#230c33] border border-white/10 rounded-2xl p-3 h-full backdrop-blur-lg flex flex-col"
     >
       {/* This is the inner content block, with a black background. */}
       <div className="bg-gradient-to-r from-[#232325] to-[#230c33] rounded-lg overflow-hidden h-full flex flex-col">
@@ -35,9 +35,9 @@ const ServiceCard = ({ card, image, color, delay }) => {
         </div>
         
         {/* Bottom part: Text content */}
-        <div className={`p-6 flex-grow flex flex-col ${isRtl ? 'text-right' : 'text-left'}`}>
-          <h3 className={`text-2xl font-bold ${color} mb-3`}>{title}</h3>
-          <ul className="space-y-4 text-white/90 flex-grow text-lg">
+        <div className={`p-3 flex-grow flex flex-col ${isRtl ? 'text-right' : 'text-left'}`}>
+          <h3 className={`text-lg font-bold ${color} mb-2`}>{title}</h3>
+          <ul className="space-y-2 text-white/90 flex-grow text-sm">
             {Array.isArray(description) && description.map((item, index) => (
                 <li key={index} className="relative pl-6 rtl:pr-6 rtl:pl-0">
                     <span
@@ -52,7 +52,7 @@ const ServiceCard = ({ card, image, color, delay }) => {
           <div className="mt-8">
             <Link 
               to={link}
-              className="inline-block bg-brand-new-blue text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 ease-in-out hover:bg-blue-700 hover:shadow-lg hover:shadow-brand-new-blue/40 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-brand-new-blue"
+              className="inline-block bg-brand-new-blue text-white font-semibold py-1.5 px-5 rounded-md transition-all duration-300 ease-in-out hover:bg-blue-700 hover:shadow-lg hover:shadow-brand-new-blue/40 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-brand-new-blue"
             >
               {button}
             </Link>
@@ -68,7 +68,7 @@ const ServicesSection = () => {
   const serviceCards = t('services.cards', { returnObjects: true });
 
   return (
-    <section id="services" className="py-20 md:py-32 relative">
+    <section id="services" className="py-10 md:py-16 relative">
        <div className="absolute inset-0 overflow-hidden -z-10">
         <motion.div
           className="absolute -left-40 -top-40 w-96 h-96 rounded-full bg-pink-500/10 blur-3xl"
@@ -96,15 +96,15 @@ const ServicesSection = () => {
           }}
         />
       </div>
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient-brand">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gradient-brand">
             {t("services.heading.prefix")}
           </h2>
           <p className="text-white max-w-2xl mx-auto">
@@ -112,7 +112,7 @@ const ServicesSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {Array.isArray(serviceCards) && serviceCards.map((card, index) => (
             <ServiceCard 
               key={card.id || index} 
@@ -123,6 +123,38 @@ const ServicesSection = () => {
             />
           ))}
         </div>
+
+        {/* CTA for unsure clients */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          viewport={{ once: true }}
+          className="mt-24 max-w-4xl mx-auto text-center bg-black/20 border border-white/10 rounded-2xl p-8 md:p-12 shadow-xl shadow-purple-500/5 backdrop-blur-lg"
+        >
+          <h3 className="text-2xl md:text-3xl font-bold text-gradient-brand mb-4">
+            {t('services.cta.title')}
+          </h3>
+          <p className="text-white/70 max-w-2xl mx-auto mb-8">
+            {t('services.cta.description')}
+          </p>
+          <div className="flex justify-center mb-6">
+            <Link 
+              to="#"
+              className="inline-block bg-brand-new-blue text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 ease-in-out hover:bg-blue-700 hover:shadow-lg hover:shadow-brand-new-blue/40 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-brand-new-blue"
+            >
+              {t('services.cta.button')}
+            </Link>
+          </div>
+          <div className="flex flex-wrap justify-center gap-3">
+            {(t('services.cta.tags', { returnObjects: true }) as string[]).map((tag: string) => (
+              <span key={tag} className="text-xs text-white/60 border border-white/20 rounded-full px-3 py-1">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </motion.div>
+
       </div>
     </section>
   );

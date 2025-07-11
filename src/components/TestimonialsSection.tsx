@@ -144,11 +144,15 @@ const TestimonialsSection = () => {
                   transition={{ duration: 0.5 }}
                   className="bg-black/20 border border-white/10 rounded-lg p-8 shadow-xl shadow-purple-500/5 w-full backdrop-blur-lg"
                 >
-                  <div className="flex flex-col md:flex-row items-center md:items-start gap-6 mb-6">
-                    <img src={currentTestimonial.image} alt={author} className="w-20 h-20 rounded-full object-cover flex-shrink-0 shadow-lg shadow-purple-500/20" />
-                    <div className="text-center md:text-left">
-                      <p className="text-xl font-semibold mb-1 gradient-text">{author}</p>
-                      <p className="text-sm text-white/70 mb-4">{position}</p>
+                  <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                    <div className="w-full md:w-1/3 flex flex-col items-center text-center gap-4">
+                      <img src={currentTestimonial.image} alt={author} className="w-24 h-24 rounded-full object-cover flex-shrink-0 shadow-lg shadow-purple-500/20" />
+                      <div>
+                        <p className="text-xl font-semibold gradient-text">{author}</p>
+                        <p className="text-sm text-white/70">{position}</p>
+                      </div>
+                    </div>
+                    <div className="w-full md:w-2/3 text-right pt-6 md:pt-0 border-t md:border-t-0 md:border-l border-white/10 md:pl-8">
                       <p className="text-lg md:text-xl italic text-white/90">"{quote}"</p>
                     </div>
                   </div>
