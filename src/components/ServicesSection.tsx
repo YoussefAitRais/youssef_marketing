@@ -140,7 +140,7 @@ const ServicesSection = () => {
           </p>
           <div className="flex justify-center mb-6">
             <Link 
-              to="#"
+              to="#contact"
               className="inline-block bg-brand-new-blue text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 ease-in-out hover:bg-blue-700 hover:shadow-lg hover:shadow-brand-new-blue/40 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-brand-new-blue"
             >
               {t('services.cta.button')}

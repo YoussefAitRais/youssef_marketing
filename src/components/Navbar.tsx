@@ -75,8 +75,8 @@ const Navbar = () => {
         {/* CTA Button */}
                 <div className="hidden md:flex items-center space-x-4">
 
-          <Button asChild className="bg-brand-new-blue text-white font-semibold rounded-lg px-5 py-2 hover:opacity-90 transition-opacity">
-            <Link to="/services/book-call">{t("navbar.bookConsultation")}</Link>
+          <Button asChild className="bg-gradient-to-r from-[#1A202C] to-[#293039] text-white font-bold rounded-lg px-5 py-2 hover:bg-gradient-to-r hover:from-[#17232E] hover:to-[#2F435E] transition-colors">
+            <Link to="/#contact">{t("navbar.bookConsultation")}</Link>
           </Button>
         </div>
 
@@ -105,7 +105,7 @@ const Navbar = () => {
                 asChild
                 className="bg-brand-gradient text-white font-semibold rounded-full px-6 py-3 w-full mt-4"
               >
-                <Link to="/services/book-call" onClick={() => setIsOpen(false)}>{t("navbar.bookConsultation")}</Link>
+                <Link to="/#contact" onClick={() => setIsOpen(false)}>{t("navbar.bookConsultation")}</Link>
               </Button>
 
             </nav>
