@@ -49,11 +49,11 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <BannerSection />
-            <ServicesSection />
+      <ProcessSection />
+      <ServicesSection />
+      <AboutSection />
       <PortfolioSection />
       <PackSection />
-      <ProcessSection />
-      <AboutSection />
       <TestimonialsSection />
       <BookCallSection />
       <Footer />
