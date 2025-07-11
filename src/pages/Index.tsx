@@ -5,6 +5,7 @@ import { motion, useAnimation } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import ServicesSection from "@/components/ServicesSection";
+import PortfolioSection from "@/components/PortfolioSection";
 import PackSection from "@/components/PackSection";
 import ProcessSection from "@/components/ProcessSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
@@ -48,7 +49,8 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <BannerSection />
-      <ServicesSection />
+            <ServicesSection />
+      <PortfolioSection />
       <PackSection />
       <ProcessSection />
       <AboutSection />
