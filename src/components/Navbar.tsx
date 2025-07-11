@@ -5,6 +5,7 @@ import { useLocation, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
+
 const Navbar = () => {
   const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
@@ -72,7 +73,8 @@ const Navbar = () => {
         </nav>
 
         {/* CTA Button */}
-        <div className="hidden md:flex items-center space-x-4">
+                <div className="hidden md:flex items-center space-x-4">
+
           <Button asChild className="bg-brand-new-blue text-white font-semibold rounded-lg px-5 py-2 hover:opacity-90 transition-opacity">
             <Link to="/services/book-call">{t("navbar.bookConsultation")}</Link>
           </Button>
@@ -105,6 +107,7 @@ const Navbar = () => {
               >
                 <Link to="/services/book-call" onClick={() => setIsOpen(false)}>{t("navbar.bookConsultation")}</Link>
               </Button>
+
             </nav>
           </motion.div>
         )}
