@@ -54,7 +54,7 @@ const TestimonialsSection = () => {
   const position = t(`testimonials.items.${currentTestimonial.id}.position`);
 
   return (
-    <section className="py-20 relative overflow-hidden">
+    <section className="py-20 relative overflow-hidden bg-[#1a1a1a]">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div

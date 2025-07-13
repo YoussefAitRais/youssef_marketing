@@ -19,7 +19,7 @@ const PortfolioSection: React.FC = () => {
   }, [api]);
 
   return (
-    <section id="portfolio" className="py-12 md:py-20 bg-[#000000] text-white">
+    <section id="portfolio" className="py-12 md:py-20 bg-[#1a1a1a] text-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-[#a456f6] mb-4">أعمالنا</h2>
@@ -40,7 +40,7 @@ const PortfolioSection: React.FC = () => {
           <CarouselContent>
             {portfolioItems.map((item, index) => (
               <CarouselItem key={index}>
-                <Card className="bg-[#111111] border border-gray-700/50 p-4 sm:p-6 md:p-8 rounded-2xl flex flex-col">
+                <Card className="bg-[#231c29] border border-gray-700/50 p-4 sm:p-6 md:p-8 rounded-2xl flex flex-col">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 flex-grow">
                     {/* Left Column */}
                     <div className="flex flex-col gap-4">
@@ -79,7 +79,7 @@ const PortfolioSection: React.FC = () => {
                       </div>
                     </div>
                     {/* Right Column */}
-                    <div className="flex flex-col items-center justify-center gap-4 sm:gap-8 bg-[#0F0F0F]/20 p-4 sm:p-8 rounded-lg">
+                    <div className="flex flex-col items-center justify-center gap-4 sm:gap-8 bg-[#1a1a1a]/20 p-4 sm:p-8 rounded-lg">
                       <div className="text-center">
                         <p className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#a456f6]">{item.mainMetric}</p>
                         <p className="text-sm sm:text-base font-semibold text-white">{t(item.metricDescriptionKey)}</p>
@@ -98,8 +98,8 @@ const PortfolioSection: React.FC = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 text-white disabled:hidden" />
-          <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 text-white disabled:hidden" />
+          <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 text-white disabled:hidden hidden md:flex" />
+          <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 text-white disabled:hidden hidden md:flex" />
         </Carousel>
       </div>
     </section>

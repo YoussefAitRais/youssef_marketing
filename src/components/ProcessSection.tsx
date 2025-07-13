@@ -41,7 +41,7 @@ const processSteps = [
 const ProcessSection = () => {
   const { t } = useTranslation();
   return (
-    <section id="process" className="py-32 relative overflow-hidden bg-gradient-to-r from-black/90 to-black/80">
+    <section id="process" className="py-12 md:py-20 text-white relative overflow-hidden bg-[#1a1a1a]">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <svg className="absolute left-0 top-0 h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -148,9 +148,6 @@ const ProcessSection = () => {
                     transition={{ duration: 0.3 }}
                   >
                     <div className="flex items-center mb-4 md:justify-start">
-                      <div className={`md:hidden mr-4 w-10 h-10 rounded-full bg-gradient-to-br ${step.color} flex items-center justify-center`}>
-                        {step.icon}
-                      </div>
                       <h3 className="text-2xl font-bold gradient-text">{t(`process.steps.${step.id}.title`)}</h3>
                     </div>
                     <p className="text-white/80">{t(`process.steps.${step.id}.description`)}</p>

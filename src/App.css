@@ -58,3 +58,29 @@ body {
 .prose a:hover {
   text-decoration: underline;
 }
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  .prose h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 12px;
+  }
+
+  .prose h2 {
+    font-size: 1.25rem;
+  }
+
+  .prose p,
+  .prose ul {
+    font-size: 1rem;
+  }
+}

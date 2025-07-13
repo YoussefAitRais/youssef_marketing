@@ -68,7 +68,7 @@ const ServicesSection = () => {
   const serviceCards = t('services.cards', { returnObjects: true });
 
   return (
-    <section id="services" className="py-10 md:py-16 relative">
+    <section id="services" className="py-10 md:py-16 relative bg-[#1a1a1a]">
        <div className="absolute inset-0 overflow-hidden -z-10">
         <motion.div
           className="absolute -left-40 -top-40 w-96 h-96 rounded-full bg-pink-500/10 blur-3xl"

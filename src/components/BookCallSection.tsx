@@ -58,7 +58,7 @@ const BookCallSection = () => {
   const budgets = t("contact.form.budgets", { returnObjects: true }) as string[];
 
   return (
-    <section id="contact" className="py-24 relative overflow-hidden">
+    <section id="contact" className="py-24 relative overflow-hidden bg-[#1a1a1a]">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-purple/5 to-transparent"></div>
       <motion.div
         className="absolute -right-40 -top-40 w-96 h-96 rounded-full bg-brand-pink/5 blur-3xl"
