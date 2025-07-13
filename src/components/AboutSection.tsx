@@ -30,7 +30,7 @@ const AboutSection = () => {
   const cards = Array.isArray(cardsData) ? cardsData : [];
 
   return (
-    <section id="about" className="py-20 md:py-32 bg-black relative">
+    <section id="about" className="py-20 md:py-32 bg-[#1a1a1a] relative">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

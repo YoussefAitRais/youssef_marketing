@@ -37,7 +37,7 @@ const Index = () => {
           name="description" 
           content="Engineer smarter systems today, unlock unstoppable growth tomorrow with our custom web development, AI automations, and data-backed growth strategies."
         />
-        <meta name="keywords" content="web development, AI automation, growth strategy, SaaS, tech agency" />
+        <meta name="keywords" content="web development, AI automation, growth strategy, SaaS, tech agency, copywriting, marketing, digital marketing, content writing , sales funnels , sales , webinars , writing, expert ," />
       </Helmet>
       
       {/* Animated background elements */}
@@ -50,8 +50,8 @@ const Index = () => {
       <HeroSection />
       <BannerSection />
       <ProcessSection />
-      <ServicesSection />
       <AboutSection />
+      <ServicesSection />
       <PortfolioSection />
       <PackSection />
       <TestimonialsSection />

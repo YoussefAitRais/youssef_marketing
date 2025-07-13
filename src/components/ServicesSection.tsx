@@ -130,7 +130,7 @@ const ServicesSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
           viewport={{ once: true }}
-          className="mt-24 max-w-4xl mx-auto text-center bg-black/20 border border-white/10 rounded-2xl p-8 md:p-12 shadow-xl shadow-purple-500/5 backdrop-blur-lg"
+          className="mt-24 max-w-4xl mx-auto text-center bg-[#1a1a1a]/20 border border-white/10 rounded-2xl p-8 md:p-12 shadow-xl shadow-purple-500/5 backdrop-blur-lg"
         >
           <h3 className="text-2xl md:text-3xl font-bold text-gradient-brand mb-4">
             {t('services.cta.title')}

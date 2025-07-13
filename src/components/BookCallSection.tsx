@@ -104,7 +104,7 @@ const BookCallSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="bg-black/20 border border-white/10 p-8 md:p-12 rounded-2xl backdrop-blur-lg"
+            className="bg-[#1a1a1a]/20 border border-white/10 p-8 md:p-12 rounded-2xl backdrop-blur-lg"
           >
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Name */}

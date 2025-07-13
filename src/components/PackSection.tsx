@@ -20,7 +20,7 @@ const PackSection: React.FC = () => {
   const isRtl = i18n.language === 'ar';
 
   return (
-    <section className="bg-black text-white py-20 relative">
+    <section className="bg-[#1a1a1a] text-white py-20 relative">
       <div className="container mx-auto px-4 text-center">
         <div className="relative inline-block mb-4">
             <h2 className="text-4xl md:text-5xl font-bold">{t('packages.heading')}</h2>

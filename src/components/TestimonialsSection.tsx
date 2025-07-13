@@ -142,7 +142,7 @@ const TestimonialsSection = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.5 }}
-                  className="bg-black/20 border border-white/10 rounded-lg p-8 shadow-xl shadow-purple-500/5 w-full backdrop-blur-lg"
+                  className="bg-[#1a1a1a]/20 border border-white/10 rounded-lg p-8 shadow-xl shadow-purple-500/5 w-full backdrop-blur-lg"
                 >
                   <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
                     <div className="w-full md:w-1/3 flex flex-col items-center text-center gap-4">
