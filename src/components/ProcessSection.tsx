@@ -148,7 +148,9 @@ const ProcessSection = () => {
                     transition={{ duration: 0.3 }}
                   >
                     <div className="flex items-center mb-4 md:justify-start">
-                      <h3 className="text-2xl font-bold gradient-text">{t(`process.steps.${step.id}.title`)}</h3>
+                      <h3 className="text-2xl font-bold mb-2" style={{ color: '#9f59f7' }}>
+                        {t(`process.steps.${step.id}.title`)}
+                      </h3>
                     </div>
                     <p className="text-white/80">{t(`process.steps.${step.id}.description`)}</p>
                     

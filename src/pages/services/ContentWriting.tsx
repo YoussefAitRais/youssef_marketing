@@ -28,12 +28,11 @@ const ContentWriting = () => {
     },
   };
 
-  const FeatureCard = ({ icon, title, text }) => (
+  const FeatureCard = ({ title, text }) => (
     <motion.div
       variants={itemVariants}
       className="bg-gray-800/50 p-8 rounded-2xl border border-white/10 backdrop-blur-lg h-full"
     >
-      <div className="text-brand-secondary text-4xl mb-4">{icon}</div>
       <h3 className="text-2xl font-bold text-white mb-3">{title}</h3>
       <p className="text-white/80 text-lg">{text}</p>
     </motion.div>
@@ -42,11 +41,9 @@ const ContentWriting = () => {
   return (
     <>
       <Navbar />
-      <div className="bg-gray-900 text-white overflow-x-hidden" dir="rtl">
+      <div style={{ backgroundColor: '#1a1a1a', fontFamily: "'IBM Plex Sans Arabic', sans-serif" }} className="text-white overflow-x-hidden" dir="rtl">
       <div className="relative pt-32 pb-20 md:pt-40 md:pb-28">
-        {/* Background Glows */}
-        <div className="absolute top-0 left-0 w-96 h-96 bg-brand-primary/10 rounded-full blur-3xl -z-0"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-brand-secondary/10 rounded-full blur-3xl -z-0"></div>
+        {/* Background Glows Removed */}
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -56,9 +53,9 @@ const ContentWriting = () => {
         >
           <motion.h1
             variants={itemVariants}
-            className="text-4xl md:text-6xl font-extrabold text-gradient-brand leading-tight mb-6"
+            className="text-4xl md:text-6xl font-extrabold leading-tight mb-6" style={{ color: '#9f59f7' }}
           >
-            ✍️ خدمة كتابة المحتوى التسويقي
+            خدمة كتابة المحتوى التسويقي
           </motion.h1>
           <motion.h2
             variants={itemVariants}
@@ -98,22 +95,18 @@ const ContentWriting = () => {
           </motion.h2>
           <div className="grid md:grid-cols-2 gap-8">
             <FeatureCard
-              icon={<FaPenNib />}
               title="محتوى يجذب الانتباه ويحسن المبيعات"
               text="كل كلمة تُكتب بعناية لتُخاطب عقل وقلب جمهورك في آنٍ واحد. نربط بين مشكلته، وحلك، بأسلوب بسيط لكنه فعّال."
             />
             <FeatureCard
-              icon={<FaUsers />}
               title="مقالات احترافية مُخصصة لجمهورك"
               text="نكتب مقالات مدروسة تزيد من مصداقيتك، تُحسّن ظهورك، وتخلق إحساسًا بأنك 'تفهمهم' أكثر من أي منافس آخر."
             />
             <FeatureCard
-              icon={<FaBullseye />}
               title="نصوص إعلانية تؤدي المهمة"
               text="عنوان يُجبر على التوقف، جملة تفتح حوارًا داخليًا، ثم دعوة واضحة لاتخاذ خطوة."
             />
             <FeatureCard
-              icon={<FaInstagram />}
               title="محتوى تفاعلي لحساباتك الاجتماعية"
               text="محتوى لا يمر مرور الكرام. بل يثير تعليقًا، يخلق تفاعلًا، ويبني علاقة وثقة طويلة الأمد مع جمهورك."
             />
@@ -130,7 +123,7 @@ const ContentWriting = () => {
         className="py-20 bg-gray-900/70"
       >
         <div className="container mx-auto px-4 text-center">
-          <motion.h2 variants={itemVariants} className="text-4xl font-bold mb-12">💡 لمن هذه الخدمة؟</motion.h2>
+          <motion.h2 variants={itemVariants} className="text-4xl font-bold mb-12">لمن هذه الخدمة؟</motion.h2>
           <div className="max-w-3xl mx-auto space-y-6 text-xl text-white/90">
             <motion.p variants={itemVariants}>
               إن كنت مدربًا، خبيرًا، أو صاحب مهارة… وتجد صعوبة في التعبير عما تقدمه.
@@ -157,15 +150,12 @@ const ContentWriting = () => {
           <motion.h2 variants={itemVariants} className="text-4xl font-bold text-center mb-16">📈 النتائج المتوقعة:</motion.h2>
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <motion.div variants={itemVariants} className="text-center p-6 border border-white/10 rounded-lg">
-              <FaUsers className="text-5xl text-brand-primary mx-auto mb-4" />
               <p className="text-xl font-semibold">جمهور يتفاعل معك لأنك "تفهمه"</p>
             </motion.div>
             <motion.div variants={itemVariants} className="text-center p-6 border border-white/10 rounded-lg">
-              <FaChartLine className="text-5xl text-brand-primary mx-auto mb-4" />
               <p className="text-xl font-semibold">زيادة واضحة في النقرات، الرسائل، والمبيعات</p>
             </motion.div>
             <motion.div variants={itemVariants} className="text-center p-6 border border-white/10 rounded-lg">
-              <FaPenNib className="text-5xl text-brand-primary mx-auto mb-4" />
               <p className="text-xl font-semibold">أسلوب مميز يُعبّر عنك أنت فقط، لا نسخة من أحد</p>
             </motion.div>
           </div>
@@ -188,9 +178,9 @@ const ContentWriting = () => {
           <motion.div variants={itemVariants}>
             <Link
               to="/services/book-call"
-              className="inline-block bg-gradient-to-r from-brand-primary to-brand-secondary text-white font-bold py-4 px-10 rounded-lg text-xl transition-transform hover:scale-105 shadow-lg hover:shadow-brand-primary/40 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-brand-primary"
+              className="inline-block text-white font-bold py-4 px-10 rounded-lg text-xl transition-transform hover:scale-105 shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-brand-primary" style={{ backgroundColor: '#9f59f7' }}
             >
-              🗓️ احجز استشارتك المجانية الآن
+              احجز استشارتك المجانية الآن
             </Link>
           </motion.div>
         </div>

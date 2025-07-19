@@ -28,26 +28,23 @@ const WebDesign = () => {
     },
   };
 
-  const FeatureCard = ({ icon, title, text, quote }) => (
+  const FeatureCard = ({ title, text, quote }) => (
     <motion.div
       variants={itemVariants}
       className="bg-gray-800/50 p-8 rounded-2xl border border-white/10 backdrop-blur-lg h-full flex flex-col"
     >
-      <div className="text-brand-secondary text-4xl mb-4">{icon}</div>
       <h3 className="text-2xl font-bold text-white mb-3">{title}</h3>
       <p className="text-white/80 text-lg flex-grow">{text}</p>
-      {quote && <p className="text-brand-primary italic text-lg mt-4">{quote}</p>}
+      {quote && <p className="italic text-lg mt-4" style={{ color: '#9f59f7' }}>{quote}</p>}
     </motion.div>
   );
 
   return (
     <>
       <Navbar />
-      <div className="bg-gray-900 text-white overflow-x-hidden" dir="rtl">
+      <div style={{ backgroundColor: '#1a1a1a', fontFamily: "'IBM Plex Sans Arabic', sans-serif" }} className="text-white overflow-x-hidden" dir="rtl">
         <div className="relative pt-32 pb-20 md:pt-40 md:pb-28">
-          {/* Background Glows */}
-          <div className="absolute top-0 left-0 w-96 h-96 bg-brand-primary/10 rounded-full blur-3xl -z-0"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-brand-secondary/10 rounded-full blur-3xl -z-0"></div>
+          {/* Background Glows Removed */}
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -57,9 +54,9 @@ const WebDesign = () => {
           >
             <motion.h1
               variants={itemVariants}
-              className="text-4xl md:text-6xl font-extrabold text-gradient-brand leading-tight mb-6"
+              className="text-4xl md:text-6xl font-extrabold leading-tight mb-6" style={{ color: '#9f59f7' }}
             >
-              🖥️ خدمة تصميم وبناء المواقع
+              خدمة تصميم وبناء المواقع
             </motion.h1>
             <motion.h2
               variants={itemVariants}
@@ -99,19 +96,16 @@ const WebDesign = () => {
             </motion.h2>
             <div className="grid md:grid-cols-3 gap-8">
               <FeatureCard
-                icon={<FaPalette />}
                 title="واجهة احترافية تعكس هويتك"
                 text="نصمم موقعًا يعبر عنك بصريًا ولفظيًا، من اختيار الألوان إلى الرسائل التي تترك أثرًا. كل شيء يُبنى ليُشبهك… ويُبهِر جمهورك."
                 quote="لأن الانطباع الأول لا يُعاد."
               />
               <FeatureCard
-                icon={<FaMousePointer />}
                 title="تجربة مستخدم سلسة ومقنعة"
                 text="نجعل تصفح الموقع بسيطًا، مريحًا، وموجهًا نحو اتخاذ الإجراء: سواء الحجز، الشراء، أو طلب الاستشارة."
                 quote="الزائر لا يضيع، بل يُقاد بلطف إلى الخطوة التالية."
               />
               <FeatureCard
-                icon={<FaRocket />}
                 title="أداء عالي وسرعة تحميل مثالية"
                 text="نستخدم أفضل الممارسات لضمان موقع سريع، متجاوب مع كل الأجهزة، ومتوافق مع محركات البحث."
                 quote="لأن كل ثانية تأخير تعني زائرًا ضائعًا."
@@ -129,7 +123,7 @@ const WebDesign = () => {
           className="py-20 bg-gray-900/70"
         >
           <div className="container mx-auto px-4 text-center">
-            <motion.h2 variants={itemVariants} className="text-4xl font-bold mb-12">💡 لمن هذه الخدمة؟</motion.h2>
+            <motion.h2 variants={itemVariants} className="text-4xl font-bold mb-12">لمن هذه الخدمة؟</motion.h2>
             <div className="max-w-3xl mx-auto space-y-6 text-xl text-white/90">
               <motion.p variants={itemVariants}>
                 لكل من يريد أن يعكس صورته المهنية بشكل محترف.
@@ -156,15 +150,12 @@ const WebDesign = () => {
             <motion.h2 variants={itemVariants} className="text-4xl font-bold text-center mb-16">📈 النتائج المتوقعة:</motion.h2>
             <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
               <motion.div variants={itemVariants} className="text-center p-6 border border-white/10 rounded-lg">
-                <FaShoppingCart className="text-5xl text-brand-primary mx-auto mb-4" />
                 <p className="text-xl font-semibold">موقع يجذب، يُقنع، ويبيع</p>
               </motion.div>
               <motion.div variants={itemVariants} className="text-center p-6 border border-white/10 rounded-lg">
-                <FaAward className="text-5xl text-brand-primary mx-auto mb-4" />
                 <p className="text-xl font-semibold">واجهة تعكس احترافيتك وتزيد من ثقة العميل</p>
               </motion.div>
               <motion.div variants={itemVariants} className="text-center p-6 border border-white/10 rounded-lg">
-                <FaHandPointUp className="text-5xl text-brand-primary mx-auto mb-4" />
                 <p className="text-xl font-semibold">تجربة تصفح تُقنع الزائر بالبقاء… والتفاعل</p>
               </motion.div>
             </div>
@@ -187,9 +178,9 @@ const WebDesign = () => {
             <motion.div variants={itemVariants}>
               <Link
                 to="/services/book-call"
-                className="inline-block bg-gradient-to-r from-brand-primary to-brand-secondary text-white font-bold py-4 px-10 rounded-lg text-xl transition-transform hover:scale-105 shadow-lg hover:shadow-brand-primary/40 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-brand-primary"
+                className="inline-block text-white font-bold py-4 px-10 rounded-lg text-xl transition-transform hover:scale-105 shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-brand-primary" style={{ backgroundColor: '#9f59f7' }}
               >
-                🗓️ احجز استشارتك المجانية لنرسم واجهتك الرقمية كما تستحق.
+                احجز استشارتك المجانية لنرسم واجهتك الرقمية كما تستحق.
               </Link>
             </motion.div>
           </div>
