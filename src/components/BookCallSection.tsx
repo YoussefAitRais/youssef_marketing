@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import emailjs from '@emailjs/browser';
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -13,6 +14,7 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 
 const BookCallSection = () => {
+  const form = useRef<HTMLFormElement>(null);
   const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: "",
@@ -39,19 +41,35 @@ const BookCallSection = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Reset form or show success message
-    setFormData({
-      name: "",
-      social: "",
-      email: "",
-      phone: "",
-      pkg: "",
-      budget: "",
-      message: "",
-    });
+
+    if (!form.current) return;
+
+    // IMPORTANT: Replace with your actual Service ID and Template ID
+    emailjs.sendForm(
+        'service_tgduzjo',
+        'template_kddrlle', 
+        form.current, 
+        'UHJ80n8dpUUiurR90' // This is your Public Key
+      )
+      .then((result) => {
+          console.log(result.text);
+          alert('Message sent successfully!'); // You can replace this with a toast notification
+          // Reset form
+          setFormData({
+            name: "",
+            social: "",
+            email: "",
+            phone: "",
+            pkg: "",
+            budget: "",
+            message: "",
+          });
+      }, (error) => {
+          console.log(error.text);
+          alert('Failed to send message. Please try again.');
+      });
   };
 
   const packages = t("contact.form.packages", { returnObjects: true }) as string[];
@@ -106,7 +124,7 @@ const BookCallSection = () => {
             viewport={{ once: true }}
             className="bg-[#1a1a1a]/20 border border-white/10 p-8 md:p-12 rounded-2xl backdrop-blur-lg"
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form ref={form} onSubmit={handleSubmit} className="space-y-6">
               {/* Name */}
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-white/90 mb-2">

@@ -1,5 +1,6 @@
 
 import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 import { Calendar, Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -17,32 +18,53 @@ const BookingSection = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!name || !email || !phone) {
       toast({
         title: "Missing information",
         description: "Please fill out all required fields.",
-        variant: "destructive"
+        variant: "destructive",
       });
       return;
     }
-    
+
     setIsSubmitting(true);
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    toast({
-      title: "Request submitted!",
-      description: "We'll contact you shortly to schedule your free strategy call.",
-    });
-    
-    // Reset form
-    setName("");
-    setEmail("");
-    setPhone("");
-    setMessage("");
-    setIsSubmitting(false);
+
+    const templateParams = {
+      from_name: name,
+      from_email: email,
+      from_phone: phone,
+      message: message,
+    };
+
+    try {
+      await emailjs.send(
+        "service_tgduzjo", // Replace with your EmailJS Service ID
+        "template_kddrlle", // Replace with your EmailJS Template ID
+        templateParams,
+        "UHJ80n8dpUUiurR90" // Replace with your EmailJS Public Key
+      );
+
+      toast({
+        title: "Request submitted!",
+        description: "We'll contact you shortly to schedule your free strategy call.",
+      });
+
+      // Reset form
+      setName("");
+      setEmail("");
+      setPhone("");
+      setMessage("");
+    } catch (error) {
+      console.error("Failed to send email:", error);
+      toast({
+        title: "Submission failed",
+        description: "Something went wrong. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
