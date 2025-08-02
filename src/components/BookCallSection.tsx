@@ -18,11 +18,8 @@ const BookCallSection = () => {
   const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: "",
-    social: "",
     email: "",
     phone: "",
-    pkg: "", // 'package' is a reserved keyword
-    budget: "",
     message: "",
   });
 
@@ -59,11 +56,8 @@ const BookCallSection = () => {
           // Reset form
           setFormData({
             name: "",
-            social: "",
             email: "",
             phone: "",
-            pkg: "",
-            budget: "",
             message: "",
           });
       }, (error) => {
@@ -141,21 +135,6 @@ const BookCallSection = () => {
                 />
               </div>
 
-              {/* Social */}
-              <div>
-                <label htmlFor="social" className="block text-sm font-medium text-white/90 mb-2">
-                  {t("contact.form.social")}
-                </label>
-                <Input
-                  id="social"
-                  name="social"
-                  value={formData.social}
-                  onChange={handleChange}
-                  placeholder={t("contact.form.socialPlaceholder")}
-                  className="w-full bg-white/5 border-white/10 text-white placeholder:text-white/50"
-                />
-              </div>
-
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Email */}
                 <div>
@@ -191,42 +170,6 @@ const BookCallSection = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Package Select */}
-                <div>
-                  <label htmlFor="package" className="block text-sm font-medium text-white/90 mb-2">
-                    {t("contact.form.package")}
-                  </label>
-                  <Select name="pkg" onValueChange={handleSelectChange("pkg")} value={formData.pkg}>
-                    <SelectTrigger className="w-full bg-white/5 border-white/10 text-white">
-                      <SelectValue placeholder={t("contact.form.packagePlaceholder")} />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {Array.isArray(packages) && packages.map((pkg) => (
-                        <SelectItem key={pkg} value={pkg}>{pkg}</SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                {/* Budget Select */}
-                <div>
-                  <label htmlFor="budget" className="block text-sm font-medium text-white/90 mb-2">
-                    {t("contact.form.budget")}
-                  </label>
-                  <Select name="budget" onValueChange={handleSelectChange("budget")} value={formData.budget}>
-                    <SelectTrigger className="w-full bg-white/5 border-white/10 text-white">
-                      <SelectValue placeholder={t("contact.form.budgetPlaceholder")} />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {Array.isArray(budgets) && budgets.map((b) => (
-                        <SelectItem key={b} value={b}>{b}</SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-              </div>
-
               {/* Message */}
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-white/90 mb-2">
@@ -247,7 +190,7 @@ const BookCallSection = () => {
               <div className="text-center pt-4">
                 <Button
                   type="submit"
-                  className="bg-brand-gradient hover:opacity-90 text-white px-10 py-6 text-lg font-semibold rounded-xl w-full md:w-auto"
+                  className="bg-[#a456f6] hover:opacity-90 text-white px-10 py-6 text-lg font-semibold rounded-xl w-full md:w-auto"
                 >
                   {t("contact.form.submit")}
                 </Button>
