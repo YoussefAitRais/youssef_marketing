@@ -5,12 +5,10 @@ import { HelmetProvider } from "react-helmet-async";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import CookieConsent from "./components/CookieConsent";
 import ScrollToHashElement from "./components/ScrollToHashElement";
 import Index from "./pages/Index";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
-import CookiesPolicy from "./pages/CookiesPolicy";
 import Disclaimer from "./pages/Disclaimer";
 import NotFound from "./pages/NotFound";
 import WebDevelopment from "./pages/services/WebDevelopment";
@@ -37,7 +35,6 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-service" element={<TermsOfService />} />
-            <Route path="/cookies-policy" element={<CookiesPolicy />} />
             <Route path="/disclaimer" element={<Disclaimer />} />
             {/* Service pages */}
             <Route path="/services/web-development" element={<WebDevelopment />} />
@@ -51,7 +48,6 @@ const App = () => (
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
-          <CookieConsent />
         </BrowserRouter>
       </TooltipProvider>
     </HelmetProvider>

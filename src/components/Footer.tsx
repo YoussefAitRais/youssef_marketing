@@ -113,18 +113,7 @@ const Footer = () => {
             {t("footer.copyright")}
           </p>
           <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-            <Link to="/privacy-policy" className="text-white hover:text-white text-sm transition-colors">
-              {t("footer.policies.privacy")}
-            </Link>
-            <Link to="/terms-of-service" className="text-white hover:text-white text-sm transition-colors">
-              {t("footer.policies.terms")}
-            </Link>
-            <Link to="/cookies-policy" className="text-white hover:text-white text-sm transition-colors">
-              {t("footer.policies.cookies")}
-            </Link>
-            <Link to="/disclaimer" className="text-white hover:text-white text-sm transition-colors">
-              {t("footer.policies.disclaimer")}
-            </Link>
+            {/* Policy links removed as per user request */}
           </div>
         </motion.div>
       </div>
