@@ -9,11 +9,18 @@ const ScrollToHashElement = () => {
     if (hash) {
       const element = document.getElementById(hash.substring(1));
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Add a small delay to ensure the page has rendered
+        setTimeout(() => {
+          element.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start',
+            inline: 'nearest'
+          });
+        }, 100);
       }
     } else {
       // otherwise, scroll to the top of the page
-      window.scrollTo(0, 0);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }, [pathname, hash]);
 
